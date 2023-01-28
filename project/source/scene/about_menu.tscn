@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcej3ejmmc0by"]
+[gd_scene load_steps=7 format=3 uid="uid://bcej3ejmmc0by"]
 
 [ext_resource type="Texture2D" uid="uid://dmq3uk4vd053m" path="res://resource/graphics/ui/kenney_emotespack_style_2/emote_star.png" id="1_b0buv"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/animation/transition_1.tscn" id="1_nto2b"]
@@ -23,8 +23,25 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0] - 元素尺寸[0]*2
+	position.y = 0 + 元素尺寸[0]
 	if is_pressed():
 		get_tree().change_scene_to_file('res://source/scene/start_menu.tscn')
+"
+
+[sub_resource type="GDScript" id="GDScript_5m3qa"]
+script/source = "
+extends Label
+
+func _ready():
+	pass
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 "
 
 [node name="About" type="Control"]
@@ -38,26 +55,23 @@ script = SubResource("GDScript_8npmh")
 
 [node name="Transition" parent="." instance=ExtResource("1_nto2b")]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 2307.0
-offset_bottom = 1360.0
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -785.0
-offset_top = -517.0
-offset_right = 1332.0
-offset_bottom = 811.0
+offset_left = -900.0
+offset_top = -600.0
+offset_right = 8100.0
+offset_bottom = 5400.0
 color = Color(0, 0.490196, 0.643137, 1)
 
 [node name="Menu" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 587.0
-offset_top = 15.0
-offset_right = 625.0
-offset_bottom = 56.0
+offset_left = 1753.0
+offset_top = 39.0
+offset_right = 1791.0
+offset_bottom = 80.0
+scale = Vector2(3, 3)
 icon = ExtResource("1_b0buv")
 flat = true
 expand_icon = true
@@ -65,22 +79,24 @@ script = SubResource("GDScript_d566j")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 30.0
-offset_right = 542.0
-offset_bottom = 81.0
+offset_left = 35.0
+offset_top = 280.0
+offset_right = 1843.0
+offset_bottom = 403.0
 theme_override_fonts/font = ExtResource("2_58jik")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 128
 text = "MoYuStudio 2020-2023"
 horizontal_alignment = 1
+script = SubResource("GDScript_5m3qa")
 
 [node name="Label" type="Label" parent="Title"]
 layout_mode = 0
-offset_top = 86.0
-offset_right = 452.0
-offset_bottom = 248.0
+offset_left = 533.0
+offset_top = 188.0
+offset_right = 1249.0
+offset_bottom = 570.0
 theme_override_fonts/font = ExtResource("2_58jik")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "= The World Creator =
 WilsonVinson
 
