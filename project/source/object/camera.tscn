@@ -18,6 +18,8 @@ var moveing_vel = Vector3()
 var mouse_delta = Vector2()
 var mouse_pos = Vector2()
 
+var 碰撞点
+
 var mouse_lock = true
 
 func _ready():
@@ -48,11 +50,14 @@ func _select_target(click_position: Vector2) -> void:
 	params.exclude = []
 	params.collision_mask = 1
 	ray.force_raycast_update()
-	print(\"click\")
+	#print(\"click\")
 	if ray.is_colliding():
 		var iray = space_state.intersect_ray(params)
-		var point = iray[\"position\"]
-		print(point)
+		if iray:
+			碰撞点 = iray['position']
+			碰撞点 = Vector3i(碰撞点[0],碰撞点[1],碰撞点[2])
+			# print(碰撞点)
+		
 
 func _physics_process(delta):
 	

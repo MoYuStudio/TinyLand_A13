@@ -12,8 +12,8 @@ extends Node3D
 func _ready():
 	pass
 
-func _process(delta):
-	pass
+func _physics_process(delta):
+	$HexGridMap.碰撞点 = $Camera.碰撞点
 "
 
 [node name="World" type="Node3D"]
