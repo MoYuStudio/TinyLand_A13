@@ -4,6 +4,8 @@
 script/source = "
 extends Camera3D
 
+@onready var ray := $RayCast
+
 var 移动速度 = 0.3
 
 # 相机视角
@@ -33,6 +35,24 @@ func _input(event):
 			
 		#if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 			
+		if event is InputEventMouseButton or event is InputEventScreenTouch:
+			_select_target(event.position)
+
+func _select_target(click_position: Vector2) -> void:
+	var from = project_ray_origin(click_position)
+	var to = from + project_ray_normal(click_position)*1000
+	var space_state = get_world_3d().direct_space_state
+	ray.force_raycast_update()
+	print(\"click\")
+	var params = PhysicsRayQueryParameters3D.new()
+	params.from = from
+	params.to = to
+	params.exclude = []
+	params.collision_mask = 1
+	if ray.is_colliding():
+		var iray = space_state.intersect_ray(params)
+		var point = iray[\"position\"]
+		print(point)
 
 func _physics_process(delta):
 	
@@ -134,6 +154,10 @@ size = Vector2(16, 16)
 [node name="Camera" type="Camera3D"]
 fov = 85.0
 script = SubResource("GDScript_k0qoa")
+
+[node name="RayCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
 
 [node name="Pixel" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
