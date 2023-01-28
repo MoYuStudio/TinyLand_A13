@@ -42,13 +42,13 @@ func _select_target(click_position: Vector2) -> void:
 	var from = project_ray_origin(click_position)
 	var to = from + project_ray_normal(click_position)*1000
 	var space_state = get_world_3d().direct_space_state
-	ray.force_raycast_update()
-	print(\"click\")
 	var params = PhysicsRayQueryParameters3D.new()
 	params.from = from
 	params.to = to
 	params.exclude = []
 	params.collision_mask = 1
+	ray.force_raycast_update()
+	print(\"click\")
 	if ray.is_colliding():
 		var iray = space_state.intersect_ray(params)
 		var point = iray[\"position\"]
