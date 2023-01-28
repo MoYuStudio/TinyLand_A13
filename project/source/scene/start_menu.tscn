@@ -199,7 +199,7 @@ horizontal_alignment = 1
 [node name="Background" type="Node3D" parent="."]
 
 [node name="Camera" type="Camera3D" parent="Background"]
-transform = Transform3D(-0.587785, 0, -0.809017, 0, 1, 0, 0.809017, 0, -0.587785, 15.742, 32, 19.769)
+transform = Transform3D(0.707107, -0.110616, 0.698401, 0, 0.987688, 0.156434, -0.707107, -0.110616, 0.698401, 100, 16, 100)
 script = SubResource("GDScript_xeqqj")
 
 [node name="WorldEnvironment" parent="Background" instance=ExtResource("2_4f7yj")]
