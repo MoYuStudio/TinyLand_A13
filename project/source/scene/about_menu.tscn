@@ -55,6 +55,10 @@ script = SubResource("GDScript_8npmh")
 
 [node name="Transition" parent="." instance=ExtResource("1_nto2b")]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 9000.0
+offset_bottom = 6000.0
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0

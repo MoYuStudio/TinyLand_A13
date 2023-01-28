@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3mq1xe1mtgcj"]
+
+[sub_resource type="GDScript" id="GDScript_gnu1y"]
+script/source = "
+extends Control
+
+@export var id = 0
+
+@export var money = 0
+@export var soil = 0
+@export var wood = 0
+@export var stone = 0
+@export var brick = 0
+@export var steel = 0
+@export var glass = 0
+
+var scale_zoom = 4.6
+var bar_y = 600
+var button_be_pressed = false
+
+func _ready():
+	var block_icon = load('res://resource/graphics/tile/'+ str(id) +'.png')
+	$Button.icon = block_icon
+"
+
+[node name="BlockboardButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_gnu1y")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

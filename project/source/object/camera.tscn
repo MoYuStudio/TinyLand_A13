@@ -4,8 +4,6 @@
 script/source = "
 extends Camera3D
 
-# @onready var raycast = $RayCast
-
 var 移动速度 = 0.6
 
 # 相机视角
@@ -19,15 +17,12 @@ var mouse_delta = Vector2()
 var mouse_pos = Vector2()
 
 var ray_length = 16
-var collision_point = Vector3(0,0,0)
-var collision_side = Vector3(0,0,0)
-var collision_type
+var 碰撞点 = Vector3(0,0,0)
+var 碰撞类型
 
 var mouse_lock = true
 
 func _ready():
-	
-	# Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass
 	
 func _input(event):
@@ -48,27 +43,7 @@ func _physics_process(delta):
 	var camera_pos = position
 	
 	if mouse_lock == true:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		
-		#if raycast.is_colliding():
-		#	var pos = raycast.get_collision_point()
-		#	var norm = raycast.get_collision_normal()
-		#	# emit_signal(\"highlight_block\", pos, norm)
-		#	if Input.is_action_just_pressed('Left_Click'):
-		#		print('Left_Click')
-		#		print(pos, norm)
-		#		collision_point = pos
-		#		collision_side = norm
-		#		collision_type = 'Left_Click'
-		#	elif Input.is_action_just_pressed('Right_Click'):
-		#		print('Right_Click')
-		#		print(pos, norm)
-		#		collision_point = pos
-		#		collision_side = norm
-		#		collision_type = 'Right_Click'
-		
-		
-		
+
 		var input = Vector3()
 		
 		# 输入
@@ -126,7 +101,6 @@ func _physics_process(delta):
 		position.z += moveing_vel.z
 		
 	elif mouse_lock == false:
-		# Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pass
 	
 	
@@ -163,11 +137,6 @@ size = Vector2(16, 16)
 [node name="Camera" type="Camera3D"]
 fov = 85.0
 script = SubResource("GDScript_k0qoa")
-
-[node name="RayCast" type="RayCast3D" parent="."]
-visible = false
-target_position = Vector3(0, 0, -10)
-collide_with_areas = true
 
 [node name="Pixel" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
