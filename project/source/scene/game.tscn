@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kopibfgoc8i3"]
+[gd_scene load_steps=8 format=3 uid="uid://kopibfgoc8i3"]
 
 [ext_resource type="PackedScene" uid="uid://bkrojaqnadfjb" path="res://source/system/world.tscn" id="1_ibojt"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/animation/transition_1.tscn" id="2_sqya3"]
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	if $GUI/StopMenu/Continue.button_click == true:
 		stop_menu = false
 		$GUI/StopMenu.visible = false
-		$Camera.mouse_lock = true
+		$World/Camera.mouse_lock = true
 	
 	# movement inputs
 	if Input.is_action_pressed('Esc'):
@@ -42,6 +42,19 @@ func _physics_process(delta):
 		#get_tree().quit()
 "
 
+[sub_resource type="GDScript" id="GDScript_reyjm"]
+script/source = "
+extends Label
+
+func _ready():
+	pass
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+"
+
 [node name="Game" type="Node3D"]
 script = SubResource("GDScript_mah7m")
 
@@ -50,6 +63,7 @@ script = SubResource("GDScript_mah7m")
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="AimPoint" type="Sprite2D" parent="GUI"]
+visible = false
 modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 position = Vector2(320, 180)
@@ -64,11 +78,12 @@ offset_top = 11.0
 offset_right = 414.0
 offset_bottom = 56.0
 theme_override_fonts/font = ExtResource("7_vfiph")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 32
 text = "MoYuStuido 2023
 TinyLand A12    Power BY Godot 4.0
 a2023012701"
 horizontal_alignment = 1
+script = SubResource("GDScript_reyjm")
 
 [node name="StopMenu" parent="GUI" instance=ExtResource("8_8ijyi")]
 visible = false

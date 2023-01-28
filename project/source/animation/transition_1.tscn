@@ -21,10 +21,10 @@ _data = {
 }
 
 [node name="Transition" type="ColorRect"]
-offset_left = -868.0
-offset_top = -514.0
-offset_right = 1439.0
-offset_bottom = 846.0
+offset_left = -900.0
+offset_top = -600.0
+offset_right = 8100.0
+offset_bottom = 5400.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

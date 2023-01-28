@@ -322,7 +322,8 @@ volumetric_fog_anisotropy = -0.25
 volumetric_fog_sky_affect = 0.3
 
 [sub_resource type="GDScript" id="GDScript_dm78c"]
-script/source = "extends WorldEnvironment
+script/source = "
+extends WorldEnvironment
 
 func _ready():
 	pass

@@ -4,9 +4,9 @@
 script/source = "
 extends Camera3D
 
-@onready var raycast = $RayCast
+# @onready var raycast = $RayCast
 
-var move_speed = 0.6
+var 移动速度 = 0.6
 
 # 相机视角
 var minLookAngle : float = -90.0
@@ -27,7 +27,8 @@ var mouse_lock = true
 
 func _ready():
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 	
 func _input(event):
 	
@@ -47,63 +48,48 @@ func _physics_process(delta):
 	var camera_pos = position
 	
 	if mouse_lock == true:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
-		if raycast.is_colliding():
-			var pos = raycast.get_collision_point()
-			var norm = raycast.get_collision_normal()
-			# emit_signal(\"highlight_block\", pos, norm)
-			if Input.is_action_just_pressed('Left_Click'):
-				print('Left_Click')
-				print(pos, norm)
-				collision_point = pos
-				collision_side = norm
-				collision_type = 'Left_Click'
-			elif Input.is_action_just_pressed('Right_Click'):
-				print('Right_Click')
-				print(pos, norm)
-				collision_point = pos
-				collision_side = norm
-				collision_type = 'Right_Click'
+		#if raycast.is_colliding():
+		#	var pos = raycast.get_collision_point()
+		#	var norm = raycast.get_collision_normal()
+		#	# emit_signal(\"highlight_block\", pos, norm)
+		#	if Input.is_action_just_pressed('Left_Click'):
+		#		print('Left_Click')
+		#		print(pos, norm)
+		#		collision_point = pos
+		#		collision_side = norm
+		#		collision_type = 'Left_Click'
+		#	elif Input.is_action_just_pressed('Right_Click'):
+		#		print('Right_Click')
+		#		print(pos, norm)
+		#		collision_point = pos
+		#		collision_side = norm
+		#		collision_type = 'Right_Click'
 		
-		#var center = get_viewport().size
-		#var space = get_world_3d().direct_space_state
-		#var ray_pos = PhysicsRayQueryParameters3D.new()
-		#ray_pos.from = project_ray_origin(mouse_pos)
-		#ray_pos.to = project_position(mouse_pos, ray_length)
-		#ray_pos.exclude = []
-		#ray_pos.collision_mask = 1
-		#var raycast = space.intersect_ray(ray_pos)
 		
-		# print(raycast)
-		#if raycast != {}:
-			# print(raycast.values()[1])
-		#	collision_point = Vector3((raycast.values()[0].x),(raycast.values()[0].y),(raycast.values()[0].z))
-		#	collision_side = Vector3((raycast.values()[1].x),(raycast.values()[1].y),(raycast.values()[1].z))
-		#	print(collision_point,collision_side)
-		#for i in raycast:
-		#	print(raycast[i])
-		
-		# 沿x轴旋转相机
-		rotation_degrees.x -= mouse_delta.y * lookSensitivity * delta
-
-		# 夹紧相机x旋转轴
-		rotation_degrees.x = clamp(rotation_degrees.x, minLookAngle, maxLookAngle)
-
-		# 沿 y 轴旋转玩家
-		rotation_degrees.y -= mouse_delta.x * lookSensitivity * delta
-
-		# 重置 mouseDelta 向量
-		mouse_delta = Vector2()
-		
-		# 重置 x y z 速度
-		moveing_vel.x = 0
-		moveing_vel.y = 0
-		moveing_vel.z = 0
 		
 		var input = Vector3()
 		
 		# 输入
+		if Input.is_action_pressed('Right_Click'):
+			# 沿x轴旋转相机
+			rotation_degrees.x -= mouse_delta.y * lookSensitivity * delta
+
+			# 夹紧相机x旋转轴
+			rotation_degrees.x = clamp(rotation_degrees.x, minLookAngle, maxLookAngle)
+
+			# 沿 y 轴旋转玩家
+			rotation_degrees.y -= mouse_delta.x * lookSensitivity * delta
+
+			# 重置 mouseDelta 向量
+			mouse_delta = Vector2()
+			
+			# 重置 x y z 速度
+			moveing_vel.x = 0
+			moveing_vel.y = 0
+			moveing_vel.z = 0
+			
 		if Input.is_action_pressed('W'):
 			input.z -= 1
 		if Input.is_action_pressed('S'):
@@ -118,9 +104,9 @@ func _physics_process(delta):
 			input.y -= 1
 			
 		if Input.is_action_pressed('Ctrl'):
-			move_speed = 1.6
+			移动速度 = 1.6
 		else:
-			move_speed = 0.6
+			移动速度 = 0.6
 			
 		input = input.normalized()
 		
@@ -131,16 +117,17 @@ func _physics_process(delta):
 		var relativeDir = (forward * input.z + right * input.x)
 		
 		# 设置速度
-		moveing_vel.x = relativeDir.x * move_speed
-		moveing_vel.y = input.y * move_speed
-		moveing_vel.z = relativeDir.z * move_speed
+		moveing_vel.x = relativeDir.x * 移动速度
+		moveing_vel.y = input.y * 移动速度
+		moveing_vel.z = relativeDir.z * 移动速度
 		
 		position.x += moveing_vel.x
 		position.y += moveing_vel.y
 		position.z += moveing_vel.z
 		
 	elif mouse_lock == false:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		# Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pass
 	
 	
 "
@@ -178,6 +165,7 @@ fov = 85.0
 script = SubResource("GDScript_k0qoa")
 
 [node name="RayCast" type="RayCast3D" parent="."]
+visible = false
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 

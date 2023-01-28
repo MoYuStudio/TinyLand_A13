@@ -12,6 +12,10 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+	position.y = 视口尺寸[0]/6
 	if is_pressed():
 		button_click = true
 	else:
@@ -26,6 +30,10 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+	position.y = 视口尺寸[0]/6 + 元素尺寸[1]*2
 	if is_pressed():
 		get_tree().change_scene_to_file('res://source/scene/setting_menu.tscn')
 "
@@ -38,6 +46,10 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+	position.y = 视口尺寸[0]/6 + 元素尺寸[1]*4
 	if is_pressed():
 		get_tree().change_scene_to_file('res://source/scene/start_menu.tscn')
 "
@@ -53,10 +65,10 @@ modulate = Color(1, 1, 1, 0.901961)
 texture_filter = 1
 use_parent_material = true
 layout_mode = 0
-offset_left = -649.0
-offset_top = -396.0
-offset_right = 1304.0
-offset_bottom = 729.0
+offset_left = -900.0
+offset_top = -600.0
+offset_right = 8100.0
+offset_bottom = 5400.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="Continue" type="Button" parent="."]
@@ -67,7 +79,7 @@ offset_top = 100.0
 offset_right = 391.0
 offset_bottom = 141.0
 theme_override_fonts/font = ExtResource("1_xvc0f")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Continue"
 flat = true
 script = SubResource("GDScript_l45y7")
@@ -80,7 +92,7 @@ offset_top = 155.0
 offset_right = 391.0
 offset_bottom = 194.0
 theme_override_fonts/font = ExtResource("1_xvc0f")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Setting"
 flat = true
 script = SubResource("GDScript_keetg")
@@ -93,7 +105,7 @@ offset_top = 210.0
 offset_right = 392.0
 offset_bottom = 248.0
 theme_override_fonts/font = ExtResource("1_xvc0f")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "Menu"
 flat = true
 script = SubResource("GDScript_lxnts")

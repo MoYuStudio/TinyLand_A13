@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctkuy3s4wxgux"]
+[gd_scene load_steps=15 format=3 uid="uid://ctkuy3s4wxgux"]
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/animation/transition_1.tscn" id="1_7q4ie"]
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_g161a"]
@@ -27,12 +27,28 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_hovered():
 		rotation_degrees += 1
 	else:
 		rotation_degrees = 0
 	if is_pressed():
 		get_tree().change_scene_to_file('res://source/scene/about_menu.tscn')
+"
+
+[sub_resource type="GDScript" id="GDScript_3c47t"]
+script/source = "
+extends Label
+
+func _ready():
+	pass
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 "
 
 [sub_resource type="GDScript" id="GDScript_cf3qh"]
@@ -43,6 +59,9 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_hovered():
 		position.x = 270+10
 	else:
@@ -59,6 +78,9 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_hovered():
 		position.x = 270+10
 	else:
@@ -75,12 +97,29 @@ func _ready():
 	pass
 
 func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_hovered():
 		position.x = 270+10
 	else:
 		position.x = 270
 	if is_pressed():
 		get_tree().quit()
+"
+
+[sub_resource type="GDScript" id="GDScript_tr7rp"]
+script/source = "
+extends Label
+
+func _ready():
+	pass
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+	position.y = 视口尺寸[1] - 元素尺寸[1]
 "
 
 [sub_resource type="GDScript" id="GDScript_xeqqj"]
@@ -141,6 +180,7 @@ theme_override_font_sizes/font_size = 96
 text = "TinyLand"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = SubResource("GDScript_3c47t")
 
 [node name="Start" type="Button" parent="."]
 texture_filter = 1
@@ -190,11 +230,12 @@ offset_top = 302.0
 offset_right = 416.0
 offset_bottom = 347.0
 theme_override_fonts/font = ExtResource("1_g161a")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 32
 text = "MoYuStuido 2023
 TinyLand A12    Power BY Godot 4.0
 a2023012701"
 horizontal_alignment = 1
+script = SubResource("GDScript_tr7rp")
 
 [node name="Background" type="Node3D" parent="."]
 
