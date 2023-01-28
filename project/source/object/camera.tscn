@@ -1,0 +1,188 @@
+[gd_scene load_steps=5 format=3 uid="uid://deyci4scpxkr8"]
+
+[sub_resource type="GDScript" id="GDScript_k0qoa"]
+script/source = "
+extends Camera3D
+
+@onready var raycast = $RayCast
+
+var move_speed = 0.6
+
+# 相机视角
+var minLookAngle : float = -90.0
+var maxLookAngle : float = 90.0
+var lookSensitivity : float = 30.0
+
+# 向量
+var moveing_vel = Vector3()
+var mouse_delta = Vector2()
+var mouse_pos = Vector2()
+
+var ray_length = 16
+var collision_point = Vector3(0,0,0)
+var collision_side = Vector3(0,0,0)
+var collision_type
+
+var mouse_lock = true
+
+func _ready():
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func _input(event):
+	
+	if mouse_lock == true:
+		
+		#if event is InputEventMouse:
+		#	mouse_pos = event.position
+			
+		if event is InputEventMouseMotion:
+			mouse_delta = event.relative
+			
+		#if event is InputEventMouseButton and event.pressed and event.button_index == 1:
+			
+
+func _physics_process(delta):
+	
+	var camera_pos = position
+	
+	if mouse_lock == true:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		if raycast.is_colliding():
+			var pos = raycast.get_collision_point()
+			var norm = raycast.get_collision_normal()
+			# emit_signal(\"highlight_block\", pos, norm)
+			if Input.is_action_just_pressed('Left_Click'):
+				print('Left_Click')
+				print(pos, norm)
+				collision_point = pos
+				collision_side = norm
+				collision_type = 'Left_Click'
+			elif Input.is_action_just_pressed('Right_Click'):
+				print('Right_Click')
+				print(pos, norm)
+				collision_point = pos
+				collision_side = norm
+				collision_type = 'Right_Click'
+		
+		#var center = get_viewport().size
+		#var space = get_world_3d().direct_space_state
+		#var ray_pos = PhysicsRayQueryParameters3D.new()
+		#ray_pos.from = project_ray_origin(mouse_pos)
+		#ray_pos.to = project_position(mouse_pos, ray_length)
+		#ray_pos.exclude = []
+		#ray_pos.collision_mask = 1
+		#var raycast = space.intersect_ray(ray_pos)
+		
+		# print(raycast)
+		#if raycast != {}:
+			# print(raycast.values()[1])
+		#	collision_point = Vector3((raycast.values()[0].x),(raycast.values()[0].y),(raycast.values()[0].z))
+		#	collision_side = Vector3((raycast.values()[1].x),(raycast.values()[1].y),(raycast.values()[1].z))
+		#	print(collision_point,collision_side)
+		#for i in raycast:
+		#	print(raycast[i])
+		
+		# 沿x轴旋转相机
+		rotation_degrees.x -= mouse_delta.y * lookSensitivity * delta
+
+		# 夹紧相机x旋转轴
+		rotation_degrees.x = clamp(rotation_degrees.x, minLookAngle, maxLookAngle)
+
+		# 沿 y 轴旋转玩家
+		rotation_degrees.y -= mouse_delta.x * lookSensitivity * delta
+
+		# 重置 mouseDelta 向量
+		mouse_delta = Vector2()
+		
+		# 重置 x y z 速度
+		moveing_vel.x = 0
+		moveing_vel.y = 0
+		moveing_vel.z = 0
+		
+		var input = Vector3()
+		
+		# 输入
+		if Input.is_action_pressed('W'):
+			input.z -= 1
+		if Input.is_action_pressed('S'):
+			input.z += 1
+		if Input.is_action_pressed('A'):
+			input.x -= 1
+		if Input.is_action_pressed('D'):
+			input.x += 1
+		if Input.is_action_pressed('Space'):
+			input.y += 1
+		if Input.is_action_pressed('Shift'):
+			input.y -= 1
+			
+		if Input.is_action_pressed('Ctrl'):
+			move_speed = 1.6
+		else:
+			move_speed = 0.6
+			
+		input = input.normalized()
+		
+		# 获得前进和正确的方向
+		var forward = global_transform.basis.z
+		var right = global_transform.basis.x
+		
+		var relativeDir = (forward * input.z + right * input.x)
+		
+		# 设置速度
+		moveing_vel.x = relativeDir.x * move_speed
+		moveing_vel.y = input.y * move_speed
+		moveing_vel.z = relativeDir.z * move_speed
+		
+		position.x += moveing_vel.x
+		position.y += moveing_vel.y
+		position.z += moveing_vel.z
+		
+	elif mouse_lock == false:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	
+"
+
+[sub_resource type="Shader" id="Shader_a0xps"]
+code = "
+shader_type spatial;
+
+render_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
+
+const int pixel_size = 4; //resolution must be divisible by pixel_size
+
+void fragment() {
+	float x = float(int(FRAGCOORD.x) % pixel_size);
+	float y = float(int(FRAGCOORD.y) % pixel_size);
+
+	x = FRAGCOORD.x + floor(float(pixel_size) / 2.0) - x;
+	y = FRAGCOORD.y + floor(float(pixel_size) / 2.0) - y;
+
+	ALBEDO = texture(SCREEN_TEXTURE, vec2(x, y) / VIEWPORT_SIZE).xyz;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xu87"]
+render_priority = 0
+shader = SubResource("Shader_a0xps")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ytnrx"]
+material = SubResource("ShaderMaterial_7xu87")
+size = Vector2(16, 16)
+
+[node name="Camera" type="Camera3D"]
+fov = 85.0
+script = SubResource("GDScript_k0qoa")
+
+[node name="RayCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+
+[node name="Pixel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
+visible = false
+mesh = SubResource("PlaneMesh_ytnrx")
+skeleton = NodePath("../..")

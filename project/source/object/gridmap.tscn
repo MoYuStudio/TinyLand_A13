@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://gl3daikwgbaj"]
+
+[ext_resource type="MeshLibrary" uid="uid://co2fihrhl0fs4" path="res://resource/bit_resource/mesh_library/main_mesh_library.tres" id="1_vgfjx"]
+
+[sub_resource type="GDScript" id="GDScript_i6g6p"]
+script/source = "
+extends GridMap
+
+var board = 64
+var hight = 96
+
+var noise
+var noise_seed = randi_range(0,999999999)
+
+var collision_point = Vector3(0,0,0)
+var collision_side = Vector3(0,0,0)
+var collision_type
+
+func _ready():
+	noise = FastNoiseLite.new()
+	noise.noise_type = 3
+	noise.seed = noise_seed
+	
+	for x in range(-board,board):
+		for z in range(-board,board):
+			for y in range(hight):
+				if y == 0:
+					set_cell_item(Vector3(x,y,z),3,0)
+				if y < noise.get_noise_3d(x,y,z)*96+24:
+					if 0 <= y and y < 10:
+						set_cell_item(Vector3(x,y,z),3,0)
+					if 10 <= y and y < 25:
+						set_cell_item(Vector3(x,y,z),2,0)
+					if 25 <= y and y < 40:
+						set_cell_item(Vector3(x,y,z),0,0)
+					if 40 <= y and y < 45:
+						set_cell_item(Vector3(x,y,z),1,0)
+					if 45 <= y and y < 1000:
+						set_cell_item(Vector3(x,y,z),3,0)
+				
+func _process(delta):
+	if Input.is_action_pressed('Left_Click'):
+		if collision_point != Vector3(0,0,0):
+			var pos = local_to_map(Vector3i(collision_point))
+			# print(pos)
+			if collision_type == 'Right_Click':
+				set_cell_item(Vector3(pos.x + collision_side.x,
+									pos.y -4 + collision_side.y,#-5
+									pos.z +1 + collision_side.z),-1,0)#+1
+			elif collision_type == 'Left_Click':
+				set_cell_item(Vector3(pos.x + collision_side.x,
+									pos.y -4 + collision_side.y,#-5
+									pos.z +1 + collision_side.z),4,0)#+1
+"
+
+[node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_vgfjx")
+cell_size = Vector3(1.6, 0.4, 1.6)
+collision_mask = 3
+script = SubResource("GDScript_i6g6p")

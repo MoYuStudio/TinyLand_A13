@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=3 uid="uid://da83a1jtuybi2"]
+
+[ext_resource type="Texture2D" uid="uid://bu85k5gv4l0xf" path="res://resource/graphics/logo/logo.png" id="1_ggvi4"]
+[ext_resource type="AudioStream" uid="uid://c33ah702gucnr" path="res://resource/audio/sound/kenney_interfacesounds/confirmation_004.ogg" id="2_1072n"]
+
+[sub_resource type="GDScript" id="GDScript_6o0tv"]
+script/source = "
+extends Control
+
+func _ready():
+	$Audio/AnimationPlayer.play('init')
+	$Logo/AnimationPlayer.play('init')
+	$Mask/AnimationPlayer.play('init')
+	await $Mask/AnimationPlayer.animation_finished
+	get_tree().change_scene_to_file('res://source/scene/start_menu.tscn')
+"
+
+[sub_resource type="Animation" id="Animation_cd88p"]
+resource_name = "init"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70abh"]
+_data = {
+"init": SubResource("Animation_cd88p")
+}
+
+[sub_resource type="Animation" id="Animation_8b5b2"]
+resource_name = "init"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v6kpv"]
+_data = {
+"init": SubResource("Animation_8b5b2")
+}
+
+[sub_resource type="Animation" id="Animation_sm6h4"]
+resource_name = "init"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-80.0, 1.0, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i8uju"]
+_data = {
+"init": SubResource("Animation_sm6h4")
+}
+
+[node name="Init" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_6o0tv")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -868.0
+offset_top = -514.0
+offset_right = 1439.0
+offset_bottom = 846.0
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(320, 170)
+texture = ExtResource("1_ggvi4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_70abh")
+}
+
+[node name="Mask" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -868.0
+offset_top = -514.0
+offset_right = 1439.0
+offset_bottom = 846.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mask"]
+libraries = {
+"": SubResource("AnimationLibrary_v6kpv")
+}
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1072n")
+volume_db = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Audio"]
+libraries = {
+"": SubResource("AnimationLibrary_i8uju")
+}

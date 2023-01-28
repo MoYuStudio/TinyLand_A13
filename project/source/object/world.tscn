@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp3sce5rk5vgm"]
+
+[sub_resource type="GDScript" id="GDScript_j6w07"]
+script/source = "
+extends Node3D
+
+var chunk_size = 64
+var chunk_amount = 16
+var chunks = {}
+var unready_chunks = {}
+var thread
+
+var noise
+var noise_seed = randi_range(0,999999999)
+
+var camera_transform_x = 0
+var camera_transform_z = 0
+
+func _ready():
+	noise = FastNoiseLite.new()
+	noise.noise_type = 3
+	noise.seed = noise_seed
+	
+	thread = Thread.new()
+
+func add_chunk(x, z):
+	var key = str(x) + ',' + str(z)
+	if chunks.has(key) or unready_chunks.has(key):
+		return
+		
+	if not thread.is_active():
+		thread.start(self, 'load_chunk', [thread, x, z])
+		unready_chunks[key] = 1
+		
+func load_chunk(arr):
+	var thread = arr[0]
+	var x = arr[1]
+	var z = arr[2]
+	
+	var chunk = Chunk.new(noise, x * chunk_size, z * chunk_size, chunk_size)
+	chunk.translation = Vector3(x * chunk_size, 0, z * chunk_size)
+	
+	call_deferred('load_done', chunk, thread)
+	
+func load_done(chunk, thread):
+	add_child(chunk)
+	var key = str(chunk.x / chunk_size) + ',' + str(chunk.z / chunk_size)
+	chunks[key] = chunk
+	unready_chunks.erase(key)
+	thread.wait_to_finish()
+	
+func get_chunk(x ,z):
+	var key = str(x) + ',' + str(z)
+	if chunks.has(key):
+		return chunks.get(key)
+		
+	return null
+	
+func _process(delta):
+	update_chunks()
+	clear_up_chunks()
+	reset_chunks()
+	
+func update_chunks():
+	var c_x = int(camera_transform_x) / chunk_size
+	var c_z = int(camera_transform_z) / chunk_size
+	
+	for x in range(c_x - chunk_amount * 0.5, c_x + chunk_amount * 0.5):
+		for z in range(c_z - chunk_amount * 0.5, c_z + chunk_amount * 0.5):
+			add_chunk(x, z)
+	
+func clear_up_chunks():
+	pass
+	
+func reset_chunks():
+	pass
+	
+"
+
+[node name="World" type="Node3D"]
+script = SubResource("GDScript_j6w07")

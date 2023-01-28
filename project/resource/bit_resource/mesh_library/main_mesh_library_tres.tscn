@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://ildidhst2had"]
+
+[ext_resource type="ArrayMesh" uid="uid://cceadaadoofuf" path="res://resource/graphics/block/0.obj" id="1_08x4l"]
+[ext_resource type="ArrayMesh" uid="uid://cr8ke81r8yed6" path="res://resource/graphics/block/1.obj" id="2_n6nw1"]
+[ext_resource type="ArrayMesh" uid="uid://yggapt0ms347" path="res://resource/graphics/block/2.obj" id="3_v2l1f"]
+[ext_resource type="ArrayMesh" uid="uid://tuady0psa8i8" path="res://resource/graphics/block/3.obj" id="4_loamy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8p7u"]
+size = Vector3(1.4, 0.2, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8o8j"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 0.117647)
+
+[node name="main_mesh_library_tres" type="Node3D"]
+
+[node name="0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+mesh = ExtResource("1_08x4l")
+
+[node name="StaticBody" type="StaticBody3D" parent="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2.2, -0.8)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="0/StaticBody"]
+shape = SubResource("BoxShape3D_v8p7u")
+
+[node name="1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+mesh = ExtResource("2_n6nw1")
+
+[node name="StaticBody" type="StaticBody3D" parent="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2.2, -0.8)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="1/StaticBody"]
+shape = SubResource("BoxShape3D_v8p7u")
+
+[node name="2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+mesh = ExtResource("3_v2l1f")
+
+[node name="StaticBody" type="StaticBody3D" parent="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2.2, -0.8)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="2/StaticBody"]
+shape = SubResource("BoxShape3D_v8p7u")
+
+[node name="3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+mesh = ExtResource("4_loamy")
+
+[node name="StaticBody" type="StaticBody3D" parent="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2.2, -0.8)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="3/StaticBody"]
+shape = SubResource("BoxShape3D_v8p7u")
+
+[node name="4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.08165e-12, 2.08165e-12)
+material_override = SubResource("StandardMaterial3D_x8o8j")
+mesh = ExtResource("4_loamy")
+skeleton = NodePath("../3")
+
+[node name="StaticBody" type="StaticBody3D" parent="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2.2, -0.8)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="4/StaticBody"]
+shape = SubResource("BoxShape3D_v8p7u")

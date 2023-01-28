@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcej3ejmmc0by"]
+
+[ext_resource type="Texture2D" uid="uid://dmq3uk4vd053m" path="res://resource/graphics/ui/kenney_emotespack_style_2/emote_star.png" id="1_b0buv"]
+[ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/animation/transition_1.tscn" id="1_nto2b"]
+[ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="2_58jik"]
+
+[sub_resource type="GDScript" id="GDScript_8npmh"]
+script/source = "
+extends Control
+
+func _ready():
+	$Transition/AnimationPlayer.play('init')
+
+func _process(delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_d566j"]
+script/source = "
+extends Button
+
+func _ready():
+	pass
+
+func _process(delta):
+	if is_pressed():
+		get_tree().change_scene_to_file('res://source/scene/start_menu.tscn')
+"
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_8npmh")
+
+[node name="Transition" parent="." instance=ExtResource("1_nto2b")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 2307.0
+offset_bottom = 1360.0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -785.0
+offset_top = -517.0
+offset_right = 1332.0
+offset_bottom = 811.0
+color = Color(0, 0.490196, 0.643137, 1)
+
+[node name="Menu" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 587.0
+offset_top = 15.0
+offset_right = 625.0
+offset_bottom = 56.0
+icon = ExtResource("1_b0buv")
+flat = true
+expand_icon = true
+script = SubResource("GDScript_d566j")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 30.0
+offset_right = 542.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("2_58jik")
+theme_override_font_sizes/font_size = 64
+text = "MoYuStudio 2020-2023"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 0
+offset_top = 86.0
+offset_right = 452.0
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("2_58jik")
+theme_override_font_sizes/font_size = 32
+text = "= The World Creator =
+WilsonVinson
+
+= Thanks =
+Eric
+yongheng"
+horizontal_alignment = 1
