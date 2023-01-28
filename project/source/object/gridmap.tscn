@@ -6,8 +6,7 @@
 script/source = "
 extends GridMap
 
-var board = 64
-var hight = 96
+var board = 256
 
 var noise
 var noise_seed = randi_range(0,999999999)
@@ -22,21 +21,19 @@ func _ready():
 	noise.seed = noise_seed
 	
 	for x in range(-board,board):
-		for z in range(-board,board):
-			for y in range(hight):
-				if y == 0:
-					set_cell_item(Vector3(x,y,z),3,0)
-				if y < noise.get_noise_3d(x,y,z)*96+24:
-					if 0 <= y and y < 10:
-						set_cell_item(Vector3(x,y,z),3,0)
-					if 10 <= y and y < 25:
-						set_cell_item(Vector3(x,y,z),2,0)
-					if 25 <= y and y < 40:
-						set_cell_item(Vector3(x,y,z),0,0)
-					if 40 <= y and y < 45:
-						set_cell_item(Vector3(x,y,z),1,0)
-					if 45 <= y and y < 1000:
-						set_cell_item(Vector3(x,y,z),3,0)
+		for z in range(-board/3.5,board/3.5):
+			var tile_type = noise.get_noise_2d(x/3.5,z)*1000
+			tile_type = int(tile_type)
+			print(tile_type)
+			var hex_num = (x % 2)*2
+			if 0 <= tile_type and tile_type < 20:
+				set_cell_item(Vector3(x,0,z*4+hex_num),2,0) # sand
+			if 20 <= tile_type and tile_type < 170:
+				set_cell_item(Vector3(x,0,z*4+hex_num),1,0) # grass
+			if 170 <= tile_type and tile_type < 200:
+				set_cell_item(Vector3(x,0,z*4+hex_num),0,0)
+			if 200 <= tile_type and tile_type < 1000:
+				set_cell_item(Vector3(x,0,z*4+hex_num),3,0)
 				
 func _process(delta):
 	if Input.is_action_pressed('Left_Click'):
@@ -55,6 +52,6 @@ func _process(delta):
 
 [node name="GridMap" type="GridMap"]
 mesh_library = ExtResource("1_vgfjx")
-cell_size = Vector3(1.6, 0.4, 1.6)
+cell_size = Vector3(0.49, 1, 0.43)
 collision_mask = 3
 script = SubResource("GDScript_i6g6p")

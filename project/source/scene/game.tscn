@@ -38,7 +38,7 @@ func _physics_process(delta):
 		stop_menu = true
 		$GUI/StopMenu.visible = true
 		$World/Camera.mouse_lock = false
-			
+		
 		#get_tree().quit()
 "
 
