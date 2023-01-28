@@ -1,10 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://ildidhst2had"]
+[gd_scene load_steps=16 format=3 uid="uid://ildidhst2had"]
 
 [ext_resource type="ArrayMesh" uid="uid://x1vu43jtsdda" path="res://resource/graphics/tile/models/dirt.obj" id="1_bieea"]
 [ext_resource type="ArrayMesh" uid="uid://jwkhnuky25k3" path="res://resource/graphics/tile/models/grass.obj" id="2_xvxom"]
 [ext_resource type="ArrayMesh" uid="uid://coe7737u1tf8t" path="res://resource/graphics/tile/models/sand.obj" id="3_o242p"]
 [ext_resource type="ArrayMesh" uid="uid://bo2nv78fx1uj2" path="res://resource/graphics/tile/models/stone.obj" id="4_cbhoh"]
 [ext_resource type="ArrayMesh" uid="uid://dhnkuud3pbyyk" path="res://resource/graphics/tile/models/water.obj" id="5_xqew5"]
+[ext_resource type="ArrayMesh" uid="uid://bwk2y3pm4ytry" path="res://resource/graphics/tile/models/dirt_lumber.obj" id="6_lj4jy"]
+[ext_resource type="ArrayMesh" uid="uid://dlmn5icg4kyrs" path="res://resource/graphics/tile/models/grass_forest.obj" id="7_dik11"]
+[ext_resource type="ArrayMesh" uid="uid://dm2l5ur6cx0y4" path="res://resource/graphics/tile/models/grass_hill.obj" id="8_iptcr"]
+[ext_resource type="ArrayMesh" uid="uid://ds3377m3ap336" path="res://resource/graphics/tile/models/sand_rocks.obj" id="9_5fdkb"]
+[ext_resource type="ArrayMesh" uid="uid://uf0am8r26hr8" path="res://resource/graphics/tile/models/stone_rocks.obj" id="10_eiqrs"]
+[ext_resource type="ArrayMesh" uid="uid://b77damy5pq6ic" path="res://resource/graphics/tile/models/stone_hill.obj" id="11_vgcre"]
+[ext_resource type="ArrayMesh" uid="uid://cyx3tyb7x4rbi" path="res://resource/graphics/tile/models/stone_mountain.obj" id="12_700mx"]
+[ext_resource type="ArrayMesh" uid="uid://c32456ro4rmun" path="res://resource/graphics/tile/models/water_rocks.obj" id="13_kxjrn"]
+[ext_resource type="ArrayMesh" uid="uid://bj060qyuffsha" path="res://resource/graphics/tile/models/water_island.obj" id="14_dv2rw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x4246"]
 
@@ -53,4 +62,85 @@ mesh = ExtResource("5_xqew5")
 [node name="StaticBody" type="StaticBody3D" parent="4"]
 
 [node name="CollisionShape" type="CollisionShape3D" parent="4/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = ExtResource("6_lj4jy")
+
+[node name="StaticBody" type="StaticBody3D" parent="5"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="5/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+mesh = ExtResource("7_dik11")
+
+[node name="StaticBody" type="StaticBody3D" parent="6"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="6/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
+mesh = ExtResource("8_iptcr")
+
+[node name="StaticBody" type="StaticBody3D" parent="7"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="7/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
+mesh = ExtResource("9_5fdkb")
+
+[node name="StaticBody" type="StaticBody3D" parent="8"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="8/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2)
+mesh = ExtResource("10_eiqrs")
+
+[node name="StaticBody" type="StaticBody3D" parent="9"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="9/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 2)
+mesh = ExtResource("11_vgcre")
+
+[node name="StaticBody" type="StaticBody3D" parent="10"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="10/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 2)
+mesh = ExtResource("12_700mx")
+
+[node name="StaticBody" type="StaticBody3D" parent="11"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="11/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 2)
+mesh = ExtResource("13_kxjrn")
+
+[node name="StaticBody" type="StaticBody3D" parent="12"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="12/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 2)
+mesh = ExtResource("14_dv2rw")
+
+[node name="StaticBody" type="StaticBody3D" parent="13"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="13/StaticBody"]
 shape = SubResource("SphereShape3D_x4246")

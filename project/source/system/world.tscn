@@ -1,43 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfpcen4gocd1i"]
+[gd_scene load_steps=5 format=3 uid="uid://bkrojaqnadfjb"]
 
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="1_xy0e7"]
-[ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="2_r0bvs"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="2_uacix"]
+[ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/hex_gridmap.tscn" id="3_dkoge"]
 [ext_resource type="PackedScene" uid="uid://deyci4scpxkr8" path="res://source/object/camera.tscn" id="3_makw1"]
 
-[sub_resource type="GDScript" id="GDScript_dc1og"]
-script/source = "
-extends Node3D
-
-var chunk_size = 16
-var chunk_amount = 16
-var chunks = {}
-var unready_chunks = {}
-var thread
-
-var noise
-var noise_seed = randi_range(0,999999999)
-
-# $Camera.transform.origin
-
-func ready():
-	pass
-	
-func _process(delta):
-	pass
-"
-
 [node name="World" type="Node3D"]
-script = SubResource("GDScript_dc1og")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_xy0e7")]
 
-[node name="GridMap" parent="." instance=ExtResource("2_r0bvs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-data = {
-"cells": PackedInt32Array()
-}
+[node name="HexGridMap" parent="." instance=ExtResource("3_dkoge")]
 
 [node name="Water" parent="." instance=ExtResource("2_uacix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" parent="." instance=ExtResource("3_makw1")]
