@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://clp12klxuc0xn"
+path="res://.godot/imported/path_intersectionH.obj-1e5b305feb5fe24ab86c0ce5a1916106.mesh"
+
+[deps]
+
+files=["res://.godot/imported/path_intersectionH.obj-1e5b305feb5fe24ab86c0ce5a1916106.mesh"]
+
+source_file="res://resource/graphics/tile/models/path_intersectionH.obj"
+dest_files=["res://.godot/imported/path_intersectionH.obj-1e5b305feb5fe24ab86c0ce5a1916106.mesh", "res://.godot/imported/path_intersectionH.obj-1e5b305feb5fe24ab86c0ce5a1916106.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

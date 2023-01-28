@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvkte7ypwfvjx"
+path="res://.godot/imported/unit_tree.obj-e7d7650bbfda48eea56a747210c2b713.mesh"
+
+[deps]
+
+files=["res://.godot/imported/unit_tree.obj-e7d7650bbfda48eea56a747210c2b713.mesh"]
+
+source_file="res://resource/graphics/tile/models/unit_tree.obj"
+dest_files=["res://.godot/imported/unit_tree.obj-e7d7650bbfda48eea56a747210c2b713.mesh", "res://.godot/imported/unit_tree.obj-e7d7650bbfda48eea56a747210c2b713.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

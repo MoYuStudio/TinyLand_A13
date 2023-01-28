@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dvjg8j28d4br0"
+path="res://.godot/imported/building_castle.obj-913e538acd0498725d10bfe0fd7ef651.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_castle.obj-913e538acd0498725d10bfe0fd7ef651.mesh"]
+
+source_file="res://resource/graphics/tile/models/building_castle.obj"
+dest_files=["res://.godot/imported/building_castle.obj-913e538acd0498725d10bfe0fd7ef651.mesh", "res://.godot/imported/building_castle.obj-913e538acd0498725d10bfe0fd7ef651.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
