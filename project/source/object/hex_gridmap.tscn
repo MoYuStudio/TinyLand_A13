@@ -6,54 +6,62 @@
 script/source = "
 extends GridMap
 
-var board = 256
+var 生成边界 = 128
 
-var noise
-var noise_seed = randi_range(0,999999999)
+var 噪声
+var 噪声类型 = 3
+var 噪声种子 = randi_range(0,999999999)
+var 噪声频率 = 0.06
 
-var collision_point = Vector3(0,0,0)
-var collision_side = Vector3(0,0,0)
-var collision_type
+var 碰撞点 = Vector3(0,0,0)
+var 碰撞面 = Vector3(0,0,0)
+var 碰撞类型
 
 func _ready():
-	noise = FastNoiseLite.new()
-	noise.noise_type = 3
-	noise.seed = noise_seed
+	噪声 = FastNoiseLite.new()
+	噪声.noise_type = 噪声类型
+	噪声.seed = 噪声种子
+	噪声.frequency = 噪声频率
 	
-	for x in range(-board,board):
-		for z in range(-board/3.5,board/3.5):
-			var tile_type = noise.get_noise_2d(x/3.5,z)*1000
-			tile_type = int(tile_type)
-			var hex_num = (x % 2)*2
-			var randint = randi_range(0,100)
-			if 0 <= tile_type and tile_type < 20:
-				if 0 <= randint and randint < 90:
-					set_cell_item(Vector3(x,0,z*4+hex_num),2,0) # sand
-				if 90 <= randint and randint < 101:
-					set_cell_item(Vector3(x,0,z*4+hex_num),8,0) # sand_rock
-			if 20 <= tile_type and tile_type < 170:
-				if 0 <= randint and randint < 30:
-					set_cell_item(Vector3(x,0,z*4+hex_num),1,0) # grass
-				if 30 <= randint and randint < 101:
-					set_cell_item(Vector3(x,0,z*4+hex_num),6,0) # tree
-			if 170 <= tile_type and tile_type < 200:
-				set_cell_item(Vector3(x,0,z*4+hex_num),0,0)
-			if 200 <= tile_type and tile_type < 1000:
-				set_cell_item(Vector3(x,0,z*4+hex_num),3,0)
-				
+	for x in range(-生成边界):
+		for z in range(-生成边界/3.5,生成边界/3.5):
+			var 瓷砖类型 = 噪声.get_noise_2d(x/3.5,z)*1000
+			瓷砖类型 = int(瓷砖类型)
+			var 六边形生成错位 = (x % 2)*2
+			var 生成概率 = randi_range(0,100)
+			if 0 <= 瓷砖类型 and 瓷砖类型 < 20:
+				if 0 <= 生成概率 and 生成概率 < 90:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),2,0) # 沙滩
+				if 90 <= 生成概率 and 生成概率 < 101:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),8,0) # 沙滩石头
+			if 20 <= 瓷砖类型 and 瓷砖类型 < 170:
+				if 0 <= 生成概率 and 生成概率 < 30:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),1,0) # 草地
+				if 30 <= 生成概率 and 生成概率 < 101:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),6,0) # 树林
+			if 170 <= 瓷砖类型 and 瓷砖类型 < 200:
+				if 0 <= 生成概率 and 生成概率 < 30:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),0,0) # 戈壁沙土
+				if 30 <= 生成概率 and 生成概率 < 101:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),5,0) # 戈壁树林
+			if 200 <= 瓷砖类型 and 瓷砖类型 < 1000:
+				if 0 <= 生成概率 and 生成概率 < 30:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),3,0) # 戈壁
+				if 30 <= 生成概率 and 生成概率 < 101:
+					set_cell_item(Vector3(x,0,z*4+六边形生成错位),9,0) # 戈壁小石头
 func _process(delta):
 	if Input.is_action_pressed('Left_Click'):
-		if collision_point != Vector3(0,0,0):
-			var pos = local_to_map(Vector3i(collision_point))
+		if 碰撞点 != Vector3(0,0,0):
+			var pos = local_to_map(Vector3i(碰撞点))
 			# print(pos)
-			if collision_type == 'Right_Click':
-				set_cell_item(Vector3(pos.x + collision_side.x,
-									pos.y -4 + collision_side.y,#-5
-									pos.z +1 + collision_side.z),-1,0)#+1
-			elif collision_type == 'Left_Click':
-				set_cell_item(Vector3(pos.x + collision_side.x,
-									pos.y -4 + collision_side.y,#-5
-									pos.z +1 + collision_side.z),4,0)#+1
+			if 碰撞类型 == 'Right_Click':
+				set_cell_item(Vector3(pos.x + 碰撞面.x,
+									pos.y -4 + 碰撞面.y,#-5
+									pos.z +1 + 碰撞面.z),-1,0)#+1
+			elif 碰撞类型 == 'Left_Click':
+				set_cell_item(Vector3(pos.x + 碰撞面.x,
+									pos.y -4 + 碰撞面.y,#-5
+									pos.z +1 + 碰撞面.z),4,0)#+1
 "
 
 [node name="HexGridMap" type="GridMap"]
