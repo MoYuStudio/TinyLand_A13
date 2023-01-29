@@ -13,7 +13,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	$HexGridMap.碰撞点 = $Camera.碰撞点
+	pass
 "
 
 [node name="World" type="Node3D"]
@@ -28,3 +28,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 
 [node name="Camera" parent="." instance=ExtResource("3_makw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[connection signal="碰撞点" from="Camera" to="HexGridMap" method="_on_camera_click_pos"]

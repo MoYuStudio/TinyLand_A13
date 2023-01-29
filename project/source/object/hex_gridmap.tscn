@@ -13,7 +13,7 @@ var 噪声类型 = 3
 var 噪声种子 = randi_range(0,999999999)
 var 噪声频率 = 0.03
 
-var 碰撞点 = Vector3(0,0,0)
+var 碰撞点
 var 碰撞类型
 
 func _ready():
@@ -57,20 +57,11 @@ func _ready():
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),10,生成方向) # 戈壁小石头
 				if 90 <= 生成概率 and 生成概率 < 101:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),11,生成方向) # 戈壁小石头
-func _process(delta):
-	pass
 
-	#if Input.is_action_pressed('Left_Click'):
-	#	if 碰撞点 != Vector3(0,0,0):
-	#		var pos = local_to_map(Vector3(碰撞点[0],碰撞点[1],碰撞点[2]))
-	#		# print(pos)
-	#		if 碰撞类型 == 'Left_Click':
-	#			set_cell_item(Vector3(pos.x,0,pos.z),4,0)
-func _physics_process(delta):
-	print(碰撞点)
-	#if 碰撞点 != Vector3(0,0,0):
-	# 碰撞点 = local_to_map(碰撞点)
-	# pass
+func _on_camera_click_pos(碰撞点位置):
+	print(碰撞点位置)
+	var 碰撞点 = local_to_map(碰撞点位置)
+	set_cell_item(Vector3(碰撞点.x,0,碰撞点.z),-1,0)
 "
 
 [node name="HexGridMap" type="GridMap"]

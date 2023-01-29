@@ -6,6 +6,8 @@ extends Camera3D
 
 @onready var ray := $RayCast
 
+signal 碰撞点
+
 var 移动速度 = 0.3
 
 # 相机视角
@@ -18,7 +20,7 @@ var moveing_vel = Vector3()
 var mouse_delta = Vector2()
 var mouse_pos = Vector2()
 
-var 碰撞点
+var 碰撞点位置
 
 var mouse_lock = true
 
@@ -28,14 +30,9 @@ func _ready():
 func _input(event):
 	
 	if mouse_lock == true:
-		
-		#if event is InputEventMouse:
-		#	mouse_pos = event.position
 			
 		if event is InputEventMouseMotion:
 			mouse_delta = event.relative
-			
-		#if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 			
 		if event is InputEventMouseButton or event is InputEventScreenTouch:
 			_select_target(event.position)
@@ -54,9 +51,9 @@ func _select_target(click_position: Vector2) -> void:
 	if ray.is_colliding():
 		var iray = space_state.intersect_ray(params)
 		if iray:
-			碰撞点 = iray['position']
-			碰撞点 = Vector3i(碰撞点[0],碰撞点[1],碰撞点[2])
-			# print(碰撞点)
+			var 碰撞点位置 = iray['position']
+			碰撞点位置 = Vector3(碰撞点位置[0],0,碰撞点位置[2])
+			emit_signal('碰撞点', 碰撞点位置)
 		
 
 func _physics_process(delta):
@@ -101,9 +98,9 @@ func _physics_process(delta):
 				input.y -= 1
 			
 		if Input.is_action_pressed('Ctrl'):
-			移动速度 = 1.6
+			移动速度 = 1.2
 		else:
-			移动速度 = 0.6
+			移动速度 = 0.3
 			
 		input = input.normalized()
 		
