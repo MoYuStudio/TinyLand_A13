@@ -38,25 +38,24 @@ func _ready():
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),2,生成方向) # 沙滩
 				if 90 <= 生成概率 and 生成概率 < 101:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),8,生成方向) # 沙滩石头
-			if 20 <= 瓷砖类型 and 瓷砖类型 < 170:
+			if 20 <= 瓷砖类型 and 瓷砖类型 < 270:
 				if 0 <= 生成概率 and 生成概率 < 30:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),1,生成方向) # 草地
 				if 30 <= 生成概率 and 生成概率 < 101:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),6,生成方向) # 树林
-			if 170 <= 瓷砖类型 and 瓷砖类型 < 200:
+			if 270 <= 瓷砖类型 and 瓷砖类型 < 300:
 				if 0 <= 生成概率 and 生成概率 < 30:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),0,生成方向) # 戈壁沙土
 				if 30 <= 生成概率 and 生成概率 < 101:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),5,生成方向) # 戈壁树林
-			if 200 <= 瓷砖类型 and 瓷砖类型 < 1000:
-				if 0 <= 生成概率 and 生成概率 < 30:
-					set_cell_item(Vector3(x,0,z*4+六边形生成错位),3,生成方向) # 戈壁
-				if 30 <= 生成概率 and 生成概率 < 60:
-					set_cell_item(Vector3(x,0,z*4+六边形生成错位),9,生成方向) # 戈壁小石头
-				if 60 <= 生成概率 and 生成概率 < 90:
-					set_cell_item(Vector3(x,0,z*4+六边形生成错位),10,生成方向) # 戈壁小石头
-				if 90 <= 生成概率 and 生成概率 < 101:
-					set_cell_item(Vector3(x,0,z*4+六边形生成错位),11,生成方向) # 戈壁小石头
+			if 300 <= 瓷砖类型 and 瓷砖类型 < 320:
+				set_cell_item(Vector3(x,0,z*4+六边形生成错位),3,生成方向) # 戈壁
+			if 320 <= 瓷砖类型 and 瓷砖类型 < 370:
+				set_cell_item(Vector3(x,0,z*4+六边形生成错位),9,生成方向) # 戈壁小石头
+			if 370 <= 瓷砖类型 and 瓷砖类型 < 470:
+				set_cell_item(Vector3(x,0,z*4+六边形生成错位),10,生成方向) # 戈壁中石头
+			if 470 <= 瓷砖类型 and 瓷砖类型 < 1000:
+				set_cell_item(Vector3(x,0,z*4+六边形生成错位),11,生成方向) # 戈壁大石头
 
 func _on_camera_click_pos(碰撞点位置):
 	print(碰撞点位置)
