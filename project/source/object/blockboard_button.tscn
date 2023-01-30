@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://byj4c8gg4la2w" path="res://resource/graphics/tile/side/building_cabin.png" id="1_inxbr"]
 
-[sub_resource type="GDScript" id="GDScript_gnu1y"]
+[sub_resource type="GDScript" id="GDScript_aqwae"]
 script/source = "
 extends Control
 
@@ -24,7 +24,7 @@ func _ready():
 	$Button.icon = block_icon
 "
 
-[sub_resource type="GDScript" id="GDScript_1gxyy"]
+[sub_resource type="GDScript" id="GDScript_bavxo"]
 script/source = "
 extends Button
 
@@ -61,7 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_gnu1y")
+script = SubResource("GDScript_aqwae")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -69,4 +69,4 @@ offset_right = 40.0
 offset_bottom = 40.0
 icon = ExtResource("1_inxbr")
 flat = true
-script = SubResource("GDScript_1gxyy")
+script = SubResource("GDScript_bavxo")

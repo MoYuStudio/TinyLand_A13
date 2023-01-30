@@ -11,11 +11,11 @@ var the_group
 
 var class_data = {
 	0:{
-		'name':'Ground',
+		'name':'0',
 		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
 		'button_data':{
 			0:{
-				'name':'Soil',
+				'name':'0',
 				'id':1,
 				'money':100,
 				'soil':10,
@@ -24,156 +24,7 @@ var class_data = {
 				'iron':0,
 				'gold':0,
 			},
-			1:{
-				'name':'Grass',
-				'id':0,
-				'money':200,
-				'soil':10,
-				'wood':5,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-			2:{
-				'name':'Sand',
-				'id':2,
-				'money':300,
-				'soil':5,
-				'wood':5,
-				'stone':5,
-				'iron':0,
-				'gold':0,
-			},
-			3:{
-				'name':'Stone',
-				'id':3,
-				'money':200,
-				'soil':5,
-				'wood':0,
-				'stone':15,
-				'iron':0,
-				'gold':0,
-			},
-			4:{
-				'name':'Water',
-				'id':4,
-				'money':500,
-				'soil':0,
-				'wood':0,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-		},
-	},
-	1:{
-		'name':'Farming',
-		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
-		'button_data':{
-			0:{
-				'name':'0',
-				'id':256,
-				'money':0,
-				'soil':0,
-				'wood':0,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-			1:{
-				'name':'1',
-				'id':257,
-				'money':0,
-				'soil':0,
-				'wood':0,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-			2:{
-				'name':'2',
-				'id':262,
-				'money':100,
-				'soil':10,
-				'wood':30,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-		},
-	},
-	2:{
-		'name':'Industrial',
-		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
-		'button_data':{
-			0:{
-				'name':'0',
-				'id':263,
-				'money':500,
-				'soil':10,
-				'wood':100,
-				'stone':30,
-				'iron':0,
-				'gold':0,
-			},
-			1:{
-				'name':'1',
-				'id':512,
-				'money':15000,
-				'soil':100,
-				'wood':300,
-				'stone':500,
-				'iron':0,
-				'gold':0,
-			},
-		},
-	},
-	3:{
-		'name':'Finance',
-		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
-		'button_data':{
-			0:{
-				'name':'0',
-				'id':769,
-				'money':8000,
-				'soil':100,
-				'wood':100,
-				'stone':100,
-				'iron':0,
-				'gold':0,
-			},
-		},
-	},
-	4:{
-		'name':'Infrastructure',
-		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
-		'button_data':{
-			0:{
-				'name':'0',
-				'id':255,
-				'money':999999,
-				'soil':0,
-				'wood':0,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-		},
-	},
-	5:{
-		'name':'Other',
-		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
-		'button_data':{
-			0:{
-				'name':'0',
-				'id':255,
-				'money':999999,
-				'soil':0,
-				'wood':0,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
+			
 		},
 	},
 }
@@ -192,6 +43,7 @@ func _ready():
 		class_instance.position.x = 1920/6 + 256*class_is
 		class_instance.position.y = 1080-151
 		# class_instance.Group.rect_position.x = - 256*class_is
+		print(class_instance)
 		self.add_child(class_instance)
 		group_list.append(class_data[class_is]['name'])
 	for group_id in len(group_list):
@@ -208,7 +60,7 @@ func _ready():
 			
 		
 func _process(delta):
-	if Input.is_action_pressed('esc'):
+	if Input.is_action_pressed('Esc'):
 		for group in group_list:
 			get_node(group+'/Button').group_visible = false
 			get_node(group+'/Group').visible = false
@@ -224,7 +76,7 @@ func _process(delta):
 				group_list.append(the_group)
 	
 	for class_is in class_data:
-		#print(class_data[class_is]['name'])
+		# print(class_data[class_is]['name'])
 		for data_id in class_data[class_is]['button_data']:
 			var blockboard_id = class_data[class_is]['name'] + \\
 								'/Group/Group/HBoxContainer/' + \\
@@ -243,9 +95,5 @@ func _process(delta):
 
 [node name="Blockboard" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = SubResource("GDScript_s1kb0")

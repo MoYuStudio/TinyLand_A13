@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="2_m8wvv"]
 [ext_resource type="Texture2D" uid="uid://byj4c8gg4la2w" path="res://resource/graphics/tile/side/building_cabin.png" id="3_sd1ix"]
 
-[sub_resource type="GDScript" id="GDScript_h4ixk"]
+[sub_resource type="GDScript" id="GDScript_pkmv3"]
 script/source = "
 extends Control
 
@@ -23,8 +23,8 @@ func _ready():
 		button_instance.soil = button_data[button]['soil']
 		button_instance.wood = button_data[button]['wood']
 		button_instance.stone = button_data[button]['stone']
-		button_instance.brick = button_data[button]['iron']
-		button_instance.steel = button_data[button]['gold']
+		button_instance.iron = button_data[button]['iron']
+		button_instance.gold = button_data[button]['gold']
 		$Group/Group/HBoxContainer.add_child(button_instance)
 	
 	$Group.button_data = button_data
@@ -34,7 +34,7 @@ func _process(delta):
 	$Group.visible = $Button.group_visible
 "
 
-[sub_resource type="GDScript" id="GDScript_cxtec"]
+[sub_resource type="GDScript" id="GDScript_4yxjx"]
 script/source = "
 extends Control
 
@@ -64,7 +64,7 @@ func _process(delta):
 			$Price/HBoxContainer/Gold/Price.text = str(0)
 "
 
-[sub_resource type="GDScript" id="GDScript_ibqcy"]
+[sub_resource type="GDScript" id="GDScript_46bxe"]
 script/source = "
 extends ScrollContainer
 
@@ -73,7 +73,7 @@ func _ready():
 	get_h_scroll_bar().scale.y = 0
 "
 
-[sub_resource type="GDScript" id="GDScript_xk5ls"]
+[sub_resource type="GDScript" id="GDScript_vrgbn"]
 script/source = "
 extends Button
 
@@ -108,7 +108,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_h4ixk")
+script = SubResource("GDScript_pkmv3")
 
 [node name="Group" type="Control" parent="."]
 anchors_preset = 0
@@ -116,7 +116,7 @@ offset_left = -960.0
 offset_top = -128.0
 offset_right = -920.0
 offset_bottom = -88.0
-script = SubResource("GDScript_cxtec")
+script = SubResource("GDScript_4yxjx")
 
 [node name="PriceBackground" type="ColorRect" parent="Group"]
 layout_mode = 0
@@ -126,6 +126,7 @@ offset_bottom = -4.0
 color = Color(0, 0, 0, 0.282353)
 
 [node name="GroupBackground" type="ColorRect" parent="Group"]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 128.0
 color = Color(0, 0, 0, 0.282353)
@@ -272,7 +273,7 @@ text = "0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = SubResource("GDScript_ibqcy")
+script = SubResource("GDScript_46bxe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Group/Group"]
 layout_mode = 2
@@ -286,4 +287,4 @@ icon = ExtResource("3_sd1ix")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = SubResource("GDScript_xk5ls")
+script = SubResource("GDScript_vrgbn")
