@@ -4,7 +4,7 @@
 script/source = "
 extends Camera3D
 
-@onready var ray := $RayCast
+@onready var 射线投影 := $RayCast
 
 signal 碰撞点
 
@@ -46,9 +46,9 @@ func _select_target(click_position: Vector2) -> void:
 	params.to = to
 	params.exclude = []
 	params.collision_mask = 1
-	ray.force_raycast_update()
+	射线投影.force_raycast_update()
 	#print(\"click\")
-	if ray.is_colliding():
+	if 射线投影.is_colliding():
 		var iray = space_state.intersect_ray(params)
 		if iray:
 			var 碰撞点位置 = iray['position']
