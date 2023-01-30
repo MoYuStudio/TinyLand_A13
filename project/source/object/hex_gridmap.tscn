@@ -8,7 +8,7 @@ extends GridMap
 
 signal 预览方块位置
 
-var 生成边界 = 64
+var 生成边界 = 128
 
 var 噪声
 var 噪声类型 = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kopibfgoc8i3"]
+[gd_scene load_steps=11 format=3 uid="uid://kopibfgoc8i3"]
 
 [ext_resource type="PackedScene" uid="uid://bkrojaqnadfjb" path="res://source/system/world.tscn" id="1_ibojt"]
 [ext_resource type="PackedScene" uid="uid://gc703yhwuvqw" path="res://source/system/blockboard.tscn" id="2_lueyy"]
@@ -56,6 +56,8 @@ func _process(delta):
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 "
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybc3v"]
+
 [sub_resource type="GDScript" id="GDScript_wlrxb"]
 script/source = "
 extends Button
@@ -94,8 +96,8 @@ offset_bottom = 56.0
 theme_override_fonts/font = ExtResource("7_vfiph")
 theme_override_font_sizes/font_size = 32
 text = "MoYuStuido 2023
-TinyLand A12    Power BY Godot 4.0
-a2023012701"
+TinyLand A13    Power BY Godot 4.0
+a2023013001"
 horizontal_alignment = 1
 script = SubResource("GDScript_reyjm")
 
@@ -108,6 +110,7 @@ offset_left = 1835.0
 offset_top = 996.0
 offset_right = 1900.0
 offset_bottom = 1061.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ybc3v")
 icon = ExtResource("5_mrgs1")
 flat = true
 icon_alignment = 1

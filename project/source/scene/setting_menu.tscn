@@ -45,43 +45,43 @@ offset_bottom = 568.0
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -624.0
-offset_top = -278.0
-offset_right = 973.0
-offset_bottom = 730.0
+offset_left = -900.0
+offset_top = -600.0
+offset_right = 8100.0
+offset_bottom = 5400.0
 color = Color(0, 0, 0, 1)
 
 [node name="Setting" type="Label" parent="."]
 layout_mode = 0
-offset_left = 253.0
-offset_top = 26.0
-offset_right = 397.0
-offset_bottom = 77.0
+offset_left = 800.0
+offset_top = 96.0
+offset_right = 1103.0
+offset_bottom = 206.0
 theme_override_fonts/font = ExtResource("1_pwo85")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 128
 text = "Setting
 "
 
 [node name="Info" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 122.0
-offset_top = 231.0
-offset_right = 458.0
-offset_bottom = 282.0
+offset_left = 520.0
+offset_top = 608.0
+offset_right = 1560.0
+offset_bottom = 707.0
 rotation = -0.258309
 theme_override_fonts/font = ExtResource("1_pwo85")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 128
 text = "Nothing at this moment !   ;D"
 
 [node name="Save" type="Button" parent="."]
 layout_mode = 0
-offset_left = 507.0
-offset_top = 303.0
-offset_right = 609.0
-offset_bottom = 334.0
+offset_left = 1514.0
+offset_top = 814.0
+offset_right = 1714.0
+offset_bottom = 918.0
 theme_override_fonts/font = ExtResource("1_pwo85")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 128
 text = "Save"
 flat = true
 script = SubResource("GDScript_g3mwf")

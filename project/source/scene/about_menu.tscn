@@ -83,10 +83,10 @@ script = SubResource("GDScript_d566j")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 280.0
-offset_right = 1843.0
-offset_bottom = 403.0
+offset_left = 28.0
+offset_top = 125.0
+offset_right = 1836.0
+offset_bottom = 248.0
 theme_override_fonts/font = ExtResource("2_58jik")
 theme_override_font_sizes/font_size = 128
 text = "MoYuStudio 2020-2023"
@@ -95,10 +95,10 @@ script = SubResource("GDScript_5m3qa")
 
 [node name="Label" type="Label" parent="Title"]
 layout_mode = 0
-offset_left = 533.0
-offset_top = 188.0
-offset_right = 1249.0
-offset_bottom = 570.0
+offset_left = 484.0
+offset_top = 168.0
+offset_right = 1322.0
+offset_bottom = 778.0
 theme_override_fonts/font = ExtResource("2_58jik")
 theme_override_font_sizes/font_size = 64
 text = "= The World Creator =
@@ -106,5 +106,8 @@ WilsonVinson
 
 = Thanks =
 Eric
-yongheng"
+yongheng
+
+= Music =
+In Dreams   -   by Scott Buckley"
 horizontal_alignment = 1
