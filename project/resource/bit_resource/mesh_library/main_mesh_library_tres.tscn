@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ildidhst2had"]
+[gd_scene load_steps=19 format=3 uid="uid://ildidhst2had"]
 
 [ext_resource type="ArrayMesh" uid="uid://x1vu43jtsdda" path="res://resource/graphics/tile/models/dirt.obj" id="1_bieea"]
 [ext_resource type="ArrayMesh" uid="uid://jwkhnuky25k3" path="res://resource/graphics/tile/models/grass.obj" id="2_xvxom"]
@@ -16,8 +16,10 @@
 [ext_resource type="ArrayMesh" uid="uid://bj060qyuffsha" path="res://resource/graphics/tile/models/water_island.obj" id="14_dv2rw"]
 [ext_resource type="ArrayMesh" uid="uid://cn31lrnijvm1a" path="res://resource/graphics/tile/models/building_house.obj" id="15_xafd3"]
 [ext_resource type="ArrayMesh" uid="uid://d15h45g2rxa32" path="res://resource/graphics/tile/models/building_village.obj" id="16_dmods"]
+[ext_resource type="ArrayMesh" uid="uid://hv76ho7pe01s" path="res://resource/graphics/tile/models/building_cabin.obj" id="17_8g2sf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x4246"]
+radius = 0.6
 
 [node name="main_mesh_library_tres" type="Node3D"]
 
@@ -163,4 +165,13 @@ mesh = ExtResource("16_dmods")
 [node name="StaticBody" type="StaticBody3D" parent="15"]
 
 [node name="CollisionShape" type="CollisionShape3D" parent="15/StaticBody"]
+shape = SubResource("SphereShape3D_x4246")
+
+[node name="16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+mesh = ExtResource("17_8g2sf")
+
+[node name="StaticBody" type="StaticBody3D" parent="16"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="16/StaticBody"]
 shape = SubResource("SphereShape3D_x4246")
