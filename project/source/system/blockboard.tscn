@@ -27,6 +27,23 @@ var class_data = {
 			
 		},
 	},
+	1:{
+		'name':'0',
+		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
+		'button_data':{
+			0:{
+				'name':'0',
+				'id':1,
+				'money':100,
+				'soil':10,
+				'wood':0,
+				'stone':0,
+				'iron':0,
+				'gold':0,
+			},
+			
+		},
+	},
 }
 
 var block_be_choose = -1
