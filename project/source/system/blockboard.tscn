@@ -16,12 +16,12 @@ script/source = "
 extends Control
 
 func _ready():
-	pass
+	var 视口尺寸 = get_viewport_rect().size
+	position.y = 视口尺寸.y - 175
 
 func _process(delta):
 	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.y = 视口尺寸.y - 元素尺寸.y
+	position.y = 视口尺寸.y - 175
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_al5lh"]
@@ -70,8 +70,8 @@ script = SubResource("GDScript_oju1c")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_top = 130.0
-offset_right = 1920.0
-offset_bottom = 230.0
+offset_right = 6000.0
+offset_bottom = 9130.0
 color = Color(1, 1, 1, 0.235294)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

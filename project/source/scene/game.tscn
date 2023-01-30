@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kopibfgoc8i3"]
+[gd_scene load_steps=10 format=3 uid="uid://kopibfgoc8i3"]
 
 [ext_resource type="PackedScene" uid="uid://bkrojaqnadfjb" path="res://source/system/world.tscn" id="1_ibojt"]
 [ext_resource type="PackedScene" uid="uid://gc703yhwuvqw" path="res://source/system/blockboard.tscn" id="2_lueyy"]
@@ -56,6 +56,23 @@ func _process(delta):
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 "
 
+[sub_resource type="GDScript" id="GDScript_wlrxb"]
+script/source = "
+extends Button
+
+func _ready():
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0] - 元素尺寸[0]
+	position.y = 视口尺寸[1] - 元素尺寸[1]
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0] - 元素尺寸[0]
+	position.y = 视口尺寸[1] - 元素尺寸[1]
+"
+
 [node name="Game" type="Node3D"]
 script = SubResource("GDScript_mah7m")
 
@@ -95,6 +112,7 @@ icon = ExtResource("5_mrgs1")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = SubResource("GDScript_wlrxb")
 
 [node name="Transition" parent="." instance=ExtResource("2_sqya3")]
 visible = false
