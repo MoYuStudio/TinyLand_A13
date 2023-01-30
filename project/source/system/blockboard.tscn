@@ -1,0 +1,264 @@
+[gd_scene load_steps=2 format=3 uid="uid://boovn5g7ep7qt"]
+
+[sub_resource type="GDScript" id="GDScript_s1kb0"]
+script/source = "
+extends Node2D
+
+const class_original = preload('res://source/object/blockboard_class.tscn')
+
+var group_list = []
+var the_group
+
+var class_data = {
+	0:{
+		'name':'Ground',
+		'button_icon':'res://resource/graphics/tile/0.png',
+		'button_data':{
+			0:{
+				'name':'Soil',
+				'id':1,
+				'money':100,
+				'soil':10,
+				'wood':0,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+			1:{
+				'name':'Grass',
+				'id':0,
+				'money':200,
+				'soil':10,
+				'wood':5,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+			2:{
+				'name':'Sand',
+				'id':2,
+				'money':300,
+				'soil':5,
+				'wood':5,
+				'stone':5,
+				'brick':0,
+				'steel':0,
+				'glass':15,
+			},
+			3:{
+				'name':'Stone',
+				'id':3,
+				'money':200,
+				'soil':5,
+				'wood':0,
+				'stone':15,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+			4:{
+				'name':'Water',
+				'id':4,
+				'money':500,
+				'soil':0,
+				'wood':0,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+		},
+	},
+	1:{
+		'name':'Farming',
+		'button_icon':'res://resource/graphics/tile/257.png',
+		'button_data':{
+			0:{
+				'name':'0',
+				'id':256,
+				'money':0,
+				'soil':0,
+				'wood':0,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+			1:{
+				'name':'1',
+				'id':257,
+				'money':0,
+				'soil':0,
+				'wood':0,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+			2:{
+				'name':'2',
+				'id':262,
+				'money':100,
+				'soil':10,
+				'wood':30,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+		},
+	},
+	2:{
+		'name':'Industrial',
+		'button_icon':'res://resource/graphics/tile/512.png',
+		'button_data':{
+			0:{
+				'name':'0',
+				'id':263,
+				'money':500,
+				'soil':10,
+				'wood':100,
+				'stone':30,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+			1:{
+				'name':'1',
+				'id':512,
+				'money':15000,
+				'soil':100,
+				'wood':300,
+				'stone':500,
+				'brick':600,
+				'steel':300,
+				'glass':100,
+			},
+		},
+	},
+	3:{
+		'name':'Finance',
+		'button_icon':'res://resource/graphics/tile/769.png',
+		'button_data':{
+			0:{
+				'name':'0',
+				'id':769,
+				'money':8000,
+				'soil':100,
+				'wood':100,
+				'stone':100,
+				'brick':300,
+				'steel':1000,
+				'glass':300,
+			},
+		},
+	},
+	4:{
+		'name':'Infrastructure',
+		'button_icon':'res://resource/graphics/tile/254.png',
+		'button_data':{
+			0:{
+				'name':'0',
+				'id':255,
+				'money':999999,
+				'soil':0,
+				'wood':0,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+		},
+	},
+	5:{
+		'name':'Other',
+		'button_icon':'res://resource/graphics/tile/255.png',
+		'button_data':{
+			0:{
+				'name':'0',
+				'id':255,
+				'money':999999,
+				'soil':0,
+				'wood':0,
+				'stone':0,
+				'brick':0,
+				'steel':0,
+				'glass':0,
+			},
+		},
+	},
+}
+
+var block_be_choose = -1
+
+var blockboard_button_list = []
+var blockboard_click_lock = false
+
+func _ready():
+	for class_is in class_data:
+		var class_instance = class_original.instance()
+		class_instance.name = class_data[class_is]['name']
+		class_instance.button_icon = class_data[class_is]['button_icon']
+		class_instance.button_data = class_data[class_is]['button_data']
+		class_instance.rect_position.x = 1920/6 + 256*class_is
+		class_instance.rect_position.y = 1080-151
+		# class_instance.Group.rect_position.x = - 256*class_is
+		self.add_child(class_instance)
+		group_list.append(class_data[class_is]['name'])
+	for group_id in len(group_list):
+		get_node(group_list[group_id]+'/Group').rect_position.x = -1920/6 - 256*group_id
+		get_node(group_list[group_id]+'/Button').text = str(group_list[group_id])
+	
+	for class_is in class_data:
+		blockboard_button_list.append(class_data[class_is]['name']+'/Button')
+		for data_id in class_data[class_is]['button_data']:
+			var blockboard_id = class_data[class_is]['name'] + \\
+								'/Group/Group/HBoxContainer/' + \\
+								class_data[class_is]['button_data'][data_id]['name']
+			blockboard_button_list.append(blockboard_id+'/Button')
+			
+		
+func _process(delta):
+	if Input.is_action_pressed('esc'):
+		for group in group_list:
+			get_node(group+'/Button').group_visible = false
+			get_node(group+'/Group').visible = false
+	for group in group_list:
+		if group != the_group:
+			if get_node(group+'/Button').group_visible == true:
+				the_group = group
+				var group_list_coby = group_list
+				group_list_coby.erase(group)
+				for group_copy in group_list_coby:
+					get_node(group_copy+'/Button').group_visible = false
+					get_node(group_copy+'/Group').visible = false
+				group_list.append(the_group)
+	
+	for class_is in class_data:
+		#print(class_data[class_is]['name'])
+		for data_id in class_data[class_is]['button_data']:
+			var blockboard_id = class_data[class_is]['name'] + \\
+								'/Group/Group/HBoxContainer/' + \\
+								class_data[class_is]['button_data'][data_id]['name']
+			if get_node(blockboard_id+'/Button').button_click:
+				block_be_choose = get_node(blockboard_id).id
+	
+	for blockboard_button in blockboard_button_list:
+		if get_node(blockboard_button).blockboard_click_lock == true:
+			blockboard_click_lock = true
+			break
+		if get_node(blockboard_button).blockboard_click_lock == false:
+			blockboard_click_lock = false
+	
+"
+
+[node name="Blockboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_s1kb0")

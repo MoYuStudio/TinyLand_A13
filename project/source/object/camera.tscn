@@ -48,20 +48,19 @@ func _select_target(click_position: Vector2) -> void:
 	params.exclude = []
 	params.collision_mask = 1
 	射线投影.force_raycast_update()
-	#print(\"click\")
 	if 射线投影.is_colliding():
 		var iray = space_state.intersect_ray(params)
 		if iray:
 			var 碰撞点位置 = iray['position']
 			碰撞点位置 = Vector3(碰撞点位置[0],0,碰撞点位置[2])
 			emit_signal('碰撞点', 碰撞点位置)
-		
+
 func _physics_process(delta):
 	
 	var camera_pos = position
 	
 	if mouse_lock == true:
-
+	
 		var input = Vector3()
 		
 		# 输入
@@ -121,8 +120,6 @@ func _physics_process(delta):
 		
 	elif mouse_lock == false:
 		pass
-	
-	
 "
 
 [sub_resource type="Shader" id="Shader_a0xps"]

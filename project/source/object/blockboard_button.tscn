@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3mq1xe1mtgcj"]
+[gd_scene load_steps=4 format=3 uid="uid://b3mq1xe1mtgcj"]
+
+[ext_resource type="Texture2D" uid="uid://byj4c8gg4la2w" path="res://resource/graphics/tile/side/building_cabin.png" id="1_inxbr"]
 
 [sub_resource type="GDScript" id="GDScript_gnu1y"]
 script/source = "
@@ -10,17 +12,46 @@ extends Control
 @export var soil = 0
 @export var wood = 0
 @export var stone = 0
-@export var brick = 0
-@export var steel = 0
-@export var glass = 0
+@export var iron = 0
+@export var gold = 0
 
 var scale_zoom = 4.6
 var bar_y = 600
 var button_be_pressed = false
 
 func _ready():
-	var block_icon = load('res://resource/graphics/tile/'+ str(id) +'.png')
+	var block_icon = load('res://resource/graphics/tile/side/building_cabin.png')
 	$Button.icon = block_icon
+"
+
+[sub_resource type="GDScript" id="GDScript_1gxyy"]
+script/source = "
+extends Button
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 1.25
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
 "
 
 [node name="BlockboardButton" type="Control"]
@@ -36,3 +67,6 @@ script = SubResource("GDScript_gnu1y")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+icon = ExtResource("1_inxbr")
+flat = true
+script = SubResource("GDScript_1gxyy")
