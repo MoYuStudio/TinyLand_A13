@@ -11,7 +11,12 @@ var 生成边界 = 128
 var 噪声
 var 噪声类型 = 3
 var 噪声种子 = randi_range(0,999999999)
-var 噪声频率 = 0.03
+var 噪声频率 = 0.1
+
+var 树林噪声
+var 树林噪声类型 = 3
+var 树林噪声种子 = randi_range(0,999999999)
+var 树林噪声频率 = 0.3
 
 var 碰撞点
 var 碰撞类型
@@ -21,6 +26,11 @@ func _ready():
 	噪声.noise_type = 噪声类型
 	噪声.seed = 噪声种子
 	噪声.frequency = 噪声频率
+	
+	树林噪声 = FastNoiseLite.new()
+	树林噪声.noise_type = 树林噪声类型
+	树林噪声.seed = 树林噪声种子
+	树林噪声.frequency = 树林噪声频率
 	
 	for x in range(-生成边界,生成边界):
 		for z in range(-生成边界/3.5,生成边界/3.5):
@@ -39,9 +49,10 @@ func _ready():
 				if 90 <= 生成概率 and 生成概率 < 101:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),8,生成方向) # 沙滩石头
 			if 20 <= 瓷砖类型 and 瓷砖类型 < 270:
-				if 0 <= 生成概率 and 生成概率 < 30:
+				var 树林瓷砖类型 = 树林噪声.get_noise_2d(x/3.5,z)*1000
+				if -1000 <= 树林瓷砖类型 and 树林瓷砖类型 < 0:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),1,生成方向) # 草地
-				if 30 <= 生成概率 and 生成概率 < 101:
+				if 0 <= 树林瓷砖类型 and 树林瓷砖类型 < 1000:
 					set_cell_item(Vector3(x,0,z*4+六边形生成错位),6,生成方向) # 树林
 			if 270 <= 瓷砖类型 and 瓷砖类型 < 300:
 				if 0 <= 生成概率 and 生成概率 < 30:
