@@ -38,7 +38,7 @@ func _process(delta):
 	pass
 
 func _on_hex_grid_map_prechoose(预览方块位置):
-	预览方块位置 = Vector3(预览方块位置.x,预览方块位置.y+0.1,预览方块位置.z)
+	预览方块位置 = Vector3(预览方块位置.x,预览方块位置.y,预览方块位置.z)
 	position = 预览方块位置
 "
 
@@ -56,7 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="PreChoose" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0)
 mesh = ExtResource("5_np11w")
 surface_material_override/0 = SubResource("StandardMaterial3D_0tj2j")
 surface_material_override/1 = SubResource("StandardMaterial3D_vfxsa")
