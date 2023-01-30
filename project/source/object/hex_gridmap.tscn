@@ -6,7 +6,7 @@
 script/source = "
 extends GridMap
 
-var 生成边界 = 128
+var 生成边界 = 64
 
 var 噪声
 var 噪声类型 = 3
@@ -69,9 +69,11 @@ func _ready():
 				set_cell_item(Vector3(x,0,z*4+六边形生成错位),11,生成方向) # 戈壁大石头
 
 func _on_camera_click_pos(碰撞点位置):
+	
 	print(碰撞点位置)
 	var 碰撞点 = local_to_map(碰撞点位置)
-	set_cell_item(Vector3(碰撞点.x,0,碰撞点.z),-1,0)
+	if Input.is_action_pressed('Left_Click'):
+		set_cell_item(Vector3(碰撞点.x,0,碰撞点.z),14,0)
 "
 
 [node name="HexGridMap" type="GridMap"]
