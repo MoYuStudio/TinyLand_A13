@@ -33,6 +33,7 @@ func _input(event):
 			
 		if event is InputEventMouseMotion:
 			mouse_delta = event.relative
+			_select_target(event.position)
 			
 		if event is InputEventMouseButton or event is InputEventScreenTouch:
 			_select_target(event.position)

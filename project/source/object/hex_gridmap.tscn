@@ -6,6 +6,8 @@
 script/source = "
 extends GridMap
 
+signal 预览方块位置
+
 var 生成边界 = 64
 
 var 噪声
@@ -72,8 +74,10 @@ func _on_camera_click_pos(碰撞点位置):
 	
 	print(碰撞点位置)
 	var 碰撞点 = local_to_map(碰撞点位置)
-	if Input.is_action_pressed('Left_Click'):
-		set_cell_item(Vector3(碰撞点.x,0,碰撞点.z),14,0)
+	if get_cell_item(Vector3(碰撞点.x,0,碰撞点.z)) != -1:
+		emit_signal('预览方块位置', map_to_local(Vector3(碰撞点.x,0,碰撞点.z)))
+		if Input.is_action_pressed('Left_Click'):
+			set_cell_item(Vector3(碰撞点.x,0,碰撞点.z),14,0)
 "
 
 [node name="HexGridMap" type="GridMap"]
