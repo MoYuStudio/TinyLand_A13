@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://kopibfgoc8i3"]
+[gd_scene load_steps=9 format=3 uid="uid://kopibfgoc8i3"]
 
 [ext_resource type="PackedScene" uid="uid://bkrojaqnadfjb" path="res://source/system/world.tscn" id="1_ibojt"]
+[ext_resource type="PackedScene" uid="uid://boovn5g7ep7qt" path="res://source/system/blockboard.tscn" id="2_lueyy"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/animation/transition_1.tscn" id="2_sqya3"]
 [ext_resource type="Texture2D" uid="uid://do4ks8ackpthp" path="res://resource/graphics/ui/aim_point.png" id="5_632i4"]
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="7_vfiph"]
@@ -59,6 +60,8 @@ func _process(delta):
 script = SubResource("GDScript_mah7m")
 
 [node name="World" parent="." instance=ExtResource("1_ibojt")]
+
+[node name="Blockboard" parent="." instance=ExtResource("2_lueyy")]
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

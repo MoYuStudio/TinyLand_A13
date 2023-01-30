@@ -16,7 +16,7 @@ var button_data = {}
 func _ready():
 	$Button.icon = load(str(button_icon))
 	for button in button_data:
-		var button_instance = button_original.instance()
+		var button_instance = button_original.instantiate()
 		button_instance.name = button_data[button]['name']
 		button_instance.id = button_data[button]['id']
 		button_instance.money = button_data[button]['money']
@@ -70,7 +70,7 @@ extends ScrollContainer
 
 func _ready():
 	get_h_scroll_bar().modulate = Color(0, 0, 0, 0)
-	get_h_scroll_bar().rect_scale.y = 0
+	get_h_scroll_bar().scale.y = 0
 "
 
 [sub_resource type="GDScript" id="GDScript_xk5ls"]

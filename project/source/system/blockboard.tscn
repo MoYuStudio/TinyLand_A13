@@ -2,7 +2,7 @@
 
 [sub_resource type="GDScript" id="GDScript_s1kb0"]
 script/source = "
-extends Node2D
+extends Control
 
 const class_original = preload('res://source/object/blockboard_class.tscn')
 
@@ -12,7 +12,7 @@ var the_group
 var class_data = {
 	0:{
 		'name':'Ground',
-		'button_icon':'res://resource/graphics/tile/0.png',
+		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
 		'button_data':{
 			0:{
 				'name':'Soil',
@@ -21,9 +21,8 @@ var class_data = {
 				'soil':10,
 				'wood':0,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 			1:{
 				'name':'Grass',
@@ -32,9 +31,8 @@ var class_data = {
 				'soil':10,
 				'wood':5,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 			2:{
 				'name':'Sand',
@@ -43,9 +41,8 @@ var class_data = {
 				'soil':5,
 				'wood':5,
 				'stone':5,
-				'brick':0,
-				'steel':0,
-				'glass':15,
+				'iron':0,
+				'gold':0,
 			},
 			3:{
 				'name':'Stone',
@@ -54,9 +51,8 @@ var class_data = {
 				'soil':5,
 				'wood':0,
 				'stone':15,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 			4:{
 				'name':'Water',
@@ -65,15 +61,14 @@ var class_data = {
 				'soil':0,
 				'wood':0,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 		},
 	},
 	1:{
 		'name':'Farming',
-		'button_icon':'res://resource/graphics/tile/257.png',
+		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
 		'button_data':{
 			0:{
 				'name':'0',
@@ -82,9 +77,8 @@ var class_data = {
 				'soil':0,
 				'wood':0,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 			1:{
 				'name':'1',
@@ -93,9 +87,8 @@ var class_data = {
 				'soil':0,
 				'wood':0,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 			2:{
 				'name':'2',
@@ -104,15 +97,14 @@ var class_data = {
 				'soil':10,
 				'wood':30,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 		},
 	},
 	2:{
 		'name':'Industrial',
-		'button_icon':'res://resource/graphics/tile/512.png',
+		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
 		'button_data':{
 			0:{
 				'name':'0',
@@ -121,9 +113,8 @@ var class_data = {
 				'soil':10,
 				'wood':100,
 				'stone':30,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 			1:{
 				'name':'1',
@@ -132,15 +123,14 @@ var class_data = {
 				'soil':100,
 				'wood':300,
 				'stone':500,
-				'brick':600,
-				'steel':300,
-				'glass':100,
+				'iron':0,
+				'gold':0,
 			},
 		},
 	},
 	3:{
 		'name':'Finance',
-		'button_icon':'res://resource/graphics/tile/769.png',
+		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
 		'button_data':{
 			0:{
 				'name':'0',
@@ -149,15 +139,14 @@ var class_data = {
 				'soil':100,
 				'wood':100,
 				'stone':100,
-				'brick':300,
-				'steel':1000,
-				'glass':300,
+				'iron':0,
+				'gold':0,
 			},
 		},
 	},
 	4:{
 		'name':'Infrastructure',
-		'button_icon':'res://resource/graphics/tile/254.png',
+		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
 		'button_data':{
 			0:{
 				'name':'0',
@@ -166,15 +155,14 @@ var class_data = {
 				'soil':0,
 				'wood':0,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 		},
 	},
 	5:{
 		'name':'Other',
-		'button_icon':'res://resource/graphics/tile/255.png',
+		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
 		'button_data':{
 			0:{
 				'name':'0',
@@ -183,9 +171,8 @@ var class_data = {
 				'soil':0,
 				'wood':0,
 				'stone':0,
-				'brick':0,
-				'steel':0,
-				'glass':0,
+				'iron':0,
+				'gold':0,
 			},
 		},
 	},
@@ -198,17 +185,17 @@ var blockboard_click_lock = false
 
 func _ready():
 	for class_is in class_data:
-		var class_instance = class_original.instance()
+		var class_instance = class_original.instantiate()
 		class_instance.name = class_data[class_is]['name']
 		class_instance.button_icon = class_data[class_is]['button_icon']
 		class_instance.button_data = class_data[class_is]['button_data']
-		class_instance.rect_position.x = 1920/6 + 256*class_is
-		class_instance.rect_position.y = 1080-151
+		class_instance.position.x = 1920/6 + 256*class_is
+		class_instance.position.y = 1080-151
 		# class_instance.Group.rect_position.x = - 256*class_is
 		self.add_child(class_instance)
 		group_list.append(class_data[class_is]['name'])
 	for group_id in len(group_list):
-		get_node(group_list[group_id]+'/Group').rect_position.x = -1920/6 - 256*group_id
+		get_node(group_list[group_id]+'/Group').position.x = -1920/6 - 256*group_id
 		get_node(group_list[group_id]+'/Button').text = str(group_list[group_id])
 	
 	for class_is in class_data:
