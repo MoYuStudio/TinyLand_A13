@@ -19,12 +19,12 @@ func _physics_process(delta):
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tj2j"]
 transparency = 1
-albedo_color = Color(1, 1, 0, 0.235294)
+albedo_color = Color(0, 0.635294, 0, 0.376471)
 metallic_texture_channel = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfxsa"]
 transparency = 1
-albedo_color = Color(1, 1, 0, 0.235294)
+albedo_color = Color(0, 0.635294, 0, 0.376471)
 metallic_texture_channel = 3
 
 [sub_resource type="GDScript" id="GDScript_2jevk"]
@@ -37,9 +37,10 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_hex_grid_map_prechoose(预览方块位置):
-	预览方块位置 = Vector3(预览方块位置.x,预览方块位置.y,预览方块位置.z)
-	position = 预览方块位置
+func _on_hex_grid_map_prechoose(预览方块位置,buildable):
+	if buildable == true:
+		预览方块位置 = Vector3(预览方块位置.x,预览方块位置.y,预览方块位置.z)
+		position = 预览方块位置
 "
 
 [node name="World" type="Node3D"]

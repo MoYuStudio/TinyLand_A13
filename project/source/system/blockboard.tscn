@@ -1,116 +1,161 @@
-[gd_scene load_steps=2 format=3 uid="uid://boovn5g7ep7qt"]
+[gd_scene load_steps=14 format=3 uid="uid://gc703yhwuvqw"]
 
-[sub_resource type="GDScript" id="GDScript_s1kb0"]
+[ext_resource type="Texture2D" uid="uid://ckg1nuxmscdos" path="res://resource/graphics/tile/isometric/building_house_E.png" id="1_apveg"]
+[ext_resource type="Texture2D" uid="uid://d1usq10xxx7xq" path="res://resource/graphics/tile/isometric/building_farm_E.png" id="2_8f3fu"]
+[ext_resource type="Texture2D" uid="uid://bjnp8uy4cv740" path="res://resource/graphics/tile/isometric/building_sheep_E.png" id="3_gxqun"]
+[ext_resource type="Texture2D" uid="uid://bxagp4j386n41" path="res://resource/graphics/tile/isometric/building_mill_E.png" id="4_to0p3"]
+[ext_resource type="Texture2D" uid="uid://bybdk17j7mirh" path="res://resource/graphics/tile/isometric/building_mine_E.png" id="5_vy4vh"]
+[ext_resource type="Texture2D" uid="uid://bs18vdkdkorq6" path="res://resource/graphics/tile/isometric/building_smelter_E.png" id="6_joe7x"]
+[ext_resource type="Texture2D" uid="uid://bvxk6quuh0xly" path="res://resource/graphics/tile/isometric/building_market_E.png" id="7_oysss"]
+[ext_resource type="Texture2D" uid="uid://dmni1iuyq5rfi" path="res://resource/graphics/tile/isometric/building_dock_E.png" id="8_eoa2a"]
+[ext_resource type="Texture2D" uid="uid://dgtf28ptcx7q7" path="res://resource/graphics/tile/isometric/building_tower_E.png" id="9_0klif"]
+[ext_resource type="Texture2D" uid="uid://cfj61ij620ugy" path="res://resource/graphics/tile/isometric/building_wall_E.png" id="10_drms6"]
+
+[sub_resource type="GDScript" id="GDScript_oju1c"]
 script/source = "
 extends Control
 
-const class_original = preload('res://source/object/blockboard_class.tscn')
+func _ready():
+	pass
 
-var group_list = []
-var the_group
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.y = 视口尺寸.y - 元素尺寸.y
+"
 
-var class_data = {
-	0:{
-		'name':'0',
-		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
-		'button_data':{
-			0:{
-				'name':'0',
-				'id':1,
-				'money':100,
-				'soil':10,
-				'wood':0,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-			
-		},
-	},
-	1:{
-		'name':'0',
-		'button_icon':'res://resource/graphics/tile/side/building_cabin.png',
-		'button_data':{
-			0:{
-				'name':'0',
-				'id':1,
-				'money':100,
-				'soil':10,
-				'wood':0,
-				'stone':0,
-				'iron':0,
-				'gold':0,
-			},
-			
-		},
-	},
-}
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_al5lh"]
 
-var block_be_choose = -1
+[sub_resource type="GDScript" id="GDScript_7bgh6"]
+script/source = "
+extends Button
 
-var blockboard_button_list = []
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 6
+
 var blockboard_click_lock = false
 
-func _ready():
-	for class_is in class_data:
-		var class_instance = class_original.instantiate()
-		class_instance.name = class_data[class_is]['name']
-		class_instance.button_icon = class_data[class_is]['button_icon']
-		class_instance.button_data = class_data[class_is]['button_data']
-		class_instance.position.x = 1920/6 + 256*class_is
-		class_instance.position.y = 1080-151
-		# class_instance.Group.rect_position.x = - 256*class_is
-		print(class_instance)
-		self.add_child(class_instance)
-		group_list.append(class_data[class_is]['name'])
-	for group_id in len(group_list):
-		get_node(group_list[group_id]+'/Group').position.x = -1920/6 - 256*group_id
-		get_node(group_list[group_id]+'/Button').text = str(group_list[group_id])
-	
-	for class_is in class_data:
-		blockboard_button_list.append(class_data[class_is]['name']+'/Button')
-		for data_id in class_data[class_is]['button_data']:
-			var blockboard_id = class_data[class_is]['name'] + \\
-								'/Group/Group/HBoxContainer/' + \\
-								class_data[class_is]['button_data'][data_id]['name']
-			blockboard_button_list.append(blockboard_id+'/Button')
-			
-		
 func _process(delta):
-	if Input.is_action_pressed('Esc'):
-		for group in group_list:
-			get_node(group+'/Button').group_visible = false
-			get_node(group+'/Group').visible = false
-	for group in group_list:
-		if group != the_group:
-			if get_node(group+'/Button').group_visible == true:
-				the_group = group
-				var group_list_coby = group_list
-				group_list_coby.erase(group)
-				for group_copy in group_list_coby:
-					get_node(group_copy+'/Button').group_visible = false
-					get_node(group_copy+'/Group').visible = false
-				group_list.append(the_group)
-	
-	for class_is in class_data:
-		# print(class_data[class_is]['name'])
-		for data_id in class_data[class_is]['button_data']:
-			var blockboard_id = class_data[class_is]['name'] + \\
-								'/Group/Group/HBoxContainer/' + \\
-								class_data[class_is]['button_data'][data_id]['name']
-			if get_node(blockboard_id+'/Button').button_click:
-				block_be_choose = get_node(blockboard_id).id
-	
-	for blockboard_button in blockboard_button_list:
-		if get_node(blockboard_button).blockboard_click_lock == true:
-			blockboard_click_lock = true
-			break
-		if get_node(blockboard_button).blockboard_click_lock == false:
-			blockboard_click_lock = false
-	
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+
 "
 
 [node name="Blockboard" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-script = SubResource("GDScript_s1kb0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -905.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_oju1c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 130.0
+offset_right = 1920.0
+offset_bottom = 230.0
+color = Color(1, 1, 1, 0.235294)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 2222.0
+offset_bottom = 520.0
+scale = Vector2(0.35, 0.35)
+
+[node name="House" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_apveg")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Farm" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("2_8f3fu")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Sheep" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("3_gxqun")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Button4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("4_to0p3")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Button5" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("5_vy4vh")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Button6" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("6_joe7x")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Button7" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("7_oysss")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Button8" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("8_eoa2a")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Button9" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("9_0klif")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="Button10" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("10_drms6")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
