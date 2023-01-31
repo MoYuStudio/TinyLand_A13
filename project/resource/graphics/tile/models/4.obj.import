@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cr4am4sgxvmkw"
+path="res://.godot/imported/4.obj-40224fa2167e989a5eafecb572476aa7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/4.obj-40224fa2167e989a5eafecb572476aa7.mesh"]
+
+source_file="res://resource/graphics/tile/models/4.obj"
+dest_files=["res://.godot/imported/4.obj-40224fa2167e989a5eafecb572476aa7.mesh", "res://.godot/imported/4.obj-40224fa2167e989a5eafecb572476aa7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

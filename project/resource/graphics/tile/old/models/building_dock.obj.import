@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d44o4j4taap2"
+path="res://.godot/imported/building_dock.obj-e334e939d4253138bc2e03bd6ade2353.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_dock.obj-e334e939d4253138bc2e03bd6ade2353.mesh"]
+
+source_file="res://resource/graphics/tile/old/models/building_dock.obj"
+dest_files=["res://.godot/imported/building_dock.obj-e334e939d4253138bc2e03bd6ade2353.mesh", "res://.godot/imported/building_dock.obj-e334e939d4253138bc2e03bd6ade2353.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

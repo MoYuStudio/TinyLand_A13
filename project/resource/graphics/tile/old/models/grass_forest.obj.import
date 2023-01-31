@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dlmn5icg4kyrs"
+path="res://.godot/imported/grass_forest.obj-211cfbb53128492a40a93669dfeec3a1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grass_forest.obj-211cfbb53128492a40a93669dfeec3a1.mesh"]
+
+source_file="res://resource/graphics/tile/old/models/grass_forest.obj"
+dest_files=["res://.godot/imported/grass_forest.obj-211cfbb53128492a40a93669dfeec3a1.mesh", "res://.godot/imported/grass_forest.obj-211cfbb53128492a40a93669dfeec3a1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

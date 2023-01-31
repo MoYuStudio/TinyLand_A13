@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://gl3daikwgbaj"]
+
+[ext_resource type="MeshLibrary" uid="uid://co2fihrhl0fs4" path="res://resource/bit_resource/mesh_library/main_mesh_library.tres" id="1_v6vv6"]
+
+[sub_resource type="GDScript" id="GDScript_i6g6p"]
+script/source = "
+extends GridMap
+
+signal 预览方块位置
+
+var 生成边界 = 64
+
+var 噪声
+var 噪声类型 = 3
+var 噪声种子 = randi_range(0,999999999)
+var 噪声频率 = 0.03
+
+var 树林噪声
+var 树林噪声类型 = 3
+var 树林噪声种子 = randi_range(0,999999999)
+var 树林噪声频率 = 0.1
+
+var 碰撞点
+var 碰撞类型
+
+func _ready():
+	噪声 = FastNoiseLite.new()
+	噪声.noise_type = 噪声类型
+	噪声.seed = 噪声种子
+	噪声.frequency = 噪声频率
+	
+	树林噪声 = FastNoiseLite.new()
+	树林噪声.noise_type = 树林噪声类型
+	树林噪声.seed = 树林噪声种子
+	树林噪声.frequency = 树林噪声频率
+	
+	for x in range(-生成边界,生成边界):
+		for z in range(-生成边界,生成边界):
+			var 瓷砖类型 = 噪声.get_noise_2d(x,z)*1000
+			瓷砖类型 = int(瓷砖类型)
+			var 生成概率 = randi_range(0,100)
+			
+			if 0 <= 瓷砖类型 and 瓷砖类型 < 20:
+				set_cell_item(Vector3(x,0,z),2,0)
+			if 20 <= 瓷砖类型 and 瓷砖类型 < 200:
+				var 树林瓷砖类型 = 树林噪声.get_noise_2d(x,z)*1000
+				if -1000 <= 树林瓷砖类型 and 树林瓷砖类型 < 0:
+					set_cell_item(Vector3(x,0,z),1,0)
+				if 0 <= 树林瓷砖类型 and 树林瓷砖类型 < 1000:
+					set_cell_item(Vector3(x,0,z),5,0)
+			if 200 <= 瓷砖类型 and 瓷砖类型 < 250:
+				if 0 <= 生成概率 and 生成概率 < 70:
+					set_cell_item(Vector3(x,0,z),0,0)
+				if 70 <= 生成概率 and 生成概率 < 101:
+					set_cell_item(Vector3(x,0,z),4,0)
+			if 250 <= 瓷砖类型 and 瓷砖类型 < 1000:
+				set_cell_item(Vector3(x,0,z),3,0)
+
+			
+func _on_camera_click_pos(碰撞点位置):
+	# print(碰撞点位置)
+	var 碰撞点 = local_to_map(碰撞点位置)
+	var buildable = true
+	if get_cell_item(Vector3(碰撞点.x+2,0,碰撞点.z-2)) != -1:
+		if buildable == true:
+			emit_signal('预览方块位置', map_to_local(Vector3(碰撞点.x+2,6,碰撞点.z-2)), true)
+		if Input.is_action_pressed('Left_Click'):
+			if get_cell_item(Vector3(碰撞点.x+2,0,碰撞点.z-2)) == 1:
+				set_cell_item(Vector3(碰撞点.x+2,0,碰撞点.z-2),5,0)
+"
+
+[node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_v6vv6")
+cell_size = Vector3(1.6, 1, 1.6)
+collision_mask = 3
+script = SubResource("GDScript_i6g6p")

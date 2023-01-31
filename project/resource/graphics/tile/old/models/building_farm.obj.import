@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bg2h142u5csm4"
+path="res://.godot/imported/building_farm.obj-6291848229d3cc84213e01c6603a7cc2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_farm.obj-6291848229d3cc84213e01c6603a7cc2.mesh"]
+
+source_file="res://resource/graphics/tile/old/models/building_farm.obj"
+dest_files=["res://.godot/imported/building_farm.obj-6291848229d3cc84213e01c6603a7cc2.mesh", "res://.godot/imported/building_farm.obj-6291848229d3cc84213e01c6603a7cc2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

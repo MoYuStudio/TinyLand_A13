@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqvc37ifyr7y2"
+path="res://.godot/imported/river_end.obj-106e3ae34340e9875a0e185afa0696de.mesh"
+
+[deps]
+
+files=["res://.godot/imported/river_end.obj-106e3ae34340e9875a0e185afa0696de.mesh"]
+
+source_file="res://resource/graphics/tile/old/models/river_end.obj"
+dest_files=["res://.godot/imported/river_end.obj-106e3ae34340e9875a0e185afa0696de.mesh", "res://.godot/imported/river_end.obj-106e3ae34340e9875a0e185afa0696de.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

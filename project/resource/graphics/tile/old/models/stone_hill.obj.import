@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b77damy5pq6ic"
+path="res://.godot/imported/stone_hill.obj-2704f8987093f0e0b12a7e25fbe0f0ea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stone_hill.obj-2704f8987093f0e0b12a7e25fbe0f0ea.mesh"]
+
+source_file="res://resource/graphics/tile/old/models/stone_hill.obj"
+dest_files=["res://.godot/imported/stone_hill.obj-2704f8987093f0e0b12a7e25fbe0f0ea.mesh", "res://.godot/imported/stone_hill.obj-2704f8987093f0e0b12a7e25fbe0f0ea.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

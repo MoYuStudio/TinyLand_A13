@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtwkabjlfd57d"
+path="res://.godot/imported/unit_house.obj-7a4c2697f0f634a97a6f13882fb2293b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/unit_house.obj-7a4c2697f0f634a97a6f13882fb2293b.mesh"]
+
+source_file="res://resource/graphics/tile/old/models/unit_house.obj"
+dest_files=["res://.godot/imported/unit_house.obj-7a4c2697f0f634a97a6f13882fb2293b.mesh", "res://.godot/imported/unit_house.obj-7a4c2697f0f634a97a6f13882fb2293b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

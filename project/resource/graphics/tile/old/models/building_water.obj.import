@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dufjvltwfnd3a"
+path="res://.godot/imported/building_water.obj-9a65ab6f9bec18f394950350d7c096ca.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_water.obj-9a65ab6f9bec18f394950350d7c096ca.mesh"]
+
+source_file="res://resource/graphics/tile/old/models/building_water.obj"
+dest_files=["res://.godot/imported/building_water.obj-9a65ab6f9bec18f394950350d7c096ca.mesh", "res://.godot/imported/building_water.obj-9a65ab6f9bec18f394950350d7c096ca.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
