@@ -69,9 +69,9 @@ func _process(delta):
 	var 元素尺寸 = get_rect().size
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_hovered():
-		position.x = 270+10
+		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2+10
 	else:
-		position.x = 270
+		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_pressed():
 		get_tree().change_scene_to_file('res://source/scene/game.tscn')
 "
@@ -90,9 +90,9 @@ func _process(delta):
 	var 元素尺寸 = get_rect().size
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_hovered():
-		position.x = 270+10
+		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2+10
 	else:
-		position.x = 270
+		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_pressed():
 		get_tree().change_scene_to_file('res://source/scene/setting_menu.tscn')
 "
@@ -111,9 +111,9 @@ func _process(delta):
 	var 元素尺寸 = get_rect().size
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_hovered():
-		position.x = 270+10
+		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2+10
 	else:
-		position.x = 270
+		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	if is_pressed():
 		get_tree().quit()
 "
