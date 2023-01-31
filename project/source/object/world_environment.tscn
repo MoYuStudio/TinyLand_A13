@@ -415,9 +415,9 @@ script = SubResource("GDScript_yyiph")
 
 [node name="SunLight_bata" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.173648, 0.984808, 0, -0.984808, -0.173648, 0, 0, 0)
-light_energy = 1.6
 shadow_enabled = true
 script = SubResource("GDScript_xjh1p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+visible = false
 light_color = Color(0, 0, 0, 1)
