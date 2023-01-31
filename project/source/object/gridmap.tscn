@@ -56,8 +56,10 @@ func _ready():
 					set_cell_item(Vector3(x,0,z),0,0)
 				if 70 <= 生成概率 and 生成概率 < 101:
 					set_cell_item(Vector3(x,0,z),4,0)
-			if 250 <= 瓷砖类型 and 瓷砖类型 < 1000:
+			if 250 <= 瓷砖类型 and 瓷砖类型 < 350:
 				set_cell_item(Vector3(x,0,z),3,0)
+			if 350 <= 瓷砖类型 and 瓷砖类型 < 1000:
+				set_cell_item(Vector3(x,0,z),8,0)
 
 			
 func _on_camera_click_pos(碰撞点位置):

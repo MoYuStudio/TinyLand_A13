@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/animation/transition_1.tscn" id="1_7q4ie"]
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_g161a"]
+[ext_resource type="Texture2D" uid="uid://cj1fgv4cxwc8v" path="res://resource/graphics/logo/icon.png" id="2_2crxc"]
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="2_4f7yj"]
-[ext_resource type="Texture2D" uid="uid://byj4c8gg4la2w" path="res://resource/graphics/tile/old/side/building_cabin.png" id="2_f80vq"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="4_4rgi8"]
 [ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="6_cuv88"]
 
@@ -173,7 +173,7 @@ layout_mode = 0
 offset_right = 256.0
 offset_bottom = 256.0
 pivot_offset = Vector2(132, 124)
-icon = ExtResource("2_f80vq")
+icon = ExtResource("2_2crxc")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_y1s7a")
@@ -181,10 +181,10 @@ script = SubResource("GDScript_y1s7a")
 [node name="Title" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 575.0
-offset_top = 172.0
-offset_right = 1263.0
-offset_bottom = 367.0
+offset_left = 577.0
+offset_top = 209.0
+offset_right = 1265.0
+offset_bottom = 404.0
 theme_override_fonts/font = ExtResource("1_g161a")
 theme_override_font_sizes/font_size = 256
 text = "TinyLand"
@@ -195,10 +195,10 @@ script = SubResource("GDScript_3c47t")
 [node name="Start" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 904.0
-offset_top = 426.0
-offset_right = 1024.0
-offset_bottom = 482.0
+offset_left = 907.0
+offset_top = 471.0
+offset_right = 1027.0
+offset_bottom = 527.0
 theme_override_fonts/font = ExtResource("1_g161a")
 theme_override_font_sizes/font_size = 64
 text = "Start"
@@ -208,9 +208,9 @@ script = SubResource("GDScript_cf3qh")
 texture_filter = 1
 layout_mode = 0
 offset_left = 897.0
-offset_top = 568.0
+offset_top = 587.0
 offset_right = 1049.0
-offset_bottom = 624.0
+offset_bottom = 645.0
 theme_override_fonts/font = ExtResource("1_g161a")
 theme_override_font_sizes/font_size = 64
 text = "Setting"
