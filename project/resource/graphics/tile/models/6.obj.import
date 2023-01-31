@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dellunyl54xln"
+path="res://.godot/imported/6.obj-9a3207a90cb9f4b6c9a6e14325f86c47.mesh"
+
+[deps]
+
+files=["res://.godot/imported/6.obj-9a3207a90cb9f4b6c9a6e14325f86c47.mesh"]
+
+source_file="res://resource/graphics/tile/models/6.obj"
+dest_files=["res://.godot/imported/6.obj-9a3207a90cb9f4b6c9a6e14325f86c47.mesh", "res://.godot/imported/6.obj-9a3207a90cb9f4b6c9a6e14325f86c47.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
