@@ -15,6 +15,7 @@ func _ready():
 
 func _physics_process(delta):
 	pass
+
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw2tg"]

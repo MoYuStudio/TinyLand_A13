@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://gc703yhwuvqw"]
+[gd_scene load_steps=5 format=3 uid="uid://gc703yhwuvqw"]
+
+[ext_resource type="Texture2D" uid="uid://dne5isv4m5uir" path="res://resource/graphics/icon/9.png" id="1_lajxu"]
 
 [sub_resource type="GDScript" id="GDScript_oju1c"]
 script/source = "
@@ -38,7 +40,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	if is_hovered():
-		position.y = -6*(hovered_zoom_level-1)
+		position.y = -0.6*(hovered_zoom_level-1)
 		blockboard_click_lock = true
 	else:
 		position.y = 0
@@ -58,83 +60,113 @@ script = SubResource("GDScript_oju1c")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_top = 130.0
+offset_top = 160.0
 offset_right = 6000.0
-offset_bottom = 9130.0
+offset_bottom = 9160.0
 color = Color(1, 1, 1, 0.235294)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 2222.0
-offset_bottom = 520.0
-scale = Vector2(0.35, 0.35)
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 64.0
+scale = Vector2(6, 6)
 
 [node name="House" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Farm" type="Button" parent="HBoxContainer"]
+[node name="House2" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Sheep" type="Button" parent="HBoxContainer"]
+[node name="House3" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Button4" type="Button" parent="HBoxContainer"]
+[node name="House4" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Button5" type="Button" parent="HBoxContainer"]
+[node name="House5" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Button6" type="Button" parent="HBoxContainer"]
+[node name="House6" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Button7" type="Button" parent="HBoxContainer"]
+[node name="House7" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Button8" type="Button" parent="HBoxContainer"]
+[node name="House8" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Button9" type="Button" parent="HBoxContainer"]
+[node name="House9" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
 
-[node name="Button10" type="Button" parent="HBoxContainer"]
+[node name="House10" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_7bgh6")
+
+[node name="House11" type="Button" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_al5lh")
+icon = ExtResource("1_lajxu")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_7bgh6")
