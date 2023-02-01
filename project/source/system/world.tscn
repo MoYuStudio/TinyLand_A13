@@ -18,7 +18,7 @@ func _physics_process(delta):
 
 "
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw2tg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8tve"]
 transparency = 1
 albedo_color = Color(1, 1, 0, 0.235294)
 
@@ -33,7 +33,7 @@ func _process(delta):
 	pass
 
 func _on_hex_grid_map_prechoose(预览方块位置,buildable):
-	预览方块位置 = Vector3(预览方块位置.x+2.4,预览方块位置.y,预览方块位置.z-2.4)
+	预览方块位置 = Vector3(预览方块位置.x,预览方块位置.y,预览方块位置.z)
 	position = 预览方块位置
 "
 
@@ -43,7 +43,6 @@ script = SubResource("GDScript_mieq5")
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_xy0e7")]
 
 [node name="GridMap" parent="." instance=ExtResource("3_dkoge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, -2.4)
 
 [node name="Water" parent="." instance=ExtResource("2_uacix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, 0)
@@ -52,9 +51,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="PreChoose" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 0, 7, 0)
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("5_yr3fu")
-surface_material_override/0 = SubResource("StandardMaterial3D_pw2tg")
+surface_material_override/0 = SubResource("StandardMaterial3D_s8tve")
 script = SubResource("GDScript_2jevk")
 
 [connection signal="预览方块位置" from="GridMap" to="PreChoose" method="_on_hex_grid_map_prechoose"]
