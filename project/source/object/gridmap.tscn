@@ -110,6 +110,11 @@ func _process(delta):
 				if 时间地图[x][z] == randi_range(300,500):
 					set_cell_item(Vector3(x,0,z),11,随机方向)
 					时间地图[x][z] = 0
+			if 瓷砖 == 11:
+				时间地图[x][z]+=1
+				if 时间地图[x][z] == randi_range(300,500):
+					set_cell_item(Vector3(x,0,z),12,随机方向)
+					时间地图[x][z] = 0
 "
 
 [node name="GridMap" type="GridMap"]
