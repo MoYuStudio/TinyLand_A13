@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://balocj32cd2ha"
+path="res://.godot/imported/11.obj-094c9eae39ffa577410f6f165e05ca58.mesh"
+
+[deps]
+
+files=["res://.godot/imported/11.obj-094c9eae39ffa577410f6f165e05ca58.mesh"]
+
+source_file="res://resource/graphics/tile/models/11.obj"
+dest_files=["res://.godot/imported/11.obj-094c9eae39ffa577410f6f165e05ca58.mesh", "res://.godot/imported/11.obj-094c9eae39ffa577410f6f165e05ca58.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

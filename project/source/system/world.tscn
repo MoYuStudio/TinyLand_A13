@@ -45,7 +45,7 @@ script = SubResource("GDScript_mieq5")
 [node name="GridMap" parent="." instance=ExtResource("3_dkoge")]
 
 [node name="Water" parent="." instance=ExtResource("2_uacix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0.55, 80)
 
 [node name="Camera" parent="." instance=ExtResource("3_makw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
