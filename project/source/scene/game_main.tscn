@@ -19,13 +19,6 @@ func _ready():
 	await $GUI/Transition/AnimationPlayer.animation_finished
 
 func _process(delta):
-	#$GridMap.collision_point = $Camera.collision_point
-	#$GridMap.collision_side = $Camera.collision_side
-	#$GridMap.collision_type = $Camera.collision_type
-	
-	#$Camera.transform.pos.x = $World.camera_transform_x
-	#$Camera.transform.z = $World.camera_transform_z
-	
 	pass
 
 func _physics_process(delta):

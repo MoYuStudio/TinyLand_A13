@@ -16,20 +16,20 @@ var maxLookAngle : float = 90.0
 var lookSensitivity : float = 30.0
 
 # 向量
-var moveing_vel = Vector3()
+var 移动向量 = Vector3()
 var mouse_delta = Vector2()
-var mouse_pos = Vector2()
+# var 鼠标位置 = Vector2()
 
 var 碰撞点位置
 
-var mouse_lock = true
+var 鼠标锁定 = true
 
 func _ready():
 	pass
 	
 func _input(event):
 	
-	if mouse_lock == true:
+	if 鼠标锁定 == true:
 			
 		if event is InputEventMouseMotion:
 			mouse_delta = event.relative
@@ -59,7 +59,7 @@ func _physics_process(delta):
 	
 	var camera_pos = position
 	
-	if mouse_lock == true:
+	if 鼠标锁定 == true:
 	
 		var input = Vector3()
 		
@@ -78,9 +78,9 @@ func _physics_process(delta):
 			mouse_delta = Vector2()
 			
 			# 重置 x y z 速度
-			moveing_vel.x = 0
-			moveing_vel.y = 0
-			moveing_vel.z = 0
+			移动向量.x = 0
+			移动向量.y = 0
+			移动向量.z = 0
 			
 		if Input.is_action_pressed('W'):
 			input.z -= 1
@@ -109,15 +109,15 @@ func _physics_process(delta):
 		var relativeDir = (forward * input.z + right * input.x)
 		
 		# 设置速度
-		moveing_vel.x = relativeDir.x * 移动速度
-		moveing_vel.y = input.y * 移动速度
-		moveing_vel.z = relativeDir.z * 移动速度
+		移动向量.x = relativeDir.x * 移动速度
+		移动向量.y = input.y * 移动速度
+		移动向量.z = relativeDir.z * 移动速度
 		
-		position.x += moveing_vel.x
-		position.y += moveing_vel.y
-		position.z += moveing_vel.z
+		position.x += 移动向量.x
+		position.y += 移动向量.y
+		position.z += 移动向量.z
 		
-	elif mouse_lock == false:
+	elif 鼠标锁定 == false:
 		pass
 "
 
