@@ -25,13 +25,13 @@ func _physics_process(delta):
 	if $GUI/Stop/Continue.button_click == true:
 		stop_menu = false
 		$GUI/Stop.visible = false
-		$World/Camera.mouse_lock = true
+		$World/Camera.鼠标锁定 = true
 	
 	# movement inputs
 	if Input.is_action_pressed('Esc'):
 		stop_menu = true
 		$GUI/Stop.visible = true
-		$World/Camera.mouse_lock = false
+		$World/Camera.鼠标锁定 = false
 "
 
 [sub_resource type="GDScript" id="GDScript_reyjm"]
