@@ -35,7 +35,7 @@ func _process(delta):
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	position.y = 视口尺寸[0]/6 + 元素尺寸[1]*2
 	if is_pressed():
-		get_tree().change_scene_to_file('res://source/scene/setting_menu.tscn')
+		get_tree().change_scene_to_file('res://source/scene/menu_setting.tscn')
 "
 
 [sub_resource type="GDScript" id="GDScript_lxnts"]
@@ -51,10 +51,10 @@ func _process(delta):
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
 	position.y = 视口尺寸[0]/6 + 元素尺寸[1]*4
 	if is_pressed():
-		get_tree().change_scene_to_file('res://source/scene/start_menu.tscn')
+		get_tree().change_scene_to_file('res://source/scene/menu_start.tscn')
 "
 
-[node name="StopMenu" type="Control"]
+[node name="Stop" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://teocqspfxw7o"]
 
-[ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="1_xy0e7"]
-[ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="2_uacix"]
-[ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="3_dkoge"]
-[ext_resource type="PackedScene" uid="uid://deyci4scpxkr8" path="res://source/object/camera.tscn" id="3_makw1"]
-[ext_resource type="ArrayMesh" uid="uid://c4wkjw57e7aif" path="res://resource/graphics/tile/models/0.obj" id="5_yr3fu"]
+[ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="1_x4dgl"]
+[ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="2_wgj5p"]
+[ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="3_51p8g"]
+[ext_resource type="PackedScene" uid="uid://deyci4scpxkr8" path="res://source/object/camera.tscn" id="4_xtd16"]
+[ext_resource type="ArrayMesh" uid="uid://c4wkjw57e7aif" path="res://resource/graphics/tile/models/0.obj" id="5_8rpuh"]
 
 [sub_resource type="GDScript" id="GDScript_mieq5"]
 script/source = "
@@ -40,19 +40,19 @@ func _on_hex_grid_map_prechoose(预览方块位置,buildable):
 [node name="World" type="Node3D"]
 script = SubResource("GDScript_mieq5")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("1_xy0e7")]
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_x4dgl")]
 
-[node name="GridMap" parent="." instance=ExtResource("3_dkoge")]
+[node name="GridMap" parent="." instance=ExtResource("2_wgj5p")]
 
-[node name="Water" parent="." instance=ExtResource("2_uacix")]
+[node name="Water" parent="." instance=ExtResource("3_51p8g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0.55, 80)
 
-[node name="Camera" parent="." instance=ExtResource("3_makw1")]
+[node name="Camera" parent="." instance=ExtResource("4_xtd16")]
 transform = Transform3D(-0.669131, 0, -0.743145, 0, 1, 0, 0.743145, 0, -0.669131, 0, 6, 0)
 
 [node name="PreChoose" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 0, 0, 0)
-mesh = ExtResource("5_yr3fu")
+mesh = ExtResource("5_8rpuh")
 surface_material_override/0 = SubResource("StandardMaterial3D_s8tve")
 script = SubResource("GDScript_2jevk")
 

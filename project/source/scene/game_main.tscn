@@ -1,0 +1,209 @@
+[gd_scene load_steps=14 format=3 uid="uid://cw5fbnhvpmws"]
+
+[ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
+[ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
+[ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="2_2dvrp"]
+[ext_resource type="Texture2D" uid="uid://bphdmoa54jyh7" path="res://resource/graphics/ui/kenney_input_prompts/tile_0651.png" id="3_aitly"]
+[ext_resource type="PackedScene" uid="uid://blhiffqgf5ppu" path="res://source/scene/menu_stop.tscn" id="5_k8phw"]
+[ext_resource type="Texture2D" uid="uid://dne5isv4m5uir" path="res://resource/graphics/icon/9.png" id="6_polla"]
+
+[sub_resource type="GDScript" id="GDScript_mah7m"]
+script/source = "
+extends Node3D
+
+var stop_menu
+
+func _ready():
+	$GUI/Stop.visible = false
+	$GUI/Transition/AnimationPlayer.play('init')
+	await $GUI/Transition/AnimationPlayer.animation_finished
+
+func _process(delta):
+	#$GridMap.collision_point = $Camera.collision_point
+	#$GridMap.collision_side = $Camera.collision_side
+	#$GridMap.collision_type = $Camera.collision_type
+	
+	#$Camera.transform.pos.x = $World.camera_transform_x
+	#$Camera.transform.z = $World.camera_transform_z
+	
+	pass
+
+func _physics_process(delta):
+	if $GUI/Stop/Continue.button_click == true:
+		stop_menu = false
+		$GUI/Stop.visible = false
+		$World/Camera.mouse_lock = true
+	
+	# movement inputs
+	if Input.is_action_pressed('Esc'):
+		stop_menu = true
+		$GUI/Stop.visible = true
+		$World/Camera.mouse_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_reyjm"]
+script/source = "
+extends Label
+
+func _ready():
+	pass
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybc3v"]
+
+[sub_resource type="GDScript" id="GDScript_wlrxb"]
+script/source = "
+extends Button
+
+func _ready():
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0] - 元素尺寸[0]
+	position.y = 视口尺寸[1] - 元素尺寸[1]
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = 视口尺寸[0] - 元素尺寸[0]
+	position.y = 视口尺寸[1] - 元素尺寸[1]
+"
+
+[sub_resource type="GDScript" id="GDScript_s2cbv"]
+script/source = "
+extends Control
+
+func _ready():
+	var 视口尺寸 = get_viewport_rect().size
+	position.y = 视口尺寸.y - 175
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	position.y = 视口尺寸.y - 175
+ 
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh5wi"]
+
+[sub_resource type="GDScript" id="GDScript_2itao"]
+script/source = "
+extends Button
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 6
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+
+"
+
+[node name="Main" type="Node3D"]
+script = SubResource("GDScript_mah7m")
+
+[node name="World" parent="." instance=ExtResource("1_h5k2j")]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Transition" parent="GUI" instance=ExtResource("2_2dvrp")]
+
+[node name="Ver" type="Label" parent="GUI"]
+modulate = Color(1, 1, 1, 0.490196)
+texture_filter = 1
+offset_left = 825.0
+offset_top = 21.0
+offset_right = 1149.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("1_5gpld")
+theme_override_font_sizes/font_size = 32
+text = "MoYuStuido 2023
+TinyLand A13    Power BY Godot 4.0
+a2023020101"
+horizontal_alignment = 1
+script = SubResource("GDScript_reyjm")
+
+[node name="Button" type="Button" parent="GUI"]
+texture_filter = 1
+offset_left = 1835.0
+offset_top = 996.0
+offset_right = 1900.0
+offset_bottom = 1061.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ybc3v")
+icon = ExtResource("3_aitly")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = SubResource("GDScript_wlrxb")
+
+[node name="Stop" parent="GUI" instance=ExtResource("5_k8phw")]
+visible = false
+
+[node name="Blockboard" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_s2cbv")
+
+[node name="ColorRect" type="ColorRect" parent="GUI/Blockboard"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 9000.0
+offset_bottom = 6160.0
+color = Color(1, 1, 1, 0.235294)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Blockboard"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 64.0
+scale = Vector2(6, 6)
+
+[node name="House" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House2" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House3" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")

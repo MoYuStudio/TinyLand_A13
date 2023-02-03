@@ -12,7 +12,7 @@ func _ready():
 	$Logo/AnimationPlayer.play('init')
 	$Mask/AnimationPlayer.play('init')
 	await $Mask/AnimationPlayer.animation_finished
-	get_tree().change_scene_to_file('res://source/scene/start_menu.tscn')
+	get_tree().change_scene_to_file('res://source/scene/menu_start.tscn')
 "
 
 [sub_resource type="GDScript" id="GDScript_r6bpv"]
