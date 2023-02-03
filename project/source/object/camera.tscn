@@ -11,13 +11,13 @@ signal 碰撞点
 var 移动速度 = 0.3
 
 # 相机视角
-var minLookAngle : float = -90.0
-var maxLookAngle : float = 90.0
-var lookSensitivity : float = 30.0
+var 最小可视角 = -90.0
+var 最大可视角 = 90.0
+var 视角灵敏度 = 30.0
 
 # 向量
 var 移动向量 = Vector3()
-var mouse_delta = Vector2()
+var 鼠标周期 = Vector2()
 # var 鼠标位置 = Vector2()
 
 var 碰撞点位置
@@ -32,7 +32,7 @@ func _input(event):
 	if 鼠标锁定 == true:
 			
 		if event is InputEventMouseMotion:
-			mouse_delta = event.relative
+			鼠标周期 = event.relative
 			_select_target(event.position)
 			
 		if event is InputEventMouseButton or event is InputEventScreenTouch:
@@ -66,16 +66,16 @@ func _physics_process(delta):
 		# 输入
 		if Input.is_action_pressed('Right_Click'):
 			# 沿x轴旋转相机
-			rotation_degrees.x -= mouse_delta.y * lookSensitivity * delta
+			rotation_degrees.x -= 鼠标周期.y * 视角灵敏度 * delta
 
 			# 夹紧相机x旋转轴
-			rotation_degrees.x = clamp(rotation_degrees.x, minLookAngle, maxLookAngle)
+			rotation_degrees.x = clamp(rotation_degrees.x, 最小可视角, 最大可视角)
 
 			# 沿 y 轴旋转玩家
-			rotation_degrees.y -= mouse_delta.x * lookSensitivity * delta
+			rotation_degrees.y -= 鼠标周期.x * 视角灵敏度 * delta
 
 			# 重置 mouseDelta 向量
-			mouse_delta = Vector2()
+			鼠标周期 = Vector2()
 			
 			# 重置 x y z 速度
 			移动向量.x = 0
