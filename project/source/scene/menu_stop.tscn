@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://blhiffqgf5ppu"]
+[gd_scene load_steps=8 format=3 uid="uid://blhiffqgf5ppu"]
 
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_xvc0f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rnba"]
 
 [sub_resource type="GDScript" id="GDScript_l45y7"]
 script/source = "
@@ -22,6 +24,8 @@ func _process(delta):
 		button_click = false
 "
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmtlw"]
+
 [sub_resource type="GDScript" id="GDScript_keetg"]
 script/source = "
 extends Button
@@ -37,6 +41,8 @@ func _process(delta):
 	if is_pressed():
 		get_tree().change_scene_to_file('res://source/scene/menu_setting.tscn')
 "
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sys6x"]
 
 [sub_resource type="GDScript" id="GDScript_lxnts"]
 script/source = "
@@ -69,17 +75,18 @@ offset_left = -900.0
 offset_top = -600.0
 offset_right = 8100.0
 offset_bottom = 5400.0
-color = Color(0, 0, 0, 0.392157)
+color = Color(0, 0, 0, 0.627451)
 
 [node name="Continue" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 243.0
-offset_top = 100.0
-offset_right = 391.0
-offset_bottom = 141.0
+offset_left = 795.0
+offset_top = 241.0
+offset_right = 1061.0
+offset_bottom = 321.0
 theme_override_fonts/font = ExtResource("1_xvc0f")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6rnba")
 text = "Continue"
 flat = true
 script = SubResource("GDScript_l45y7")
@@ -87,12 +94,13 @@ script = SubResource("GDScript_l45y7")
 [node name="Setting" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 245.0
-offset_top = 155.0
-offset_right = 391.0
-offset_bottom = 194.0
+offset_left = 796.0
+offset_top = 367.0
+offset_right = 1020.0
+offset_bottom = 447.0
 theme_override_fonts/font = ExtResource("1_xvc0f")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nmtlw")
 text = "Setting"
 flat = true
 script = SubResource("GDScript_keetg")
@@ -100,12 +108,29 @@ script = SubResource("GDScript_keetg")
 [node name="Menu" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 245.0
-offset_top = 210.0
-offset_right = 392.0
-offset_bottom = 248.0
+offset_left = 803.0
+offset_top = 495.0
+offset_right = 967.0
+offset_bottom = 575.0
 theme_override_fonts/font = ExtResource("1_xvc0f")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 96
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sys6x")
 text = "Menu"
 flat = true
 script = SubResource("GDScript_lxnts")
+
+[node name="CtrlHelp" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 743.0
+offset_bottom = 325.0
+theme_override_fonts/font = ExtResource("1_xvc0f")
+theme_override_font_sizes/font_size = 64
+text = "Ctrl Help
+
+Move: WASD
+UP&Down: Space & Shift
+Move Boot: Ctrl
+Esc: Open Stop Menu"
