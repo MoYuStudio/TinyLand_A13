@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw5fbnhvpmws"]
+[gd_scene load_steps=16 format=3 uid="uid://cw5fbnhvpmws"]
 
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
 [ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
@@ -114,6 +114,22 @@ func _physics_process(delta):
 
 "
 
+[sub_resource type="GDScript" id="GDScript_3mnl8"]
+script/source = "
+extends Control
+
+func _ready():
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = 260 * 6
+	$HBoxContainer.position.x = 视口尺寸.x/2 - 元素尺寸/2
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = 260 * 6
+	$HBoxContainer.position.x = 视口尺寸.x/2 - 元素尺寸/2
+ 
+"
+
 [node name="Main" type="Node3D"]
 script = SubResource("GDScript_mah7m")
 
@@ -127,9 +143,9 @@ script = SubResource("GDScript_mah7m")
 modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
 offset_left = 825.0
-offset_top = 72.044
+offset_top = 50.0
 offset_right = 1149.0
-offset_bottom = 153.044
+offset_bottom = 131.0
 theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 32
 text = "MoYuStuido 2023
@@ -204,11 +220,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = SubResource("GDScript_3mnl8")
 
 [node name="ColorRect" type="ColorRect" parent="GUI/Scoreboard"]
-offset_top = -5936.0
+offset_top = -5952.0
 offset_right = 9000.0
-offset_bottom = 64.0
+offset_bottom = 48.0
 color = Color(1, 1, 1, 0.235294)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/Scoreboard"]
@@ -222,7 +239,7 @@ layout_mode = 2
 
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population"]
 texture_filter = 1
-position = Vector2(70, 33)
+position = Vector2(70, 24)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_4a4w3")
 
@@ -230,9 +247,9 @@ texture = ExtResource("7_4a4w3")
 texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
-offset_top = 7.0
+offset_top = -1.0
 offset_right = 244.0
-offset_bottom = 58.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 64
 text = "999999"
@@ -242,7 +259,7 @@ layout_mode = 2
 
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population2"]
 texture_filter = 1
-position = Vector2(70, 33)
+position = Vector2(70, 24)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_4a4w3")
 
@@ -250,9 +267,9 @@ texture = ExtResource("7_4a4w3")
 texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
-offset_top = 7.0
+offset_top = -1.0
 offset_right = 244.0
-offset_bottom = 58.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 64
 text = "999999"
@@ -262,7 +279,7 @@ layout_mode = 2
 
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population3"]
 texture_filter = 1
-position = Vector2(70, 33)
+position = Vector2(70, 24)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_4a4w3")
 
@@ -270,9 +287,9 @@ texture = ExtResource("7_4a4w3")
 texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
-offset_top = 7.0
+offset_top = -1.0
 offset_right = 244.0
-offset_bottom = 58.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 64
 text = "999999"
@@ -282,7 +299,7 @@ layout_mode = 2
 
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population4"]
 texture_filter = 1
-position = Vector2(70, 33)
+position = Vector2(70, 24)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_4a4w3")
 
@@ -290,9 +307,9 @@ texture = ExtResource("7_4a4w3")
 texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
-offset_top = 7.0
+offset_top = -1.0
 offset_right = 244.0
-offset_bottom = 58.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 64
 text = "999999"
@@ -302,7 +319,7 @@ layout_mode = 2
 
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population5"]
 texture_filter = 1
-position = Vector2(70, 33)
+position = Vector2(70, 24)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_4a4w3")
 
@@ -310,9 +327,9 @@ texture = ExtResource("7_4a4w3")
 texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
-offset_top = 7.0
+offset_top = -1.0
 offset_right = 244.0
-offset_bottom = 58.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 64
 text = "999999"
@@ -322,7 +339,7 @@ layout_mode = 2
 
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population6"]
 texture_filter = 1
-position = Vector2(70, 33)
+position = Vector2(70, 24)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_4a4w3")
 
@@ -330,9 +347,9 @@ texture = ExtResource("7_4a4w3")
 texture_filter = 1
 layout_mode = 0
 offset_left = 100.0
-offset_top = 7.0
+offset_top = -1.0
 offset_right = 244.0
-offset_bottom = 58.0
+offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 64
 text = "999999"
