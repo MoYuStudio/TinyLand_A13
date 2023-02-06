@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cukytrwug5w53"]
+[gd_scene load_steps=18 format=3 uid="uid://cukytrwug5w53"]
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="1_f53k3"]
 [ext_resource type="Texture2D" uid="uid://cj1fgv4cxwc8v" path="res://resource/graphics/logo/icon.png" id="2_u4gh8"]
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="3_ali1w"]
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="4_5wo1d"]
+[ext_resource type="Texture2D" uid="uid://baya2ee5r5ncf" path="res://resource/graphics/steam/steam_title_icon_2.png" id="4_u2ske"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="5_8mbpe"]
 [ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="6_lropk"]
 [ext_resource type="Texture2D" uid="uid://bxeltrj78ro72" path="res://resource/graphics/ui/button_blue.png" id="7_rw7lk"]
@@ -160,13 +161,12 @@ offset_right = 9000.0
 offset_bottom = 6000.0
 
 [node name="Icon" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 layout_mode = 0
-offset_left = 1648.0
-offset_top = 7.0
-offset_right = 1912.0
-offset_bottom = 271.0
+offset_left = 1650.0
+offset_top = -7.0
+offset_right = 1914.0
+offset_bottom = 257.0
 pivot_offset = Vector2(132, 124)
 icon = ExtResource("2_u4gh8")
 flat = true
@@ -174,6 +174,7 @@ icon_alignment = 1
 script = SubResource("GDScript_y1s7a")
 
 [node name="Title" type="Label" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 182.0
@@ -186,6 +187,12 @@ text = "TinyLand"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_3c47t")
+
+[node name="Title2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(487, 210)
+scale = Vector2(7.84375, 7.84375)
+texture = ExtResource("4_u2ske")
 
 [node name="Ver" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.490196)
