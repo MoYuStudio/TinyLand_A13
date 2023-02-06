@@ -1,12 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw5fbnhvpmws"]
+[gd_scene load_steps=19 format=3 uid="uid://cw5fbnhvpmws"]
 
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
 [ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="2_2dvrp"]
-[ext_resource type="Texture2D" uid="uid://bphdmoa54jyh7" path="res://resource/graphics/ui/kenney_input_prompts/tile_0651.png" id="3_aitly"]
 [ext_resource type="PackedScene" uid="uid://blhiffqgf5ppu" path="res://source/scene/menu_stop.tscn" id="5_k8phw"]
+[ext_resource type="Texture2D" uid="uid://bq7eaomywpjyu" path="res://resource/graphics/icon/wood_x16.png" id="6_cq1p6"]
 [ext_resource type="Texture2D" uid="uid://dne5isv4m5uir" path="res://resource/graphics/icon/9.png" id="6_polla"]
-[ext_resource type="Texture2D" uid="uid://dyxpt22eybybo" path="res://resource/graphics/icon/steel_x16.png" id="7_4a4w3"]
+[ext_resource type="Texture2D" uid="uid://bvfqw8wqhl4h4" path="res://resource/graphics/icon/stone_x16.png" id="7_0mx2o"]
+[ext_resource type="Texture2D" uid="uid://8y7s43whecuk" path="res://resource/graphics/icon/metal_x16.png" id="7_6t0q5"]
+[ext_resource type="Texture2D" uid="uid://oc3bbne2dnby" path="res://resource/graphics/icon/money_x16.png" id="7_flqcq"]
+[ext_resource type="Texture2D" uid="uid://bryxtyr3xwk6y" path="res://resource/graphics/icon/glass_x16.png" id="9_rsdwu"]
+[ext_resource type="Texture2D" uid="uid://bj4rn4ioa2eie" path="res://resource/graphics/icon/food_x16.png" id="10_u4luh"]
+[ext_resource type="Texture2D" uid="uid://buom46fwawno3" path="res://resource/graphics/icon/population_x16.png" id="11_fbqmp"]
 
 [sub_resource type="GDScript" id="GDScript_mah7m"]
 script/source = "
@@ -46,25 +51,6 @@ func _process(delta):
 	var 视口尺寸 = get_viewport_rect().size
 	var 元素尺寸 = get_rect().size
 	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-"
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybc3v"]
-
-[sub_resource type="GDScript" id="GDScript_wlrxb"]
-script/source = "
-extends Button
-
-func _ready():
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0] - 元素尺寸[0]
-	position.y = 视口尺寸[1] - 元素尺寸[1]
-
-func _process(delta):
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0] - 元素尺寸[0]
-	position.y = 视口尺寸[1] - 元素尺寸[1]
 "
 
 [sub_resource type="GDScript" id="GDScript_s2cbv"]
@@ -158,20 +144,6 @@ TinyLand A13    Power BY Godot 4.0
 a2023020101"
 horizontal_alignment = 1
 script = SubResource("GDScript_reyjm")
-
-[node name="Button" type="Button" parent="GUI"]
-visible = false
-texture_filter = 1
-offset_left = 1835.0
-offset_top = 996.0
-offset_right = 1900.0
-offset_bottom = 1061.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ybc3v")
-icon = ExtResource("3_aitly")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = SubResource("GDScript_wlrxb")
 
 [node name="Blockboard" type="Control" parent="GUI"]
 layout_mode = 3
@@ -301,6 +273,7 @@ offset_bottom = 40.0
 script = SubResource("GDScript_3mnl8")
 
 [node name="ColorRect" type="ColorRect" parent="GUI/Scoreboard"]
+layout_mode = 0
 offset_top = -5952.0
 offset_right = 9000.0
 offset_bottom = 48.0
@@ -312,6 +285,106 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 256
 
+[node name="Wood" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Wood"]
+texture_filter = 1
+position = Vector2(70, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("6_cq1p6")
+
+[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Wood"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_5gpld")
+theme_override_font_sizes/font_size = 48
+text = "999999999"
+
+[node name="Stone" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Stone"]
+texture_filter = 1
+position = Vector2(70, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("7_0mx2o")
+
+[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Stone"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_5gpld")
+theme_override_font_sizes/font_size = 48
+text = "999999999"
+
+[node name="Metal" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Metal"]
+texture_filter = 1
+position = Vector2(70, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("7_6t0q5")
+
+[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Metal"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_5gpld")
+theme_override_font_sizes/font_size = 48
+text = "999999999"
+
+[node name="Glass" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Glass"]
+texture_filter = 1
+position = Vector2(70, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("9_rsdwu")
+
+[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Glass"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_5gpld")
+theme_override_font_sizes/font_size = 48
+text = "999999999"
+
+[node name="Food" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Food"]
+texture_filter = 1
+position = Vector2(70, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("10_u4luh")
+
+[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Food"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_5gpld")
+theme_override_font_sizes/font_size = 48
+text = "999999999"
+
 [node name="Population" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
 layout_mode = 2
 
@@ -319,7 +392,7 @@ layout_mode = 2
 texture_filter = 1
 position = Vector2(70, 24)
 scale = Vector2(2, 2)
-texture = ExtResource("7_4a4w3")
+texture = ExtResource("11_fbqmp")
 
 [node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population"]
 texture_filter = 1
@@ -332,116 +405,16 @@ theme_override_fonts/font = ExtResource("1_5gpld")
 theme_override_font_sizes/font_size = 48
 text = "999999999"
 
-[node name="Population2" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
+[node name="Money" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
 layout_mode = 2
 
-[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population2"]
+[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Money"]
 texture_filter = 1
 position = Vector2(70, 24)
 scale = Vector2(2, 2)
-texture = ExtResource("7_4a4w3")
+texture = ExtResource("7_flqcq")
 
-[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population2"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 101.0
-offset_top = 4.0
-offset_right = 219.0
-offset_bottom = 43.0
-theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 48
-text = "999999999"
-
-[node name="Population3" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
-layout_mode = 2
-
-[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population3"]
-texture_filter = 1
-position = Vector2(70, 24)
-scale = Vector2(2, 2)
-texture = ExtResource("7_4a4w3")
-
-[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population3"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 101.0
-offset_top = 4.0
-offset_right = 219.0
-offset_bottom = 43.0
-theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 48
-text = "999999999"
-
-[node name="Population4" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
-layout_mode = 2
-
-[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population4"]
-texture_filter = 1
-position = Vector2(70, 24)
-scale = Vector2(2, 2)
-texture = ExtResource("7_4a4w3")
-
-[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population4"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 101.0
-offset_top = 4.0
-offset_right = 219.0
-offset_bottom = 43.0
-theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 48
-text = "999999999"
-
-[node name="Population5" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
-layout_mode = 2
-
-[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population5"]
-texture_filter = 1
-position = Vector2(70, 24)
-scale = Vector2(2, 2)
-texture = ExtResource("7_4a4w3")
-
-[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population5"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 101.0
-offset_top = 4.0
-offset_right = 219.0
-offset_bottom = 43.0
-theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 48
-text = "999999999"
-
-[node name="Population6" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
-layout_mode = 2
-
-[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population6"]
-texture_filter = 1
-position = Vector2(70, 24)
-scale = Vector2(2, 2)
-texture = ExtResource("7_4a4w3")
-
-[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population6"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 101.0
-offset_top = 4.0
-offset_right = 219.0
-offset_bottom = 43.0
-theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 48
-text = "999999999"
-
-[node name="Population7" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
-layout_mode = 2
-
-[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population7"]
-texture_filter = 1
-position = Vector2(70, 24)
-scale = Vector2(2, 2)
-texture = ExtResource("7_4a4w3")
-
-[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population7"]
+[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Money"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 101.0

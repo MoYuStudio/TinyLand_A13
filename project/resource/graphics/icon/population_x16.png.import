@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyxpt22eybybo"
-path="res://.godot/imported/steel_x16.png-7c9fa719f3e41955a86a10b56371ba0f.ctex"
+uid="uid://buom46fwawno3"
+path="res://.godot/imported/population_x16.png-7146752bf71ffcefea114b7387f38e1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resource/graphics/icon/steel_x16.png"
-dest_files=["res://.godot/imported/steel_x16.png-7c9fa719f3e41955a86a10b56371ba0f.ctex"]
+source_file="res://resource/graphics/icon/population_x16.png"
+dest_files=["res://.godot/imported/population_x16.png-7146752bf71ffcefea114b7387f38e1b.ctex"]
 
 [params]
 
