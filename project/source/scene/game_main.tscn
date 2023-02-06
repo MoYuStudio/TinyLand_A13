@@ -74,10 +74,16 @@ extends Control
 func _ready():
 	var 视口尺寸 = get_viewport_rect().size
 	position.y = 视口尺寸.y - 175
+	
+	var 元素尺寸 = $HBoxContainer.get_rect().size
+	$HBoxContainer.position.x = 视口尺寸.x/2 - 元素尺寸.x/2
 
 func _process(delta):
 	var 视口尺寸 = get_viewport_rect().size
 	position.y = 视口尺寸.y - 175
+	
+	var 元素尺寸 = $HBoxContainer.get_rect().size
+	$HBoxContainer.position.x = 视口尺寸.x/2 - 元素尺寸.x/2
  
 "
 
@@ -120,14 +126,13 @@ extends Control
 
 func _ready():
 	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = 260 * 6
+	var 元素尺寸 = 260 * 7
 	$HBoxContainer.position.x = 视口尺寸.x/2 - 元素尺寸/2
 
 func _process(delta):
 	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = 260 * 6
+	var 元素尺寸 = 260 * 7
 	$HBoxContainer.position.x = 视口尺寸.x/2 - 元素尺寸/2
- 
 "
 
 [node name="Main" type="Node3D"]
@@ -155,6 +160,7 @@ horizontal_alignment = 1
 script = SubResource("GDScript_reyjm")
 
 [node name="Button" type="Button" parent="GUI"]
+visible = false
 texture_filter = 1
 offset_left = 1835.0
 offset_top = 996.0
@@ -215,6 +221,78 @@ flat = true
 icon_alignment = 1
 script = SubResource("GDScript_2itao")
 
+[node name="House4" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House5" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House6" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House7" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House8" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House9" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House10" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House11" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_polla")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
 [node name="Scoreboard" type="Control" parent="GUI"]
 layout_mode = 3
 anchors_preset = 0
@@ -240,19 +318,19 @@ layout_mode = 2
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population"]
 texture_filter = 1
 position = Vector2(70, 24)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_4a4w3")
 
 [node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 100.0
-offset_top = -1.0
-offset_right = 244.0
-offset_bottom = 50.0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 64
-text = "999999"
+theme_override_font_sizes/font_size = 48
+text = "999999999"
 
 [node name="Population2" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
 layout_mode = 2
@@ -260,19 +338,19 @@ layout_mode = 2
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population2"]
 texture_filter = 1
 position = Vector2(70, 24)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_4a4w3")
 
 [node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population2"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 100.0
-offset_top = -1.0
-offset_right = 244.0
-offset_bottom = 50.0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 64
-text = "999999"
+theme_override_font_sizes/font_size = 48
+text = "999999999"
 
 [node name="Population3" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
 layout_mode = 2
@@ -280,19 +358,19 @@ layout_mode = 2
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population3"]
 texture_filter = 1
 position = Vector2(70, 24)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_4a4w3")
 
 [node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population3"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 100.0
-offset_top = -1.0
-offset_right = 244.0
-offset_bottom = 50.0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 64
-text = "999999"
+theme_override_font_sizes/font_size = 48
+text = "999999999"
 
 [node name="Population4" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
 layout_mode = 2
@@ -300,19 +378,19 @@ layout_mode = 2
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population4"]
 texture_filter = 1
 position = Vector2(70, 24)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_4a4w3")
 
 [node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population4"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 100.0
-offset_top = -1.0
-offset_right = 244.0
-offset_bottom = 50.0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 64
-text = "999999"
+theme_override_font_sizes/font_size = 48
+text = "999999999"
 
 [node name="Population5" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
 layout_mode = 2
@@ -320,19 +398,19 @@ layout_mode = 2
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population5"]
 texture_filter = 1
 position = Vector2(70, 24)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_4a4w3")
 
 [node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population5"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 100.0
-offset_top = -1.0
-offset_right = 244.0
-offset_bottom = 50.0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 64
-text = "999999"
+theme_override_font_sizes/font_size = 48
+text = "999999999"
 
 [node name="Population6" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
 layout_mode = 2
@@ -340,19 +418,39 @@ layout_mode = 2
 [node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population6"]
 texture_filter = 1
 position = Vector2(70, 24)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_4a4w3")
 
 [node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population6"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 100.0
-offset_top = -1.0
-offset_right = 244.0
-offset_bottom = 50.0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 64
-text = "999999"
+theme_override_font_sizes/font_size = 48
+text = "999999999"
+
+[node name="Population7" type="Control" parent="GUI/Scoreboard/HBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="GUI/Scoreboard/HBoxContainer/Population7"]
+texture_filter = 1
+position = Vector2(70, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("7_4a4w3")
+
+[node name="Price" type="Label" parent="GUI/Scoreboard/HBoxContainer/Population7"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 101.0
+offset_top = 4.0
+offset_right = 219.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_5gpld")
+theme_override_font_sizes/font_size = 48
+text = "999999999"
 
 [node name="Stop" parent="GUI" instance=ExtResource("5_k8phw")]
 visible = false
