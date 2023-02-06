@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cukytrwug5w53"]
+[gd_scene load_steps=17 format=3 uid="uid://cukytrwug5w53"]
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="1_f53k3"]
 [ext_resource type="Texture2D" uid="uid://cj1fgv4cxwc8v" path="res://resource/graphics/logo/icon.png" id="2_u4gh8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="4_5wo1d"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="5_8mbpe"]
 [ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="6_lropk"]
+[ext_resource type="Texture2D" uid="uid://bxeltrj78ro72" path="res://resource/graphics/ui/button_blue.png" id="7_rw7lk"]
 
 [sub_resource type="GDScript" id="GDScript_jutev"]
 script/source = "
@@ -26,12 +27,12 @@ extends Button
 func _ready():
 	var 视口尺寸 = get_viewport_rect().size
 	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+	position.x = 视口尺寸[0] - 元素尺寸[0]
 
 func _process(delta):
 	var 视口尺寸 = get_viewport_rect().size
 	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+	position.x = 视口尺寸[0] - 元素尺寸[0]
 	if is_hovered():
 		rotation_degrees += 1
 	else:
@@ -47,75 +48,12 @@ extends Label
 func _ready():
 	var 视口尺寸 = get_viewport_rect().size
 	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
+	position.x = 视口尺寸[0]/4 - 元素尺寸[0]/2
 
 func _process(delta):
 	var 视口尺寸 = get_viewport_rect().size
 	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-"
-
-[sub_resource type="GDScript" id="GDScript_cf3qh"]
-script/source = "
-extends Button
-
-func _ready():
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-
-func _process(delta):
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-	if is_hovered():
-		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2+10
-	else:
-		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-	if is_pressed():
-		get_tree().change_scene_to_file('res://source/scene/game_main.tscn')
-"
-
-[sub_resource type="GDScript" id="GDScript_1q6nd"]
-script/source = "
-extends Button
-
-func _ready():
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-
-func _process(delta):
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-	if is_hovered():
-		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2+10
-	else:
-		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-	if is_pressed():
-		get_tree().change_scene_to_file('res://source/scene/menu_setting.tscn')
-"
-
-[sub_resource type="GDScript" id="GDScript_p07je"]
-script/source = "
-extends Button
-
-func _ready():
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-
-func _process(delta):
-	var 视口尺寸 = get_viewport_rect().size
-	var 元素尺寸 = get_rect().size
-	position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-	if is_hovered():
-		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2+10
-	else:
-		position.x = 视口尺寸[0]/2 - 元素尺寸[0]/2
-	if is_pressed():
-		get_tree().quit()
+	position.x = 视口尺寸[0]/4 - 元素尺寸[0]/2
 "
 
 [sub_resource type="GDScript" id="GDScript_tr7rp"]
@@ -154,6 +92,61 @@ func _process(delta):
 	
 "
 
+[sub_resource type="GDScript" id="GDScript_ssr6e"]
+script/source = "
+extends Control
+
+func _ready():
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = -25
+
+func _process(delta):
+	var 视口尺寸 = get_viewport_rect().size
+	var 元素尺寸 = get_rect().size
+	position.x = -25
+	if $Button.is_hovered():
+		position.x = -10
+	else:
+		position.x = -25
+"
+
+[sub_resource type="GDScript" id="GDScript_sr04k"]
+script/source = "
+extends Button
+
+func _ready():
+	pass
+
+func _process(delta):
+	if is_pressed():
+		get_tree().change_scene_to_file('res://source/scene/game_main.tscn')
+"
+
+[sub_resource type="GDScript" id="GDScript_rrn2k"]
+script/source = "
+extends Button
+
+func _ready():
+	pass
+
+func _process(delta):
+	if is_pressed():
+		get_tree().change_scene_to_file('res://source/scene/menu_setting.tscn')
+"
+
+[sub_resource type="GDScript" id="GDScript_cf3qh"]
+script/source = "
+extends Button
+
+func _ready():
+	pass
+
+func _process(delta):
+	if is_pressed():
+		get_tree().quit()
+"
+
 [node name="Start" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -170,8 +163,10 @@ offset_bottom = 6000.0
 modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 layout_mode = 0
-offset_right = 256.0
-offset_bottom = 256.0
+offset_left = 1648.0
+offset_top = 7.0
+offset_right = 1912.0
+offset_bottom = 271.0
 pivot_offset = Vector2(132, 124)
 icon = ExtResource("2_u4gh8")
 flat = true
@@ -181,52 +176,16 @@ script = SubResource("GDScript_y1s7a")
 [node name="Title" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 577.0
-offset_top = 209.0
-offset_right = 1265.0
-offset_bottom = 404.0
+offset_left = 182.0
+offset_top = 139.0
+offset_right = 870.0
+offset_bottom = 334.0
 theme_override_fonts/font = ExtResource("3_ali1w")
 theme_override_font_sizes/font_size = 256
 text = "TinyLand"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_3c47t")
-
-[node name="Start" type="Button" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 907.0
-offset_top = 471.0
-offset_right = 1027.0
-offset_bottom = 527.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 64
-text = "Start"
-script = SubResource("GDScript_cf3qh")
-
-[node name="Setting" type="Button" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 897.0
-offset_top = 587.0
-offset_right = 1049.0
-offset_bottom = 645.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 64
-text = "Setting"
-script = SubResource("GDScript_1q6nd")
-
-[node name="Quit" type="Button" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 900.0
-offset_top = 715.0
-offset_right = 1000.0
-offset_bottom = 771.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 64
-text = "Quit"
-script = SubResource("GDScript_p07je")
 
 [node name="Ver" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.490196)
@@ -255,3 +214,95 @@ script = SubResource("GDScript_xeqqj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, 0)
 
 [node name="GridMap" parent="Background" instance=ExtResource("6_lropk")]
+
+[node name="Start" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 500.0
+offset_right = 40.0
+offset_bottom = 540.0
+script = SubResource("GDScript_ssr6e")
+
+[node name="Button" type="Button" parent="Start"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 447.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("3_ali1w")
+theme_override_font_sizes/font_size = 64
+icon = ExtResource("7_rw7lk")
+flat = true
+expand_icon = true
+script = SubResource("GDScript_sr04k")
+
+[node name="Text" type="Label" parent="Start"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 75.0
+offset_top = 32.0
+offset_right = 187.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("3_ali1w")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="Setting2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 650.0
+offset_right = 40.0
+offset_bottom = 690.0
+script = SubResource("GDScript_ssr6e")
+
+[node name="Button" type="Button" parent="Setting2"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 447.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("3_ali1w")
+theme_override_font_sizes/font_size = 64
+icon = ExtResource("7_rw7lk")
+flat = true
+expand_icon = true
+script = SubResource("GDScript_rrn2k")
+
+[node name="Text" type="Label" parent="Setting2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 75.0
+offset_top = 32.0
+offset_right = 187.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("3_ali1w")
+theme_override_font_sizes/font_size = 64
+text = "Setting"
+
+[node name="Quit2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 800.0
+offset_right = 40.0
+offset_bottom = 840.0
+script = SubResource("GDScript_ssr6e")
+
+[node name="Button" type="Button" parent="Quit2"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 447.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("3_ali1w")
+theme_override_font_sizes/font_size = 64
+icon = ExtResource("7_rw7lk")
+flat = true
+expand_icon = true
+script = SubResource("GDScript_cf3qh")
+
+[node name="Text" type="Label" parent="Quit2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 75.0
+offset_top = 32.0
+offset_right = 187.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("3_ali1w")
+theme_override_font_sizes/font_size = 64
+text = "Setting"
