@@ -68,7 +68,6 @@ func _ready():
 			if 500 <= 瓷砖类型 and 瓷砖类型 < 1000:
 				set_cell_item(Vector3(x,0,z),15,随机方向())
 
-			
 func _on_camera_click_pos(碰撞点位置):
 	# print(碰撞点位置)
 	var 碰撞点 = local_to_map(碰撞点位置)

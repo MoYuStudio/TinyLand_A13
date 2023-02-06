@@ -161,6 +161,10 @@ script = SubResource("GDScript_jutev")
 
 [node name="Transition" parent="." instance=ExtResource("1_f53k3")]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 9000.0
+offset_bottom = 6000.0
 
 [node name="Icon" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.784314)

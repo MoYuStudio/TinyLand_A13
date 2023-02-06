@@ -27,29 +27,29 @@ var 鼠标锁定 = true
 func _ready():
 	pass
 	
-func _input(event):
+func _input(事件):
 	
 	if 鼠标锁定 == true:
 			
-		if event is InputEventMouseMotion:
-			鼠标周期 = event.relative
-			_select_target(event.position)
+		if 事件 is InputEventMouseMotion:
+			鼠标周期 = 事件.relative
+			_select_target(事件.position)
 			
-		if event is InputEventMouseButton or event is InputEventScreenTouch:
-			_select_target(event.position)
+		if 事件 is InputEventMouseButton or 事件 is InputEventScreenTouch:
+			_select_target(事件.position)
 
-func _select_target(click_position: Vector2) -> void:
-	var from = project_ray_origin(click_position)
-	var to = from + project_ray_normal(click_position)*100
-	var space_state = get_world_3d().direct_space_state
-	var params = PhysicsRayQueryParameters3D.new()
-	params.from = from
-	params.to = to
-	params.exclude = []
-	params.collision_mask = 1
+func _select_target(点击位置):
+	var 起点 = project_ray_origin(点击位置)
+	var 终点 = 起点 + project_ray_normal(点击位置)*100
+	var 空间状态 = get_world_3d().direct_space_state
+	var 参数 = PhysicsRayQueryParameters3D.new()
+	参数.from = 起点
+	参数.to = 终点
+	参数.exclude = []
+	参数.collision_mask = 1
 	射线投影.force_raycast_update()
 	if 射线投影.is_colliding():
-		var iray = space_state.intersect_ray(params)
+		var iray = 空间状态.intersect_ray(参数)
 		if iray:
 			var 碰撞点位置 = iray['position']
 			碰撞点位置 = Vector3(碰撞点位置[0],0,碰撞点位置[2])
@@ -57,11 +57,11 @@ func _select_target(click_position: Vector2) -> void:
 
 func _physics_process(delta):
 	
-	var camera_pos = position
+	# var camera_pos = position
 	
 	if 鼠标锁定 == true:
 	
-		var input = Vector3()
+		var 输入向量 = Vector3()
 		
 		# 输入
 		if Input.is_action_pressed('Right_Click'):
@@ -83,35 +83,35 @@ func _physics_process(delta):
 			移动向量.z = 0
 			
 		if Input.is_action_pressed('W'):
-			input.z -= 1
+			输入向量.z -= 1
 		if Input.is_action_pressed('S'):
-			input.z += 1
+			输入向量.z += 1
 		if Input.is_action_pressed('A'):
-			input.x -= 1
+			输入向量.x -= 1
 		if Input.is_action_pressed('D'):
-			input.x += 1
+			输入向量.x += 1
 		if Input.is_action_pressed('Space'):
-			input.y += 1
+			输入向量.y += 1
 		if Input.is_action_pressed('Shift'):
 			if position.y >= 1.6: # 地平线限位
-				input.y -= 1
+				输入向量.y -= 1
 		if Input.is_action_pressed('Ctrl'):
 			移动速度 = 0.9
 		else:
 			移动速度 = 0.3
 		
-		input = input.normalized()
+		输入向量 = 输入向量.normalized()
 		
 		# 获得前进和正确的方向
-		var forward = global_transform.basis.z
-		var right = global_transform.basis.x
+		var 向前 = global_transform.basis.z
+		var 向右 = global_transform.basis.x
 		
-		var relativeDir = (forward * input.z + right * input.x)
+		var 相对位置 = (向前 * 输入向量.z + 向右 * 输入向量.x)
 		
 		# 设置速度
-		移动向量.x = relativeDir.x * 移动速度
-		移动向量.y = input.y * 移动速度
-		移动向量.z = relativeDir.z * 移动速度
+		移动向量.x = 相对位置.x * 移动速度
+		移动向量.y = 输入向量.y * 移动速度
+		移动向量.z = 相对位置.z * 移动速度
 		
 		position.x += 移动向量.x
 		position.y += 移动向量.y
