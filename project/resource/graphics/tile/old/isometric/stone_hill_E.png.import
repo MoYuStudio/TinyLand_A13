@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/stone_hill_E.png-b597ea3f25fd9ff5162d7684d2eb
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

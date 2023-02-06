@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/unit_wallTower_W.png-993fcf151abfa3dcddc9748c
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

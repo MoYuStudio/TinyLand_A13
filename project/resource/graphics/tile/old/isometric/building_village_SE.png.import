@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/building_village_SE.png-d6b6a47bfae3c2319f8aa
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

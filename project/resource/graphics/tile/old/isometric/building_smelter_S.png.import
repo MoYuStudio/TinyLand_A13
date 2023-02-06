@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/building_smelter_S.png-fa460d5b86da392230a4a5
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

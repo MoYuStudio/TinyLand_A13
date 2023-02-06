@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/dirt_lumber_W.png-6a985d8f25b65e4698679bf4b73
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/building_castle_S.png-8c861133e4f7d6a8de6427b
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

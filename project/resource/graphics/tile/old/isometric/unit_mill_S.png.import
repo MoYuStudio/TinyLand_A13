@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/unit_mill_S.png-763bb728eea9dccf5a38d75a09eeb
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
