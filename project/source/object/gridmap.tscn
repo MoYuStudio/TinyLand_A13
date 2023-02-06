@@ -98,7 +98,7 @@ func _process(delta):
 				if 时间地图[x][z] >= randi_range(9000,10000):
 					set_cell_item(Vector3(x,0,z),12,随机方向())
 					时间地图[x][z] = 0
-					
+
 func 随机方向():
 	var 方向 = randi_range(0,3)
 	# 0 10 16 22

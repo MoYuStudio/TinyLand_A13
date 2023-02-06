@@ -49,9 +49,9 @@ func _select_target(点击位置):
 	参数.collision_mask = 1
 	射线投影.force_raycast_update()
 	if 射线投影.is_colliding():
-		var iray = 空间状态.intersect_ray(参数)
-		if iray:
-			var 碰撞点位置 = iray['position']
+		var 射线投影参数 = 空间状态.intersect_ray(参数)
+		if 射线投影参数:
+			var 碰撞点位置 = 射线投影参数['position']
 			碰撞点位置 = Vector3(碰撞点位置[0],0,碰撞点位置[2])
 			emit_signal('碰撞点', 碰撞点位置)
 
