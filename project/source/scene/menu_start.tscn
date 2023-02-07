@@ -326,7 +326,7 @@ offset_right = 291.0
 offset_bottom = 95.0
 theme_override_fonts/font = ExtResource("3_ali1w")
 theme_override_font_sizes/font_size = 96
-text = "Setting"
+text = "Quit"
 
 [node name="SteamTitleIconFin" type="Sprite2D" parent="."]
 position = Vector2(1728, 986)
