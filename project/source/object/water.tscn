@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjjxpcc0lohca"]
+[gd_scene load_steps=5 format=3 uid="uid://cjjxpcc0lohca"]
 
 [sub_resource type="Shader" id="Shader_7d65s"]
 code = "
@@ -75,6 +75,14 @@ size = Vector2(256, 256)
 subdivide_width = 256
 subdivide_depth = 256
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5qwqv"]
+size = Vector3(256, 0.01, 256)
+
 [node name="Water" type="MeshInstance3D"]
 gi_mode = 2
 mesh = SubResource("PlaneMesh_6og20")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_5qwqv")

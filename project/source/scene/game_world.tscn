@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://teocqspfxw7o"]
+[gd_scene load_steps=10 format=3 uid="uid://teocqspfxw7o"]
 
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="1_x4dgl"]
 [ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="2_wgj5p"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="3_51p8g"]
 [ext_resource type="PackedScene" uid="uid://deyci4scpxkr8" path="res://source/object/camera.tscn" id="4_xtd16"]
 [ext_resource type="ArrayMesh" uid="uid://c4wkjw57e7aif" path="res://resource/graphics/tile/models/0.obj" id="5_8rpuh"]
+[ext_resource type="PackedScene" uid="uid://bs0h21pk82mqm" path="res://source/object/human.tscn" id="6_1v563"]
 
 [sub_resource type="GDScript" id="GDScript_mieq5"]
 script/source = "
@@ -54,6 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("5_8rpuh")
 surface_material_override/0 = SubResource("StandardMaterial3D_s8tve")
 script = SubResource("GDScript_2jevk")
+
+[node name="Human" parent="." instance=ExtResource("6_1v563")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57097, 0)
 
 [connection signal="预览方块位置" from="GridMap" to="PreChoose" method="_on_hex_grid_map_prechoose"]
 [connection signal="碰撞点" from="Camera" to="GridMap" method="_on_camera_click_pos"]
