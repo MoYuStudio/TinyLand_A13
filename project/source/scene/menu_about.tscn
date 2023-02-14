@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://da5nnaf4sba37"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="1_dcp4c"]
 [ext_resource type="Texture2D" uid="uid://dmq3uk4vd053m" path="res://resource/graphics/ui/kenney_emotespack_style_2/emote_star.png" id="2_4wgdy"]

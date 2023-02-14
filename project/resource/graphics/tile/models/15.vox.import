@@ -1,0 +1,17 @@
+[remap]
+
+importer="VoxelVoxSceneImporter"
+type="PackedScene"
+uid="uid://bbvpvs0iesceo"
+path="res://.godot/imported/15.vox-c03b911407788ca32208dd2834576938.tscn"
+
+[deps]
+
+source_file="res://resource/graphics/tile/models/15.vox"
+dest_files=["res://.godot/imported/15.vox-c03b911407788ca32208dd2834576938.tscn"]
+
+[params]
+
+store_colors_in_texture=false
+scale=1.0
+enable_baked_lighting=true

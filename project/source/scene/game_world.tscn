@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://teocqspfxw7o"]
+[gd_scene load_steps=11 format=3 uid="uid://teocqspfxw7o"]
 
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="1_x4dgl"]
 [ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="2_wgj5p"]
@@ -37,6 +37,8 @@ func _on_hex_grid_map_prechoose(预览方块位置,buildable):
 	position = 预览方块位置
 "
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_p46tr"]
+
 [node name="World" type="Node3D"]
 script = SubResource("GDScript_mieq5")
 
@@ -58,6 +60,11 @@ script = SubResource("GDScript_2jevk")
 
 [node name="Human" parent="." instance=ExtResource("6_1v563")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57097, 0)
+visible = false
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+visible = false
+navigation_mesh = SubResource("NavigationMesh_p46tr")
 
 [connection signal="预览方块位置" from="GridMap" to="PreChoose" method="_on_hex_grid_map_prechoose"]
 [connection signal="碰撞点" from="Camera" to="GridMap" method="_on_camera_click_pos"]

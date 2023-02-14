@@ -241,6 +241,7 @@ anchors_preset = 0
 offset_top = 400.0
 offset_right = 40.0
 offset_bottom = 440.0
+scale = Vector2(0.6, 0.6)
 script = SubResource("GDScript_ssr6e")
 
 [node name="Button" type="Button" parent="Start"]
@@ -266,15 +267,16 @@ theme_override_fonts/font = ExtResource("3_ali1w")
 theme_override_font_sizes/font_size = 96
 text = "Start"
 
-[node name="Setting2" type="Control" parent="."]
+[node name="Setting" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 550.0
 offset_right = 40.0
 offset_bottom = 590.0
+scale = Vector2(0.6, 0.6)
 script = SubResource("GDScript_ssr6e")
 
-[node name="Button" type="Button" parent="Setting2"]
+[node name="Button" type="Button" parent="Setting"]
 texture_filter = 1
 layout_mode = 0
 offset_right = 447.0
@@ -286,7 +288,7 @@ flat = true
 expand_icon = true
 script = SubResource("GDScript_rrn2k")
 
-[node name="Text" type="Label" parent="Setting2"]
+[node name="Text" type="Label" parent="Setting"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 75.0
@@ -297,15 +299,16 @@ theme_override_fonts/font = ExtResource("3_ali1w")
 theme_override_font_sizes/font_size = 96
 text = "Setting"
 
-[node name="Quit2" type="Control" parent="."]
+[node name="Quit" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 700.0
 offset_right = 40.0
 offset_bottom = 740.0
+scale = Vector2(0.6, 0.6)
 script = SubResource("GDScript_ssr6e")
 
-[node name="Button" type="Button" parent="Quit2"]
+[node name="Button" type="Button" parent="Quit"]
 texture_filter = 1
 layout_mode = 0
 offset_right = 447.0
@@ -317,7 +320,7 @@ flat = true
 expand_icon = true
 script = SubResource("GDScript_cf3qh")
 
-[node name="Text" type="Label" parent="Quit2"]
+[node name="Text" type="Label" parent="Quit"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 75.0
