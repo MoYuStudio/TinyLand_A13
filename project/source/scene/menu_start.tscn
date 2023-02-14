@@ -232,7 +232,7 @@ script = SubResource("GDScript_xeqqj")
 [node name="WorldEnvironment" parent="Background" instance=ExtResource("4_5wo1d")]
 
 [node name="Water" parent="Background" instance=ExtResource("5_8mbpe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 
 [node name="GridMap" parent="Background" instance=ExtResource("6_lropk")]
 
