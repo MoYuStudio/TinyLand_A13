@@ -169,3 +169,4 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D"]
 shape = SubResource("CapsuleShape3D_pwxoy")
+disabled = true

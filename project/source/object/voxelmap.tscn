@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8qvbiy6rqyrp"]
+[gd_scene load_steps=14 format=3 uid="uid://c8qvbiy6rqyrp"]
 
 [ext_resource type="PackedScene" uid="uid://deyci4scpxkr8" path="res://source/object/camera.tscn" id="1_w87fd"]
 
@@ -8,39 +8,54 @@ noise_type = 3
 [sub_resource type="VoxelGeneratorNoise" id="VoxelGeneratorNoise_hbh6g"]
 channel = 0
 noise = SubResource("FastNoiseLite_q7dp7")
+height_start = -100.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ehhs"]
 
 [sub_resource type="VoxelBlockyModel" id="VoxelBlockyModel_rup7h"]
+voxel_name = &"air"
+geometry_type = 2
+custom_mesh = SubResource("BoxMesh_5ehhs")
+collision_enabled_0 = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_s20q3"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srsii"]
+albedo_color = Color(0.498039, 0.2, 0, 1)
+
 [sub_resource type="VoxelBlockyModel" id="VoxelBlockyModel_xp0ku"]
-geometry_type = 1
+voxel_name = &"dirt"
+geometry_type = 2
 custom_mesh = SubResource("BoxMesh_s20q3")
 collision_aabbs = [AABB(0, 0, 0, 1, 1, 1)]
-cube_geometry_padding_y = null
-cube_tiles_left = Vector2(0, 0)
-cube_tiles_right = Vector2(0, 0)
-cube_tiles_bottom = Vector2(0, 0)
-cube_tiles_top = Vector2(0, 0)
-cube_tiles_back = Vector2(0, 0)
-cube_tiles_front = Vector2(0, 0)
+material_override_0 = SubResource("StandardMaterial3D_srsii")
+collision_enabled_0 = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mni8q"]
+albedo_color = Color(0.478431, 0.996078, 0.0823529, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0mia"]
+material = SubResource("StandardMaterial3D_mni8q")
+
+[sub_resource type="VoxelBlockyModel" id="VoxelBlockyModel_ic143"]
+voxel_name = &"grass"
+custom_mesh = SubResource("BoxMesh_p0mia")
 collision_enabled_0 = true
 
 [sub_resource type="VoxelBlockyLibrary" id="VoxelBlockyLibrary_2a127"]
 voxels/0 = SubResource("VoxelBlockyModel_rup7h")
 voxels/1 = SubResource("VoxelBlockyModel_xp0ku")
+voxels/2 = SubResource("VoxelBlockyModel_ic143")
 
 [sub_resource type="VoxelMesherBlocky" id="VoxelMesherBlocky_4qmuf"]
 library = SubResource("VoxelBlockyLibrary_2a127")
 
 [node name="VoxelMap" type="Node3D"]
 
-[node name="VoxelLodTerrain" type="VoxelLodTerrain" parent="."]
+[node name="Camera" parent="." instance=ExtResource("1_w87fd")]
+
+[node name="VoxelViewer" type="VoxelViewer" parent="Camera"]
+
+[node name="VoxelLodTerrain" type="VoxelTerrain" parent="."]
 generator = SubResource("VoxelGeneratorNoise_hbh6g")
 mesher = SubResource("VoxelMesherBlocky_4qmuf")
-view_distance = 128
-lod_distance = 128.0
-
-[node name="VoxelViewer" type="VoxelViewer" parent="VoxelLodTerrain"]
-
-[node name="Camera" parent="VoxelLodTerrain/VoxelViewer" instance=ExtResource("1_w87fd")]
