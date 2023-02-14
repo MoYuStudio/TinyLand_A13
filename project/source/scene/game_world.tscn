@@ -18,9 +18,9 @@ func _physics_process(delta):
 	pass
 "
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8tve"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmu8a"]
 transparency = 1
-albedo_color = Color(1, 1, 0, 0.235294)
+albedo_color = Color(1, 1, 0, 0.27451)
 
 [sub_resource type="GDScript" id="GDScript_2jevk"]
 script/source = "
@@ -56,12 +56,11 @@ visible = false
 [node name="PreChoose" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("5_8rpuh")
-surface_material_override/0 = SubResource("StandardMaterial3D_s8tve")
+surface_material_override/0 = SubResource("StandardMaterial3D_qmu8a")
 script = SubResource("GDScript_2jevk")
 
 [node name="Human" parent="." instance=ExtResource("6_1v563")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57097, 0)
-visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 visible = false
