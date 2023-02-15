@@ -71,13 +71,16 @@ func _ready():
 				
 			if 300 <= 瓷砖类型 and 瓷砖类型 < 400:
 				set_cell_item(Vector3(x,0,z),3,随机方向())
-				set_cell_item(Vector3(x,1,z),8,随机方向())
+				set_cell_item(Vector3(x,1,z),3,随机方向())
 			if 400 <= 瓷砖类型 and 瓷砖类型 < 500:
 				set_cell_item(Vector3(x,0,z),3,随机方向())
-				set_cell_item(Vector3(x,1,z),9,随机方向())
+				set_cell_item(Vector3(x,1,z),3,随机方向())
+				set_cell_item(Vector3(x,2,z),3,随机方向())
 			if 500 <= 瓷砖类型 and 瓷砖类型 < 1000:
 				set_cell_item(Vector3(x,0,z),3,随机方向())
-				set_cell_item(Vector3(x,1,z),10,随机方向())
+				set_cell_item(Vector3(x,1,z),3,随机方向())
+				set_cell_item(Vector3(x,2,z),3,随机方向())
+				set_cell_item(Vector3(x,3,z),3,随机方向())
 
 func _on_camera_click_pos(碰撞点位置):
 	# print(碰撞点位置)
@@ -126,6 +129,6 @@ func 随机方向():
 
 [node name="GridMap" type="GridMap"]
 mesh_library = ExtResource("1_v6vv6")
-cell_size = Vector3(1.6, 0.2, 1.6)
+cell_size = Vector3(1.6, 1.6, 1.6)
 collision_mask = 3
 script = SubResource("GDScript_i6g6p")

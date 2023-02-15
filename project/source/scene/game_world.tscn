@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="2_wgj5p"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="3_51p8g"]
 [ext_resource type="PackedScene" uid="uid://deyci4scpxkr8" path="res://source/object/camera.tscn" id="4_xtd16"]
-[ext_resource type="ArrayMesh" uid="uid://c4wkjw57e7aif" path="res://resource/graphics/tile/models/0.obj" id="5_8rpuh"]
 [ext_resource type="PackedScene" uid="uid://bs0h21pk82mqm" path="res://source/object/human.tscn" id="6_1v563"]
 
 [sub_resource type="GDScript" id="GDScript_mieq5"]
@@ -18,9 +17,12 @@ func _physics_process(delta):
 	pass
 "
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmu8a"]
+[sub_resource type="BoxMesh" id="BoxMesh_b8x02"]
+size = Vector3(1.6, 1.6, 1.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4b417"]
 transparency = 1
-albedo_color = Color(1, 1, 0, 0.27451)
+albedo_color = Color(1, 1, 0, 0.235294)
 
 [sub_resource type="GDScript" id="GDScript_2jevk"]
 script/source = "
@@ -33,7 +35,7 @@ func _process(delta):
 	pass
 
 func _on_hex_grid_map_prechoose(预览方块位置,buildable):
-	预览方块位置 = Vector3(预览方块位置.x,预览方块位置.y+0.2,预览方块位置.z)
+	预览方块位置 = Vector3(预览方块位置.x,预览方块位置.y+2.4,预览方块位置.z)
 	position = 预览方块位置
 "
 
@@ -45,16 +47,15 @@ script = SubResource("GDScript_mieq5")
 [node name="GridMap" parent="." instance=ExtResource("2_wgj5p")]
 
 [node name="Water" parent="." instance=ExtResource("3_51p8g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0.2, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 2.3, 80)
 
 [node name="Camera" parent="." instance=ExtResource("4_xtd16")]
 transform = Transform3D(-0.669131, 0, -0.743145, 0, 1, 0, 0.743145, 0, -0.669131, 0, 6, 0)
 visible = false
 
 [node name="PreChoose" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
-mesh = ExtResource("5_8rpuh")
-surface_material_override/0 = SubResource("StandardMaterial3D_qmu8a")
+mesh = SubResource("BoxMesh_b8x02")
+surface_material_override/0 = SubResource("StandardMaterial3D_4b417")
 script = SubResource("GDScript_2jevk")
 
 [node name="Human" parent="." instance=ExtResource("6_1v563")]
