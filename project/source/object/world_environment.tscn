@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ye1hxsh2ci36"]
 
-[sub_resource type="Shader" id="Shader_tij6g"]
+[sub_resource type="Shader" id="Shader_gajjd"]
 code = "// Cloud Raymarching based on: A. Schneider. “The Real-Time Volumetric Cloudscapes Of Horizon: Zero Dawn”. ACM SIGGRAPH. Los Angeles, CA: ACM SIGGRAPH, 2015. Web. 26 Aug. 2015.
 
 shader_type sky;
@@ -266,24 +266,21 @@ void sky() {
 	}
 }"
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_kro2n"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mtvcd"]
 noise_type = 3
-frequency = 0.049
-offset = Vector3(-1.39534e+08, 1.36364e+08, 0)
-fractal_type = 3
-fractal_octaves = 1
-fractal_ping_pong_strength = 1.826
+frequency = 0.006
+offset = Vector3(2e+08, 1.46341e+08, 0)
+fractal_lacunarity = 1.6
+fractal_gain = 1.6
+fractal_weighted_strength = 1.0
+domain_warp_enabled = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b1nni"]
-width = 128
-height = 128
-in_3d_space = true
-seamless = true
-seamless_blend_skirt = 0.161
-noise = SubResource("FastNoiseLite_kro2n")
+seamless_blend_skirt = 0.0
+noise = SubResource("FastNoiseLite_mtvcd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_desb7"]
-shader = SubResource("Shader_tij6g")
+shader = SubResource("Shader_gajjd")
 shader_parameter/_density = 0.05
 shader_parameter/cloud_coverage = 0.25
 shader_parameter/_time_scale = 1.0
@@ -393,6 +390,5 @@ shadow_enabled = true
 script = SubResource("GDScript_yyiph")
 
 [node name="SunLight_bata" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.994522, 0.104528, 0, -0.104528, 0.994522, 0, 0, 0)
-light_energy = 1.6
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 shadow_enabled = true

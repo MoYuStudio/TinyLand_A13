@@ -3,16 +3,16 @@
 importer="3d_texture"
 type="CompressedTexture3D"
 uid="uid://c4dp6g6gouj2b"
-path.etc2="res://.godot/imported/worlnoise.bmp-77418e11c07cfaa290415a6caf2517ce.etc2.ctex3d"
+path.s3tc="res://.godot/imported/worlnoise.bmp-77418e11c07cfaa290415a6caf2517ce.s3tc.ctex3d"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://resource/graphics/sky/worlnoise.bmp"
-dest_files=["res://.godot/imported/worlnoise.bmp-77418e11c07cfaa290415a6caf2517ce.etc2.ctex3d"]
+dest_files=["res://.godot/imported/worlnoise.bmp-77418e11c07cfaa290415a6caf2517ce.s3tc.ctex3d"]
 
 [params]
 
