@@ -19,7 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dwjtxjye5oj8b" path="res://resource/graphics/tile/models/16.obj" id="17_ysnwc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3q23v"]
-size = Vector3(1.6, 0.1, 1.6)
+size = Vector3(1.6, 0.2, 1.6)
 
 [node name="main_mesh_library_tres" type="Node3D"]
 
@@ -31,6 +31,7 @@ mesh = ExtResource("1_ko5x4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
 [node name="CollisionShape" type="CollisionShape3D" parent="0/StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("BoxShape3D_3q23v")
 
 [node name="1" type="MeshInstance3D" parent="."]
