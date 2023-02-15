@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cukytrwug5w53"]
+[gd_scene load_steps=20 format=3 uid="uid://cukytrwug5w53"]
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="1_f53k3"]
 [ext_resource type="Texture2D" uid="uid://cj1fgv4cxwc8v" path="res://resource/graphics/logo/icon.png" id="2_u4gh8"]
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="3_ali1w"]
+[ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="4_5wo1d"]
 [ext_resource type="Texture2D" uid="uid://baya2ee5r5ncf" path="res://resource/graphics/steam/steam_title_icon_2.png" id="4_u2ske"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="5_8mbpe"]
 [ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="6_lropk"]
@@ -223,6 +224,8 @@ horizontal_alignment = 1
 script = SubResource("GDScript_tr7rp")
 
 [node name="Background" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" parent="Background" instance=ExtResource("4_5wo1d")]
 
 [node name="Camera" type="Camera3D" parent="Background"]
 transform = Transform3D(0.707107, -0.110616, 0.698401, 0, 0.987688, 0.156434, -0.707107, -0.110616, 0.698401, 96, 16, 96)
