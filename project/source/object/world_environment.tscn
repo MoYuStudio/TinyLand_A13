@@ -176,7 +176,7 @@ vec4 march(vec3 pos,  vec3 end, vec3 dir, int depth) {
 	float lss = (t_dist / 36.0);
 	vec3 ldir = normalize(LIGHT0_DIRECTION);
 	vec3 L = vec3(0.0);
-	int count=0;
+	//int count=0;
 	float t = 1.0;
 	float costheta = dot(ldir, dir);
 	// Stack multiple phase functions to emulate some backscattering
@@ -413,7 +413,3 @@ script = SubResource("GDScript_yyiph")
 transform = Transform3D(0.707107, 0.298836, -0.640856, 0, 0.906308, 0.422618, 0.707107, -0.298836, 0.640856, 0, 0, 0)
 shadow_enabled = true
 script = SubResource("GDScript_xjh1p")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-visible = false
-light_color = Color(0, 0, 0, 1)
