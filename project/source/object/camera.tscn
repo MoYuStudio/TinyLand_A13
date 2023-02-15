@@ -93,7 +93,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed('Space'):
 			输入向量.y += 1
 		if Input.is_action_pressed('Shift'):
-			if position.y >= 1.6: # 地平线限位
+			if position.y >= 3.2: # 地平线限位
 				输入向量.y -= 1
 		if Input.is_action_pressed('Ctrl'):
 			移动速度 = 0.9
