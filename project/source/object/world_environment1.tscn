@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkd6i3rsmfl0t"]
+
+[sub_resource type="Gradient" id="Gradient_e5ds0"]
+colors = PackedColorArray(0, 0.392157, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a7nwc"]
+noise_type = 3
+frequency = 0.013
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6sr3s"]
+color_ramp = SubResource("Gradient_e5ds0")
+noise = SubResource("FastNoiseLite_a7nwc")
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_j4k50"]
+night_sky = SubResource("NoiseTexture2D_6sr3s")
+
+[sub_resource type="Sky" id="Sky_dqxc4"]
+sky_material = SubResource("PhysicalSkyMaterial_j4k50")
+
+[sub_resource type="Environment" id="Environment_aflic"]
+background_mode = 2
+sky = SubResource("Sky_dqxc4")
+ambient_light_source = 3
+reflected_light_source = 2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.009
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_aflic")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)

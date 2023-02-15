@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ye1hxsh2ci36"]
+[gd_scene load_steps=10 format=3 uid="uid://ye1hxsh2ci36"]
 
 [ext_resource type="CompressedTexture3D" uid="uid://dbfbysid168mx" path="res://resource/graphics/sky/perlworlnoise.tga" id="1_tioo7"]
 [ext_resource type="CompressedTexture3D" uid="uid://c4dp6g6gouj2b" path="res://resource/graphics/sky/worlnoise.bmp" id="2_pt815"]
@@ -328,87 +328,9 @@ func _process(delta):
 	#environment.sky_rotation.y += 0.0001
 "
 
-[sub_resource type="GDScript" id="GDScript_04gv0"]
-script/source = "
-extends DirectionalLight3D
-
-func _ready():
-	rotation_degrees.x = 0
-	rotation_degrees.y = 0
-
-func _process(delta):
-	#print(rotation_degrees.x)
-	rotation_degrees.x += 0.2
-	rotation_degrees.y += 0.2
-	#if rotation_degrees.x >= 90 and rotation_degrees.x <= 180:
-	#	light_color.b -= 0.003
-	#elif rotation_degrees.x >= -90 and rotation_degrees.x <= 0:
-	#	light_color.b -= 0.003
-	#else:
-	#	light_color.b += 0.0015
-	#if rotation_degrees.x == -180:
-	#	light_color.b = 150
-	if rotation_degrees.x > 360:
-		rotation_degrees.x = 0
-	if rotation_degrees.y > 360:
-		rotation_degrees.y = 0
-	
-"
-
-[sub_resource type="GDScript" id="GDScript_yyiph"]
-script/source = "
-extends DirectionalLight3D
-
-func _ready():
-	rotation_degrees.x = -180
-	rotation_degrees.y = -180
-
-func _process(delta):
-
-	rotation_degrees.x += 0.2
-	rotation_degrees.y += 0.2
-
-	if rotation_degrees.x > 360:
-		rotation_degrees.x = 0
-	if rotation_degrees.y > 360:
-		rotation_degrees.y = 0
-"
-
-[sub_resource type="GDScript" id="GDScript_xjh1p"]
-script/source = "extends DirectionalLight3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#rotation_degrees.x += 0.1
-	#rotation_degrees.y += 0.1
-	pass
-"
-
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_8dq1e")
 script = SubResource("GDScript_dm78c")
 
-[node name="SunLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.123601, 0.992332, 0, -0.992332, 0.123601, 0, 20.44, -5.25435)
-visible = false
-shadow_enabled = true
-directional_shadow_max_distance = 139.0
-script = SubResource("GDScript_04gv0")
-
-[node name="MoonLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.123601, 0.992332, 0, -0.992332, 0.123601, 0, 20.44, -5.25435)
-visible = false
-light_energy = 0.5
-shadow_enabled = true
-script = SubResource("GDScript_yyiph")
-
-[node name="SunLight_bata" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707107, 0.298836, -0.640856, 0, 0.906308, 0.422618, 0.707107, -0.298836, 0.640856, 0, 0, 0)
-shadow_enabled = true
-script = SubResource("GDScript_xjh1p")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
