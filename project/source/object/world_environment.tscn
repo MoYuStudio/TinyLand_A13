@@ -1,11 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ye1hxsh2ci36"]
 
-[ext_resource type="CompressedTexture3D" uid="uid://dbfbysid168mx" path="res://resource/graphics/sky/perlworlnoise.tga" id="1_tioo7"]
-[ext_resource type="CompressedTexture3D" uid="uid://c4dp6g6gouj2b" path="res://resource/graphics/sky/worlnoise.bmp" id="2_pt815"]
-
 [sub_resource type="Shader" id="Shader_tij6g"]
-code = "
-// Cloud Raymarching based on: A. Schneider. “The Real-Time Volumetric Cloudscapes Of Horizon: Zero Dawn”. ACM SIGGRAPH. Los Angeles, CA: ACM SIGGRAPH, 2015. Web. 26 Aug. 2015.
+code = "// Cloud Raymarching based on: A. Schneider. “The Real-Time Volumetric Cloudscapes Of Horizon: Zero Dawn”. ACM SIGGRAPH. Los Angeles, CA: ACM SIGGRAPH, 2015. Web. 26 Aug. 2015.
 
 shader_type sky;
 render_mode use_half_res_pass, use_quarter_res_pass;
@@ -176,7 +172,7 @@ vec4 march(vec3 pos,  vec3 end, vec3 dir, int depth) {
 	float lss = (t_dist / 36.0);
 	vec3 ldir = normalize(LIGHT0_DIRECTION);
 	vec3 L = vec3(0.0);
-	//int count=0;
+	int count=0;
 	float t = 1.0;
 	float costheta = dot(ldir, dir);
 	// Stack multiple phase functions to emulate some backscattering
@@ -268,16 +264,23 @@ void sky() {
 	} else {
 		COLOR = HALF_RES_COLOR.rgb; // Change to col.rgb for full resolution
 	}
-}
-"
+}"
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_odfpg"]
-cellular_jitter = 4.06
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kro2n"]
+noise_type = 3
+frequency = 0.049
+offset = Vector3(-1.39534e+08, 1.36364e+08, 0)
+fractal_type = 3
+fractal_octaves = 1
+fractal_ping_pong_strength = 1.826
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mr2vf"]
-seamless_blend_skirt = 0.0
-bump_strength = 36.3
-noise = SubResource("FastNoiseLite_odfpg")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b1nni"]
+width = 128
+height = 128
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.161
+noise = SubResource("FastNoiseLite_kro2n")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_desb7"]
 shader = SubResource("Shader_tij6g")
@@ -286,17 +289,15 @@ shader_parameter/cloud_coverage = 0.25
 shader_parameter/_time_scale = 1.0
 shader_parameter/_time_offset = 0.0
 shader_parameter/rayleigh = 2.0
-shader_parameter/rayleigh_color = Color(0.26, 0.41, 0.58, 1)
+shader_parameter/rayleigh_color = Color(0.184314, 0.470588, 0.890196, 1)
 shader_parameter/mie = 0.005
 shader_parameter/mie_eccentricity = 0.8
-shader_parameter/mie_color = Color(0.63, 0.77, 0.92, 1)
+shader_parameter/mie_color = Color(0.545098, 0.835294, 0.87451, 1)
 shader_parameter/turbidity = 10.0
 shader_parameter/sun_disk_scale = 1.0
 shader_parameter/ground_color = Color(1, 1, 1, 1)
 shader_parameter/exposure = 0.1
-shader_parameter/worlnoise = ExtResource("2_pt815")
-shader_parameter/perlworlnoise = ExtResource("1_tioo7")
-shader_parameter/weathermap = SubResource("NoiseTexture2D_mr2vf")
+shader_parameter/weathermap = SubResource("NoiseTexture2D_b1nni")
 
 [sub_resource type="Sky" id="Sky_l2mck"]
 sky_material = SubResource("ShaderMaterial_desb7")
@@ -304,21 +305,20 @@ sky_material = SubResource("ShaderMaterial_desb7")
 [sub_resource type="Environment" id="Environment_8dq1e"]
 background_mode = 2
 sky = SubResource("Sky_l2mck")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-reflected_light_source = 2
 tonemap_mode = 3
 tonemap_white = 3.22
 fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
-fog_density = 0.001
+fog_light_energy = 1.24
+fog_density = 0.1129
+fog_height = 3.48
+fog_height_density = 0.0027
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_anisotropy = -0.25
 volumetric_fog_sky_affect = 0.3
 
 [sub_resource type="GDScript" id="GDScript_dm78c"]
-script/source = "
-extends WorldEnvironment
+script/source = "extends WorldEnvironment
 
 func _ready():
 	pass
@@ -328,9 +328,71 @@ func _process(delta):
 	#environment.sky_rotation.y += 0.0001
 "
 
+[sub_resource type="GDScript" id="GDScript_04gv0"]
+script/source = "
+extends DirectionalLight3D
+
+func _ready():
+	rotation_degrees.x = 0
+	rotation_degrees.y = 0
+
+func _process(delta):
+	#print(rotation_degrees.x)
+	rotation_degrees.x += 0.2
+	rotation_degrees.y += 0.2
+	#if rotation_degrees.x >= 90 and rotation_degrees.x <= 180:
+	#	light_color.b -= 0.003
+	#elif rotation_degrees.x >= -90 and rotation_degrees.x <= 0:
+	#	light_color.b -= 0.003
+	#else:
+	#	light_color.b += 0.0015
+	#if rotation_degrees.x == -180:
+	#	light_color.b = 150
+	if rotation_degrees.x > 360:
+		rotation_degrees.x = 0
+	if rotation_degrees.y > 360:
+		rotation_degrees.y = 0
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_yyiph"]
+script/source = "
+extends DirectionalLight3D
+
+func _ready():
+	rotation_degrees.x = -180
+	rotation_degrees.y = -180
+
+func _process(delta):
+
+	rotation_degrees.x += 0.2
+	rotation_degrees.y += 0.2
+
+	if rotation_degrees.x > 360:
+		rotation_degrees.x = 0
+	if rotation_degrees.y > 360:
+		rotation_degrees.y = 0
+"
+
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_8dq1e")
 script = SubResource("GDScript_dm78c")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+[node name="SunLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.123601, 0.992332, 0, -0.992332, 0.123601, 0, 20.44, -5.25435)
+visible = false
+shadow_enabled = true
+directional_shadow_max_distance = 139.0
+script = SubResource("GDScript_04gv0")
+
+[node name="MoonLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.123601, 0.992332, 0, -0.992332, 0.123601, 0, 20.44, -5.25435)
+visible = false
+light_energy = 0.5
+shadow_enabled = true
+script = SubResource("GDScript_yyiph")
+
+[node name="SunLight_bata" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994522, 0.104528, 0, -0.104528, 0.994522, 0, 0, 0)
+light_energy = 1.6
+shadow_enabled = true

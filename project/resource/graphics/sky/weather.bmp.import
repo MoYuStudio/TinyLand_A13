@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfkye0uf4i6w1"
-path.s3tc="res://.godot/imported/weather.bmp-a65a6c8b3b980b4772c099d38009a221.s3tc.ctex"
+path.etc2="res://.godot/imported/weather.bmp-a65a6c8b3b980b4772c099d38009a221.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://resource/graphics/sky/weather.bmp"
-dest_files=["res://.godot/imported/weather.bmp-a65a6c8b3b980b4772c099d38009a221.s3tc.ctex"]
+dest_files=["res://.godot/imported/weather.bmp-a65a6c8b3b980b4772c099d38009a221.etc2.ctex"]
 
 [params]
 
