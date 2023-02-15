@@ -63,9 +63,9 @@ func _ready():
 					set_cell_item(Vector3(x,0,z),0,随机方向())
 					set_cell_item(Vector3(x,1,z),4,随机方向())
 			if 250 <= 瓷砖类型 and 瓷砖类型 < 300:
-				if 0 <= 生成概率 and 生成概率 < 95:
+				if 0 <= 生成概率 and 生成概率 < 97:
 					set_cell_item(Vector3(x,0,z),3,随机方向())
-				if 95 <= 生成概率 and 生成概率 < 101:
+				if 97 <= 生成概率 and 生成概率 < 101:
 					set_cell_item(Vector3(x,0,z),3,随机方向())
 					set_cell_item(Vector3(x,1,z),7,随机方向())
 				
