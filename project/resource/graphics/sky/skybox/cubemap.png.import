@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbg2ifp81rkx3"
-path.etc2="res://.godot/imported/cubemap.png-dc1eafd487d862e2cfcb6adff2fb2e04.etc2.ctex"
+path.s3tc="res://.godot/imported/cubemap.png-dc1eafd487d862e2cfcb6adff2fb2e04.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://resource/graphics/sky/skybox/cubemap.png"
-dest_files=["res://.godot/imported/cubemap.png-dc1eafd487d862e2cfcb6adff2fb2e04.etc2.ctex"]
+dest_files=["res://.godot/imported/cubemap.png-dc1eafd487d862e2cfcb6adff2fb2e04.s3tc.ctex"]
 
 [params]
 

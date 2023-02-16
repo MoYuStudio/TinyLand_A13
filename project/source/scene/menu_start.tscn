@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="4_5wo1d"]
 [ext_resource type="Texture2D" uid="uid://baya2ee5r5ncf" path="res://resource/graphics/steam/steam_title_icon_2.png" id="4_u2ske"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="5_8mbpe"]
-[ext_resource type="PackedScene" uid="uid://gl3daikwgbaj" path="res://source/object/gridmap.tscn" id="6_lropk"]
+[ext_resource type="PackedScene" uid="uid://ytdot1itjxax" path="res://source/object/gridmap.tscn" id="6_lropk"]
 [ext_resource type="Texture2D" uid="uid://bxeltrj78ro72" path="res://resource/graphics/ui/button_blue.png" id="7_rw7lk"]
 [ext_resource type="Texture2D" uid="uid://bsnljvo44u2l7" path="res://resource/graphics/steam/steam_title_icon_fin.png" id="9_5u6o4"]
 
