@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://gl3daikwgbaj"]
+[gd_scene load_steps=3 format=3 uid="uid://ytdot1itjxax"]
 
-[ext_resource type="MeshLibrary" uid="uid://bdasiw3xsrfg6" path="res://resource/bit_resource/mesh_library/main_mesh_library.tres" id="1_v6vv6"]
+[ext_resource type="MeshLibrary" uid="uid://bdasiw3xsrfg6" path="res://resource/data/bit_resource/mesh_library/main_mesh_library.tres" id="1_pltka"]
 
 [sub_resource type="GDScript" id="GDScript_i6g6p"]
 script/source = "
@@ -27,7 +27,26 @@ var 树林噪声频率 = 0.1
 var 碰撞点
 var 碰撞类型
 
+var 被建造的方块 = 11
+var 方块属性 = {
+	0:{
+		name = 'dirt',
+		#时间
+		pd_time = 100,
+		upgrade_time = 1000,
+		#建造
+		buildable = [-1],
+		buildable_level = 0,
+		#价格
+		build_price = [['Money',100]],
+		upgrade_price ={},
+		pd_price = [],
+		manpower = 0,
+		},
+}
+
 func _ready():
+	
 	噪声 = FastNoiseLite.new()
 	噪声.noise_type = 噪声类型
 	噪声.seed = 噪声种子
@@ -93,7 +112,8 @@ func _on_camera_click_pos(碰撞点位置):
 			emit_signal('预览方块位置', map_to_local(Vector3(碰撞点.x,1,碰撞点.z)), true)
 		if Input.is_action_pressed('Left_Click'):
 			if get_cell_item(Vector3(碰撞点.x,1,碰撞点.z)) == -1:
-				set_cell_item(Vector3(碰撞点.x,1,碰撞点.z),randi_range(11,16),随机方向())
+				# 方块属性[被建造的方块]
+				set_cell_item(Vector3(碰撞点.x,1,碰撞点.z),被建造的方块,随机方向())
 				
 				#var 建筑粒子 = 建筑粒子效果.instance()
 				#self.add_child(建筑粒子)
@@ -135,7 +155,7 @@ func 随机方向():
 "
 
 [node name="GridMap" type="GridMap"]
-mesh_library = ExtResource("1_v6vv6")
+mesh_library = ExtResource("1_pltka")
 cell_size = Vector3(1.6, 1.6, 1.6)
 collision_mask = 3
 script = SubResource("GDScript_i6g6p")
