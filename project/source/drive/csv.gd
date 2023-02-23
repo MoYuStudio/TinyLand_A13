@@ -1,25 +1,21 @@
 
-# ChatGPT
+# 以下代码由 ChatGPT 生成并进行调整
 # 目前读取正常,写入格式有误
-
-# 在Godot 4.0中读写csv文件的通用模块
 
 extends Node
 
-# 读取CSV文件
-func read_csv_file(file_path: String) -> Array:
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	var csv_data = []
-	var line = ""
-	while !file.eof_reached():
-		line = file.get_line()
-		csv_data.append(line.split(","))
-	file.close()
-	return csv_data
+func 读取csv文件(文件路径: String) -> Array:
+	var 文件 = FileAccess.open(文件路径, FileAccess.READ)
+	var csv数据 = []
+	var 行 = ""
+	while !文件.eof_reached():
+		行 = 文件.get_line()
+		csv数据.append(行.split(","))
+	文件.close()
+	return csv数据
 
-# 写入CSV文件
-func write_csv_file(file_path: String, data: Array) -> void:
-	var file = FileAccess.open(file_path, FileAccess.WRITE)
-	for row in data:
-		file.store_line(row.join(","))
-	file.close()
+func 写入csv文件(文件路径: String, 数据: Array) -> void:
+	var 文件 = FileAccess.open(文件路径, FileAccess.WRITE)
+	for 行 in 数据:
+		文件.store_line(行.join(","))
+	文件.close()

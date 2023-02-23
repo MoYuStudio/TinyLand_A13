@@ -12,8 +12,8 @@ signal 预览方块位置
 
 const 建筑粒子效果 = preload('res://source/object/particles_1.tscn')
 
-const CSVFile = preload('res://source/drive/csv.gd')
-var csv_file = CSVFile.new()
+const csv文件读取 = preload('res://source/drive/csv.gd')
+var csv文件 = csv文件读取.new()
 
 var 生成边界 = 96
 
@@ -53,9 +53,9 @@ var 方块属性 = {
 func _ready():
 	
 	# 从CSV文件中读取数据
-	var csv_data = csv_file.read_csv_file('res://resource/data/csv_database/tile.csv')
+	var csv数据 = csv文件.读取csv文件('res://resource/data/csv_database/tile.csv')
 
-	print(csv_data)
+	print(csv数据)
 	
 	噪声 = FastNoiseLite.new()
 	噪声.noise_type = 噪声类型
