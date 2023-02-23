@@ -8,7 +8,12 @@ extends GridMap
 
 signal 预览方块位置
 
-var 建筑粒子效果 = preload('res://source/object/particles_1.tscn')
+# 获取对通用模块节点的引用
+
+const 建筑粒子效果 = preload('res://source/object/particles_1.tscn')
+
+const CSVFile = preload('res://source/drive/csv.gd')
+var csv_file = CSVFile.new()
 
 var 生成边界 = 96
 
@@ -46,6 +51,11 @@ var 方块属性 = {
 }
 
 func _ready():
+	
+	# 从CSV文件中读取数据
+	var csv_data = csv_file.read_csv_file('res://resource/data/csv_database/tile.csv')
+
+	print(csv_data)
 	
 	噪声 = FastNoiseLite.new()
 	噪声.noise_type = 噪声类型
