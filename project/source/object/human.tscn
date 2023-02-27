@@ -16,6 +16,7 @@ func _physics_process(delta):
 	velocity.x = 移动速度
 	# velocity.z = 1
 	move_and_slide()
+
 "
 
 [sub_resource type="BoxMesh" id="BoxMesh_f152n"]
