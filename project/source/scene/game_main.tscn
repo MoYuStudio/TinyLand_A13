@@ -17,7 +17,7 @@
 script/source = "
 extends Node3D
 
-var stop_menu
+var 暂停菜单
 
 func _ready():
 	$GUI/Stop.visible = false
@@ -29,15 +29,16 @@ func _process(delta):
 
 func _physics_process(delta):
 	if $GUI/Stop/Continue.button_click == true:
-		stop_menu = false
+		暂停菜单 = false
 		$GUI/Stop.visible = false
 		$World/Camera.鼠标锁定 = true
 	
 	# movement inputs
 	if Input.is_action_pressed('Esc'):
-		stop_menu = true
+		暂停菜单 = true
 		$GUI/Stop.visible = true
 		$World/Camera.鼠标锁定 = false
+		
 "
 
 [sub_resource type="GDScript" id="GDScript_reyjm"]
