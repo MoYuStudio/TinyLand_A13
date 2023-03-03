@@ -3,9 +3,9 @@
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
 [ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="2_2dvrp"]
+[ext_resource type="Texture2D" uid="uid://betn8qwt5brs0" path="res://resource/graphics/icon/house_x16.png" id="4_x8v05"]
 [ext_resource type="PackedScene" uid="uid://blhiffqgf5ppu" path="res://source/scene/menu_stop.tscn" id="5_k8phw"]
 [ext_resource type="Texture2D" uid="uid://bq7eaomywpjyu" path="res://resource/graphics/icon/wood_x16.png" id="6_cq1p6"]
-[ext_resource type="Texture2D" uid="uid://dne5isv4m5uir" path="res://resource/graphics/icon/9.png" id="6_polla"]
 [ext_resource type="Texture2D" uid="uid://bvfqw8wqhl4h4" path="res://resource/graphics/icon/stone_x16.png" id="7_0mx2o"]
 [ext_resource type="Texture2D" uid="uid://8y7s43whecuk" path="res://resource/graphics/icon/metal_x16.png" id="7_6t0q5"]
 [ext_resource type="Texture2D" uid="uid://oc3bbne2dnby" path="res://resource/graphics/icon/money_x16.png" id="7_flqcq"]
@@ -83,7 +83,7 @@ extends Button
 var info_popup = false
 var button_click = false
 
-var hovered_zoom_level = 6
+var hovered_zoom_level = 4
 
 var blockboard_click_lock = false
 
@@ -152,118 +152,33 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = SubResource("GDScript_s2cbv")
 
-[node name="ColorRect" type="ColorRect" parent="GUI/Blockboard"]
-layout_mode = 0
-offset_top = 160.0
+[node name="OutlineColorRect" type="ColorRect" parent="GUI/Blockboard"]
+offset_top = 148.0
 offset_right = 9000.0
-offset_bottom = 6160.0
-color = Color(1, 1, 1, 0.235294)
+offset_bottom = 6148.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/Blockboard"]
 layout_mode = 0
-offset_top = 40.0
+offset_top = 46.0
 offset_right = 304.0
-offset_bottom = 64.0
+offset_bottom = 70.0
 scale = Vector2(6, 6)
 
 [node name="House" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
+icon = ExtResource("4_x8v05")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_2itao")
 
-[node name="House2" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House3" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House4" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House5" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House6" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House7" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House8" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House9" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House10" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
-
-[node name="House11" type="Button" parent="GUI/Blockboard/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("6_polla")
-flat = true
-icon_alignment = 1
-script = SubResource("GDScript_2itao")
+[node name="DirtColorRect" type="ColorRect" parent="GUI/Blockboard"]
+layout_mode = 0
+offset_top = 154.0
+offset_right = 9000.0
+offset_bottom = 6154.0
+color = Color(0.552941, 0.431373, 0.388235, 1)
 
 [node name="Scoreboard" type="Control" parent="GUI"]
 layout_mode = 3
