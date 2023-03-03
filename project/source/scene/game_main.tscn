@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cw5fbnhvpmws"]
+[gd_scene load_steps=20 format=3 uid="uid://cw5fbnhvpmws"]
 
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
 [ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="2_2dvrp"]
 [ext_resource type="Texture2D" uid="uid://betn8qwt5brs0" path="res://resource/graphics/icon/house_x16.png" id="4_x8v05"]
+[ext_resource type="Texture2D" uid="uid://u3frvb4os16o" path="res://resource/graphics/icon/farmland_x16.png" id="5_hta6v"]
 [ext_resource type="PackedScene" uid="uid://blhiffqgf5ppu" path="res://source/scene/menu_stop.tscn" id="5_k8phw"]
 [ext_resource type="Texture2D" uid="uid://bq7eaomywpjyu" path="res://resource/graphics/icon/wood_x16.png" id="6_cq1p6"]
 [ext_resource type="Texture2D" uid="uid://bvfqw8wqhl4h4" path="res://resource/graphics/icon/stone_x16.png" id="7_0mx2o"]
@@ -169,6 +170,15 @@ texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("4_x8v05")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="Farmland" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("5_hta6v")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_2itao")
