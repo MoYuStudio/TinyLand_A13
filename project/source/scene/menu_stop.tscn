@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://blhiffqgf5ppu"]
 
-[ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_xvc0f"]
+[ext_resource type="FontFile" uid="uid://dwo3w3m0bti6d" path="res://resource/graphics/font/YouSheBiaoTiHei.ttf" id="1_l7vx6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rnba"]
 
@@ -84,10 +84,10 @@ offset_left = 795.0
 offset_top = 241.0
 offset_right = 1061.0
 offset_bottom = 321.0
-theme_override_fonts/font = ExtResource("1_xvc0f")
+theme_override_fonts/font = ExtResource("1_l7vx6")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6rnba")
-text = "Continue"
+text = "继续"
 flat = true
 script = SubResource("GDScript_l45y7")
 
@@ -98,10 +98,10 @@ offset_left = 796.0
 offset_top = 367.0
 offset_right = 1020.0
 offset_bottom = 447.0
-theme_override_fonts/font = ExtResource("1_xvc0f")
+theme_override_fonts/font = ExtResource("1_l7vx6")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nmtlw")
-text = "Setting"
+text = "设置"
 flat = true
 script = SubResource("GDScript_keetg")
 
@@ -112,10 +112,10 @@ offset_left = 803.0
 offset_top = 495.0
 offset_right = 967.0
 offset_bottom = 575.0
-theme_override_fonts/font = ExtResource("1_xvc0f")
+theme_override_fonts/font = ExtResource("1_l7vx6")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sys6x")
-text = "Menu"
+text = "返回主菜单"
 flat = true
 script = SubResource("GDScript_lxnts")
 
@@ -126,11 +126,11 @@ offset_left = 60.0
 offset_top = 60.0
 offset_right = 604.0
 offset_bottom = 257.0
-theme_override_fonts/font = ExtResource("1_xvc0f")
+theme_override_fonts/font = ExtResource("1_l7vx6")
 theme_override_font_sizes/font_size = 32
-text = "Ctrl Help
+text = "操作指南
 
-Move: WASD
-UP&Down: Space & Shift
-Move Boot: Ctrl
+移动: WASD
+上&下: Space & Shift
+加速: Ctrl
 Esc: Open Stop Menu"

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="1_dcp4c"]
 [ext_resource type="Texture2D" uid="uid://dmq3uk4vd053m" path="res://resource/graphics/ui/kenney_emotespack_style_2/emote_star.png" id="2_4wgdy"]
-[ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="3_waper"]
+[ext_resource type="FontFile" uid="uid://dwo3w3m0bti6d" path="res://resource/graphics/font/YouSheBiaoTiHei.ttf" id="3_7j7t8"]
 
 [sub_resource type="GDScript" id="GDScript_8npmh"]
 script/source = "
@@ -87,20 +87,20 @@ offset_left = 28.0
 offset_top = 125.0
 offset_right = 1836.0
 offset_bottom = 248.0
-theme_override_fonts/font = ExtResource("3_waper")
-theme_override_font_sizes/font_size = 128
+theme_override_fonts/font = ExtResource("3_7j7t8")
+theme_override_font_sizes/font_size = 96
 text = "MoYuStudio 2020-2023"
 horizontal_alignment = 1
 script = SubResource("GDScript_5m3qa")
 
 [node name="Label" type="Label" parent="Title"]
 layout_mode = 0
-offset_left = 484.0
-offset_top = 168.0
-offset_right = 1322.0
-offset_bottom = 778.0
-theme_override_fonts/font = ExtResource("3_waper")
-theme_override_font_sizes/font_size = 64
+offset_left = 277.0
+offset_top = 179.0
+offset_right = 1502.0
+offset_bottom = 962.0
+theme_override_fonts/font = ExtResource("3_7j7t8")
+theme_override_font_sizes/font_size = 48
 text = "= The World Creator =
 WilsonVinson
 
