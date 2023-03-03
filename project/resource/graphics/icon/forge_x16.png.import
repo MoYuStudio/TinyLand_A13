@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uilxd0ncxygg"
-path="res://.godot/imported/house_x16.png-a1fbb9d8f52fd5451b4157f2d6c1adbb.ctex"
+uid="uid://b6fyn7pfathfv"
+path="res://.godot/imported/forge_x16.png-183923f2f2ae820859e6bb19a8650d71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resource/graphics/icon/house_x16.png"
-dest_files=["res://.godot/imported/house_x16.png-a1fbb9d8f52fd5451b4157f2d6c1adbb.ctex"]
+source_file="res://resource/graphics/icon/forge_x16.png"
+dest_files=["res://.godot/imported/forge_x16.png-183923f2f2ae820859e6bb19a8650d71.ctex"]
 
 [params]
 

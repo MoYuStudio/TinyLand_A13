@@ -1,17 +1,24 @@
-[gd_scene load_steps=20 format=3 uid="uid://cw5fbnhvpmws"]
+[gd_scene load_steps=27 format=3 uid="uid://cw5fbnhvpmws"]
 
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
 [ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="2_2dvrp"]
-[ext_resource type="Texture2D" uid="uid://betn8qwt5brs0" path="res://resource/graphics/icon/house_x16.png" id="4_x8v05"]
+[ext_resource type="Texture2D" uid="uid://b7yol844h7m4v" path="res://resource/graphics/icon/road_x16.png" id="4_e0c83"]
+[ext_resource type="Texture2D" uid="uid://uilxd0ncxygg" path="res://resource/graphics/icon/house_x16.png" id="4_x8v05"]
 [ext_resource type="Texture2D" uid="uid://u3frvb4os16o" path="res://resource/graphics/icon/farmland_x16.png" id="5_hta6v"]
 [ext_resource type="PackedScene" uid="uid://blhiffqgf5ppu" path="res://source/scene/menu_stop.tscn" id="5_k8phw"]
 [ext_resource type="Texture2D" uid="uid://bq7eaomywpjyu" path="res://resource/graphics/icon/wood_x16.png" id="6_cq1p6"]
+[ext_resource type="Texture2D" uid="uid://vhik0xyscy8x" path="res://resource/graphics/icon/windmill_x16.png" id="6_p1fkj"]
 [ext_resource type="Texture2D" uid="uid://bvfqw8wqhl4h4" path="res://resource/graphics/icon/stone_x16.png" id="7_0mx2o"]
 [ext_resource type="Texture2D" uid="uid://8y7s43whecuk" path="res://resource/graphics/icon/metal_x16.png" id="7_6t0q5"]
 [ext_resource type="Texture2D" uid="uid://oc3bbne2dnby" path="res://resource/graphics/icon/money_x16.png" id="7_flqcq"]
+[ext_resource type="Texture2D" uid="uid://dug3k4hldjt4g" path="res://resource/graphics/icon/kitchen_x16.png" id="7_q3gyv"]
+[ext_resource type="Texture2D" uid="uid://du7qilo01hjup" path="res://resource/graphics/icon/loggingcamp_x16.png" id="8_ag2yu"]
+[ext_resource type="Texture2D" uid="uid://ct832ymujpw3a" path="res://resource/graphics/icon/quarry_x16.png" id="9_7pug0"]
 [ext_resource type="Texture2D" uid="uid://bryxtyr3xwk6y" path="res://resource/graphics/icon/glass_x16.png" id="9_rsdwu"]
+[ext_resource type="Texture2D" uid="uid://b6fyn7pfathfv" path="res://resource/graphics/icon/forge_x16.png" id="10_i1d7q"]
 [ext_resource type="Texture2D" uid="uid://bj4rn4ioa2eie" path="res://resource/graphics/icon/food_x16.png" id="10_u4luh"]
+[ext_resource type="Texture2D" uid="uid://d2plrnxvgqtre" path="res://resource/graphics/icon/factory_x16.png" id="11_b7qc0"]
 [ext_resource type="Texture2D" uid="uid://buom46fwawno3" path="res://resource/graphics/icon/population_x16.png" id="11_fbqmp"]
 
 [sub_resource type="GDScript" id="GDScript_mah7m"]
@@ -154,6 +161,7 @@ offset_bottom = 40.0
 script = SubResource("GDScript_s2cbv")
 
 [node name="OutlineColorRect" type="ColorRect" parent="GUI/Blockboard"]
+layout_mode = 0
 offset_top = 148.0
 offset_right = 9000.0
 offset_bottom = 6148.0
@@ -165,11 +173,11 @@ offset_right = 304.0
 offset_bottom = 70.0
 scale = Vector2(6, 6)
 
-[node name="House" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+[node name="Road" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
-icon = ExtResource("4_x8v05")
+icon = ExtResource("4_e0c83")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_2itao")
@@ -179,6 +187,69 @@ texture_filter = 1
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("5_hta6v")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="House" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("4_x8v05")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="Windmill" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("6_p1fkj")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="Kitchen" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("7_q3gyv")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="LoggingCamp" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("8_ag2yu")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="Quarry" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("9_7pug0")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="Forge" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("10_i1d7q")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")
+
+[node name="Factory" type="Button" parent="GUI/Blockboard/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("11_b7qc0")
 flat = true
 icon_alignment = 1
 script = SubResource("GDScript_2itao")
