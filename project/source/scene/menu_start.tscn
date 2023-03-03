@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cukytrwug5w53"]
+[gd_scene load_steps=21 format=3 uid="uid://cukytrwug5w53"]
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="1_f53k3"]
 [ext_resource type="Texture2D" uid="uid://cj1fgv4cxwc8v" path="res://resource/graphics/logo/icon.png" id="2_u4gh8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="4_5wo1d"]
 [ext_resource type="Texture2D" uid="uid://baya2ee5r5ncf" path="res://resource/graphics/steam/steam_title_icon_2.png" id="4_u2ske"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="5_8mbpe"]
+[ext_resource type="FontFile" uid="uid://dwo3w3m0bti6d" path="res://resource/graphics/font/YouSheBiaoTiHei.ttf" id="5_lxsye"]
 [ext_resource type="PackedScene" uid="uid://ytdot1itjxax" path="res://source/object/gridmap.tscn" id="6_lropk"]
 [ext_resource type="Texture2D" uid="uid://bxeltrj78ro72" path="res://resource/graphics/ui/button_blue.png" id="7_rw7lk"]
 [ext_resource type="Texture2D" uid="uid://bsnljvo44u2l7" path="res://resource/graphics/steam/steam_title_icon_fin.png" id="9_5u6o4"]
@@ -212,14 +213,14 @@ script = SubResource("GDScript_6pifm")
 modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
 layout_mode = 0
-offset_left = 787.0
-offset_top = 919.0
-offset_right = 1111.0
-offset_bottom = 1000.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 48
-text = "MoYuStuido 2023
-TinyLand A13 a2023020601"
+offset_left = 691.0
+offset_top = 951.0
+offset_right = 1319.0
+offset_bottom = 1041.0
+theme_override_fonts/font = ExtResource("5_lxsye")
+theme_override_font_sizes/font_size = 24
+text = "MoYuStuido 摸鱼社 2023
+TinyLand 弹丸之地 A13 a2023030301"
 horizontal_alignment = 1
 script = SubResource("GDScript_tr7rp")
 
@@ -261,11 +262,11 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 75.0
 offset_top = 20.0
-offset_right = 243.0
-offset_bottom = 95.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 96
-text = "Start"
+offset_right = 427.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("5_lxsye")
+theme_override_font_sizes/font_size = 64
+text = "开始游戏"
 
 [node name="Setting" type="Control" parent="."]
 layout_mode = 3
@@ -295,9 +296,9 @@ offset_left = 75.0
 offset_top = 20.0
 offset_right = 291.0
 offset_bottom = 95.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 96
-text = "Setting"
+theme_override_fonts/font = ExtResource("5_lxsye")
+theme_override_font_sizes/font_size = 64
+text = "设置"
 
 [node name="Quit" type="Control" parent="."]
 layout_mode = 3
@@ -327,9 +328,9 @@ offset_left = 75.0
 offset_top = 20.0
 offset_right = 291.0
 offset_bottom = 95.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 96
-text = "Quit"
+theme_override_fonts/font = ExtResource("5_lxsye")
+theme_override_font_sizes/font_size = 64
+text = "退出"
 
 [node name="SteamTitleIconFin" type="Sprite2D" parent="."]
 position = Vector2(1728, 986)

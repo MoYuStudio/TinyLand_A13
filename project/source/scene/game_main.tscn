@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://cw5fbnhvpmws"]
+[gd_scene load_steps=28 format=3 uid="uid://cw5fbnhvpmws"]
 
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
 [ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="2_2dvrp"]
+[ext_resource type="FontFile" uid="uid://dwo3w3m0bti6d" path="res://resource/graphics/font/YouSheBiaoTiHei.ttf" id="3_vyhxw"]
 [ext_resource type="Texture2D" uid="uid://b7yol844h7m4v" path="res://resource/graphics/icon/road_x16.png" id="4_e0c83"]
 [ext_resource type="Texture2D" uid="uid://uilxd0ncxygg" path="res://resource/graphics/icon/house_x16.png" id="4_x8v05"]
 [ext_resource type="Texture2D" uid="uid://u3frvb4os16o" path="res://resource/graphics/icon/farmland_x16.png" id="5_hta6v"]
@@ -146,10 +147,10 @@ offset_left = 825.0
 offset_top = 50.0
 offset_right = 1149.0
 offset_bottom = 131.0
-theme_override_fonts/font = ExtResource("1_5gpld")
-theme_override_font_sizes/font_size = 48
-text = "MoYuStuido 2023
-TinyLand A13 a2023020601"
+theme_override_fonts/font = ExtResource("3_vyhxw")
+theme_override_font_sizes/font_size = 24
+text = "MoYuStuido 摸鱼社 2023
+TinyLand 弹丸之地 A13 a2023030301"
 horizontal_alignment = 1
 script = SubResource("GDScript_reyjm")
 
