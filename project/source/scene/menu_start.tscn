@@ -233,7 +233,7 @@ transform = Transform3D(-0.615662, 0.123272, -0.778309, 0, 0.987688, 0.156434, 0
 script = SubResource("GDScript_xeqqj")
 
 [node name="Water" parent="Background" instance=ExtResource("5_8mbpe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 2.3, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2, 2.3, 51.2)
 
 [node name="GridMap" parent="Background" instance=ExtResource("6_lropk")]
 

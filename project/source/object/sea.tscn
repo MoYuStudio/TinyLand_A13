@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ivwk23nh04pm"]
+[gd_scene load_steps=4 format=3 uid="uid://bk1ymd25olkip"]
 
 [sub_resource type="Shader" id="Shader_fn5tu"]
 code = "// Seascape shader from shadertoy converted to Godot shader
