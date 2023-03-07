@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://teocqspfxw7o"]
+[gd_scene load_steps=11 format=3 uid="uid://teocqspfxw7o"]
 
 [ext_resource type="PackedScene" uid="uid://ye1hxsh2ci36" path="res://source/object/world_environment.tscn" id="1_x4dgl"]
 [ext_resource type="PackedScene" uid="uid://ytdot1itjxax" path="res://source/object/gridmap.tscn" id="2_wgj5p"]
 [ext_resource type="PackedScene" uid="uid://cjjxpcc0lohca" path="res://source/object/water.tscn" id="3_51p8g"]
+[ext_resource type="PackedScene" uid="uid://lpm4gr1tv36b" path="res://source/object/land.tscn" id="4_ii8sa"]
 [ext_resource type="PackedScene" uid="uid://deyci4scpxkr8" path="res://source/object/camera.tscn" id="4_xtd16"]
 [ext_resource type="PackedScene" uid="uid://bs0h21pk82mqm" path="res://source/object/human.tscn" id="6_1v563"]
 
@@ -47,7 +48,10 @@ script = SubResource("GDScript_mieq5")
 [node name="GridMap" parent="." instance=ExtResource("2_wgj5p")]
 
 [node name="Water" parent="." instance=ExtResource("3_51p8g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 2.3, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2, 2.3, 51.2)
+
+[node name="Land" parent="." instance=ExtResource("4_ii8sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2, 0.8, 51.2)
 
 [node name="Camera" parent="." instance=ExtResource("4_xtd16")]
 transform = Transform3D(-0.669131, 0, -0.743145, 0, 1, 0, 0.743145, 0, -0.669131, 0, 6, 0)

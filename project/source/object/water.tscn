@@ -71,9 +71,9 @@ shader_parameter/roughness = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6og20"]
 material = SubResource("ShaderMaterial_pxl73")
-size = Vector2(256, 256)
-subdivide_width = 256
-subdivide_depth = 256
+size = Vector2(102.4, 102.4)
+subdivide_width = 150
+subdivide_depth = 150
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5qwqv"]
 size = Vector3(256, 0.01, 256)

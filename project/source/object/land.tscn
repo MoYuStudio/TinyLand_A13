@@ -1,46 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://lpm4gr1tv36b"]
+[gd_scene load_steps=3 format=3 uid="uid://lpm4gr1tv36b"]
 
-[sub_resource type="Shader" id="Shader_p2i35"]
-code = "
-shader_type spatial;
-
-uniform float speed = 2.0;
-uniform float level = 0.3;
-
-uniform vec4 color = vec4(0.0, 0.3, 1.0, 0.3);
-
-//顶点处理
-void vertex(){
-	VERTEX.y += sin(VERTEX.x+TIME*speed)*level;
-	VERTEX.y += sin(VERTEX.z+TIME*speed)*level;
-} 
-
-//材质处理
-void fragment(){
-	ALBEDO = color.rgb;
-	ALPHA = color.a;
-	ROUGHNESS = 0.0;//粗糙度 
-	SPECULAR = 0.5;//镜面 
-	METALLIC = 0.0;//金属
-	
-}
-
-//光照处理
-void light() {
-    //DIFFUSE_LIGHT = vec3(0.0, 1.0, 1.0);
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_crnoo"]
-render_priority = 0
-shader = SubResource("Shader_p2i35")
-shader_parameter/speed = 1.8
-shader_parameter/level = 0.3
-shader_parameter/color = Quaternion(0, 0.3, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5njd"]
+albedo_color = Color(0.980392, 0.839216, 0.537255, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qf3j3"]
-material = SubResource("ShaderMaterial_crnoo")
-size = Vector2(64, 64)
+material = SubResource("StandardMaterial3D_r5njd")
+size = Vector2(102.4, 102.4)
 subdivide_width = 32
 subdivide_depth = 32
 

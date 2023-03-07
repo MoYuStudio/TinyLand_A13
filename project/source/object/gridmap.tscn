@@ -15,7 +15,7 @@ const 建筑粒子效果 = preload('res://source/object/particles_1.tscn')
 const csv文件读取 = preload('res://source/drive/csv.gd')
 var csv文件 = csv文件读取.new()
 
-var 生成边界 = 96
+var 生成边界 = 64
 
 var 时间地图 = []
 

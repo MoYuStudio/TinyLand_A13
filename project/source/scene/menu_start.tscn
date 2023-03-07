@@ -204,8 +204,8 @@ offset_left = 794.0
 offset_top = 235.0
 offset_right = 850.0
 offset_bottom = 262.0
-theme_override_fonts/font = ExtResource("3_ali1w")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("5_lxsye")
+theme_override_font_sizes/font_size = 24
 text = "V 0.1.0"
 script = SubResource("GDScript_6pifm")
 
