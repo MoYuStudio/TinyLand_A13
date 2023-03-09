@@ -12,8 +12,8 @@ signal 预览方块位置
 
 const 建筑粒子效果 = preload('res://source/object/particles_1.tscn')
 
-const csv文件读取 = preload('res://source/drive/csv.gd')
-var csv文件 = csv文件读取.new()
+const json文件读取 = preload('res://source/drive/json.gd')
+var json文件 = json文件读取.new()
 
 var 生成边界 = 64
 
@@ -32,7 +32,8 @@ var 树林噪声频率 = 0.1
 var 碰撞点
 var 碰撞类型
 
-var 被建造的方块 = 11
+var 被建造的方块 = 9
+var json数据 = json文件.读取('res://resource/data/json_database/tile.json')
 var 方块属性 = {
 	0:{
 		name = 'dirt',
@@ -53,9 +54,13 @@ var 方块属性 = {
 func _ready():
 	
 	# 从CSV文件中读取数据
-	var csv数据 = csv文件.读取csv文件('res://resource/data/csv_database/tile.csv')
+	
 
-	print(csv数据)
+	print(json数据)
+	#for i in csv数据[被建造的方块+2][7]:
+	#	if i != '#':
+	#		print(i)
+	#print(csv数据[被建造的方块+2][7][1])
 	
 	噪声 = FastNoiseLite.new()
 	噪声.noise_type = 噪声类型
@@ -123,11 +128,19 @@ func _on_camera_click_pos(碰撞点位置):
 		if Input.is_action_pressed('Left_Click'):
 			if get_cell_item(Vector3(碰撞点.x,1,碰撞点.z)) == -1:
 				# 方块属性[被建造的方块]
-				set_cell_item(Vector3(碰撞点.x,1,碰撞点.z),被建造的方块,随机方向())
-				
+				#for info in len(csv数据[被建造的方块+2][7]):
+				#	if str(csv数据[被建造的方块+2][7][int(info+1)]) != '#':
+				#		if str(get_cell_item(Vector3(碰撞点.x,0,碰撞点.z))) == csv数据[被建造的方块+2][7][info]+csv数据[被建造的方块+2][7][info+1]:
+				#				set_cell_item(Vector3(碰撞点.x,1,碰撞点.z),被建造的方块,随机方向())
+				#	else:
+				#		if str(get_cell_item(Vector3(碰撞点.x,0,碰撞点.z))) == csv数据[被建造的方块+2][7][info]:
+				#			set_cell_item(Vector3(碰撞点.x,1,碰撞点.z),被建造的方块,随机方向())
+							
 				#var 建筑粒子 = 建筑粒子效果.instance()
 				#self.add_child(建筑粒子)
 				#建筑粒子.emitting = true
+				
+				pass
 				
 
 func _process(delta):

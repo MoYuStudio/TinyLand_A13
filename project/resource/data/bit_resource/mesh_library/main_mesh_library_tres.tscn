@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ildidhst2had"]
+[gd_scene load_steps=13 format=3 uid="uid://ildidhst2had"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4wkjw57e7aif" path="res://resource/graphics/tile/models/0.obj" id="1_y0hia"]
 [ext_resource type="ArrayMesh" uid="uid://cdmprl7fa4me" path="res://resource/graphics/tile/models/1.obj" id="2_fwgqo"]
@@ -11,13 +11,6 @@
 [ext_resource type="ArrayMesh" uid="uid://c0j1c1ekrnwqv" path="res://resource/graphics/tile/models/8.obj" id="9_g1755"]
 [ext_resource type="ArrayMesh" uid="uid://b7wgprfioivcb" path="res://resource/graphics/tile/models/9.obj" id="10_qvx8n"]
 [ext_resource type="ArrayMesh" uid="uid://bsgi4cpvjn58o" path="res://resource/graphics/tile/models/10.obj" id="11_nrrc4"]
-[ext_resource type="ArrayMesh" uid="uid://balocj32cd2ha" path="res://resource/graphics/tile/models/11.obj" id="12_hylbp"]
-[ext_resource type="ArrayMesh" uid="uid://cyrhto1cvqcjn" path="res://resource/graphics/tile/models/12.obj" id="13_kvk4f"]
-[ext_resource type="ArrayMesh" uid="uid://b5a4iteyo8ru6" path="res://resource/graphics/tile/models/13.obj" id="14_0l6cv"]
-[ext_resource type="ArrayMesh" uid="uid://trew50xqrwr3" path="res://resource/graphics/tile/models/14.obj" id="15_ivjpb"]
-[ext_resource type="ArrayMesh" uid="uid://c866dd65chq4u" path="res://resource/graphics/tile/models/15.obj" id="16_5x4xt"]
-[ext_resource type="ArrayMesh" uid="uid://dwjtxjye5oj8b" path="res://resource/graphics/tile/models/16.obj" id="17_0vamr"]
-[ext_resource type="ArrayMesh" uid="uid://4cu6i7xrgoer" path="res://resource/graphics/tile/models/17.obj" id="18_8jdsy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3q23v"]
 size = Vector3(1.6, 1.6, 1.6)
@@ -64,58 +57,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="CollisionShape" type="CollisionShape3D" parent="3/StaticBody"]
 shape = SubResource("BoxShape3D_3q23v")
 
-[node name="4" type="MeshInstance3D" parent="."]
+[node name="100" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 3)
-mesh = ExtResource("5_b5tpf")
-
-[node name="5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 3)
 mesh = ExtResource("6_1pv64")
 
-[node name="6" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 3)
+[node name="101" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 3)
 mesh = ExtResource("7_2dxty")
 
-[node name="7" type="MeshInstance3D" parent="."]
+[node name="102" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 3)
+mesh = ExtResource("5_b5tpf")
+
+[node name="103" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, 3)
 mesh = ExtResource("8_k5xwf")
 
-[node name="8" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 3)
+[node name="104" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 6)
 mesh = ExtResource("9_g1755")
 
-[node name="9" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, 3)
-mesh = ExtResource("10_qvx8n")
-
-[node name="10" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 3, 3)
-mesh = ExtResource("11_nrrc4")
-
-[node name="11" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 6)
-mesh = ExtResource("12_hylbp")
-
-[node name="12" type="MeshInstance3D" parent="."]
+[node name="105" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 6)
-mesh = ExtResource("13_kvk4f")
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
 
-[node name="13" type="MeshInstance3D" parent="."]
+[node name="106" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 6)
-mesh = ExtResource("14_0l6cv")
+mesh = ExtResource("11_nrrc4")
+skeleton = NodePath("../104")
 
-[node name="14" type="MeshInstance3D" parent="."]
+[node name="107" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, 6)
-mesh = ExtResource("15_ivjpb")
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
+
+[node name="108" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 6)
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
+
+[node name="109" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, 6)
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
+
+[node name="110" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 3, 6)
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
 
 [node name="15" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3, 6)
-mesh = ExtResource("16_5x4xt")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 3, 6)
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
 
 [node name="16" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, 6)
-mesh = ExtResource("17_0vamr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 3, 6)
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
 
 [node name="17" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 3, 6)
-mesh = ExtResource("18_8jdsy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 3, 6)
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")
+
+[node name="18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 3, 6)
+mesh = ExtResource("10_qvx8n")
+skeleton = NodePath("../104")

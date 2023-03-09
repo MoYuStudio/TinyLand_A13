@@ -1,0 +1,30 @@
+
+{
+	"_comment_": " TileList 瓷砖列表 ",
+	"-1": {
+		"_comment_": " Name 名称 ",
+		"name":"air",
+		"name_en":"Air",
+		"name_zh":"空气方块",
+		
+		"_comment_": " Time 时间 ",
+		"pd_time":-1,
+		"upgrade_time":-1,
+		
+		"_comment_": " Build 建造 ",
+		"buildable":-1,
+		"buildable_on":-1,
+		"buildable_level":-1,
+		
+		"_comment_": " Price 价格 ",
+		"build_price":-1,
+		"upgrade_price":-1,
+		"pd_price":-1,
+		
+		"_comment_": " Manpower 人工 ",
+		"manpower":0,
+	},
+	
+	"0": {"name":"air"},
+	"1": {}
+}

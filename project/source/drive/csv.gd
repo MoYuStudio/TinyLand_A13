@@ -4,7 +4,7 @@
 
 extends Node
 
-func 读取csv文件(文件路径: String) -> Array:
+func 读取(文件路径: String) -> Array:
 	var 文件 = FileAccess.open(文件路径, FileAccess.READ)
 	var csv数据 = []
 	var 行 = ""
@@ -14,7 +14,7 @@ func 读取csv文件(文件路径: String) -> Array:
 	文件.close()
 	return csv数据
 
-func 写入csv文件(文件路径: String, 数据: Array) -> void:
+func 写入(文件路径: String, 数据: Array) -> void:
 	var 文件 = FileAccess.open(文件路径, FileAccess.WRITE)
 	for 行 in 数据:
 		文件.store_line(行.join(","))
