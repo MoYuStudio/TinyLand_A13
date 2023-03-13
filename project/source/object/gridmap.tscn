@@ -34,22 +34,6 @@ var 碰撞类型
 
 var 被建造的方块 = 9
 var json数据 = json文件.读取('res://resource/data/json_database/tile.json')
-var 方块属性 = {
-	0:{
-		name = 'dirt',
-		#时间
-		pd_time = 100,
-		upgrade_time = 1000,
-		#建造
-		buildable = [-1],
-		buildable_level = 0,
-		#价格
-		build_price = [['Money',100]],
-		upgrade_price ={},
-		pd_price = [],
-		manpower = 0,
-		},
-}
 
 func _ready():
 	

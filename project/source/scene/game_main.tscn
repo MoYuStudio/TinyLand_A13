@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cw5fbnhvpmws"]
+[gd_scene load_steps=40 format=3 uid="uid://cw5fbnhvpmws"]
 
 [ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="1_5gpld"]
 [ext_resource type="PackedScene" uid="uid://teocqspfxw7o" path="res://source/scene/game_world.tscn" id="1_h5k2j"]
@@ -91,6 +91,8 @@ func _process(delta):
 script/source = "
 extends Button
 
+signal 被建造的方块
+
 var info_popup = false
 var button_click = false
 
@@ -105,6 +107,7 @@ func _process(delta):
 		info_popup = true
 		if is_pressed():
 			button_click = true
+			emit_signal('被建造的方块',8)
 		else:
 			button_click = false
 
@@ -115,7 +118,336 @@ func _physics_process(delta):
 	else:
 		position.y = 0
 		blockboard_click_lock = false
+"
 
+[sub_resource type="GDScript" id="GDScript_5btu7"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',9)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_5uixa"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',10)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_flly3"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',11)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_v68l1"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',12)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_xa0bm"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',13)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_h1fiw"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',14)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_ryfmj"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',15)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_i6l7s"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',16)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_3k5w4"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',17)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
+"
+
+[sub_resource type="GDScript" id="GDScript_bt7qp"]
+script/source = "
+extends Button
+
+signal 被建造的方块
+
+var info_popup = false
+var button_click = false
+
+var hovered_zoom_level = 4
+
+var blockboard_click_lock = false
+
+func _process(delta):
+	if is_hovered() == false:
+		info_popup = false
+	else:
+		info_popup = true
+		if is_pressed():
+			button_click = true
+			emit_signal('被建造的方块',18)
+		else:
+			button_click = false
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(hovered_zoom_level-1)
+		blockboard_click_lock = true
+	else:
+		position.y = 0
+		blockboard_click_lock = false
 "
 
 [sub_resource type="GDScript" id="GDScript_3mnl8"]
@@ -192,7 +524,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("5_hta6v")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_5btu7")
 
 [node name="House" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -201,7 +533,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("4_x8v05")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_5uixa")
 
 [node name="Windmill" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -210,7 +542,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("6_p1fkj")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_flly3")
 
 [node name="Kitchen" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -219,7 +551,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("7_q3gyv")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_v68l1")
 
 [node name="LoggingCamp" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -228,7 +560,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("8_ag2yu")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_xa0bm")
 
 [node name="Quarry" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -237,7 +569,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("9_7pug0")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_h1fiw")
 
 [node name="Forge" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -246,7 +578,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("10_i1d7q")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_ryfmj")
 
 [node name="Factory" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -255,7 +587,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("11_b7qc0")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_i6l7s")
 
 [node name="Market" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -264,7 +596,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("13_r7di1")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_3k5w4")
 
 [node name="Wharf" type="Button" parent="GUI/Blockboard/HBoxContainer"]
 texture_filter = 1
@@ -273,7 +605,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
 icon = ExtResource("14_s5knf")
 flat = true
 icon_alignment = 1
-script = SubResource("GDScript_2itao")
+script = SubResource("GDScript_bt7qp")
 
 [node name="DirtColorRect" type="ColorRect" parent="GUI/Blockboard"]
 layout_mode = 0
@@ -444,3 +776,15 @@ text = "999999999"
 
 [node name="Stop" parent="GUI" instance=ExtResource("5_k8phw")]
 visible = false
+
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Road" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Farmland" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/House" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Windmill" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Kitchen" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/LoggingCamp" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Quarry" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Forge" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Factory" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Market" to="World" method="_on_gui_tilebebuild"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/Wharf" to="World" method="_on_gui_tilebebuild"]
