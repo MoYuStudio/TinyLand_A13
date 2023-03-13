@@ -195,6 +195,7 @@ icon = ExtResource("13_r7di1")
 [node name="BlockboardButton11" parent="GUI/Blockboard/HBoxContainer" instance=ExtResource("4_l5py6")]
 layout_mode = 2
 icon = ExtResource("14_s5knf")
+"本地被建造的方块" = 18
 
 [node name="DirtColorRect" type="ColorRect" parent="GUI/Blockboard"]
 layout_mode = 0
@@ -372,3 +373,19 @@ visible = false
 [connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton2" to="World" method="_mouselock"]
 [connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton3" to="World" method="_on_gui_tilebebuild"]
 [connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton3" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton4" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton4" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton5" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton5" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton6" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton6" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton7" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton7" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton8" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton8" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton9" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton9" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton10" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton10" to="World" method="_mouselock"]
+[connection signal="被建造的方块" from="GUI/Blockboard/HBoxContainer/BlockboardButton11" to="World" method="_on_gui_tilebebuild"]
+[connection signal="鼠标锁" from="GUI/Blockboard/HBoxContainer/BlockboardButton11" to="World" method="_mouselock"]
