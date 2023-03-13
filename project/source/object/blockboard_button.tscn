@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://8nakphu4tvtu"]
+
+[ext_resource type="Texture2D" uid="uid://uilxd0ncxygg" path="res://resource/graphics/icon/house_x16.png" id="1_rpwn5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh5wi"]
+
+[sub_resource type="GDScript" id="GDScript_2itao"]
+script/source = "
+extends Button
+
+signal 鼠标锁
+signal 被建造的方块
+
+@export var 本地被建造的方块 = -1
+
+var 动画倍率 = 4
+
+var 本地鼠标锁 = false
+
+func _process(delta):
+
+	if is_pressed():
+		emit_signal('被建造的方块',本地被建造的方块)
+	else:
+		pass
+
+func _physics_process(delta):
+	if is_hovered():
+		position.y = -0.6*(动画倍率-1)
+		本地鼠标锁 = true
+	else:
+		position.y = 0
+		本地鼠标锁 = false
+	emit_signal('鼠标锁',本地鼠标锁)
+"
+
+[node name="BlockboardButton" type="Button"]
+texture_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eh5wi")
+icon = ExtResource("1_rpwn5")
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_2itao")

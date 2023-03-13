@@ -19,6 +19,9 @@ func _physics_process(delta):
 
 func _on_gui_tilebebuild(被建造的方块):
 	$GridMap.被建造的方块 = 被建造的方块
+
+func _mouselock(鼠标锁):
+	$GridMap.鼠标锁 = 鼠标锁
 "
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8x02"]
