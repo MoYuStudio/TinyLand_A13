@@ -119,7 +119,7 @@ offset_bottom = 131.0
 theme_override_fonts/font = ExtResource("3_vyhxw")
 theme_override_font_sizes/font_size = 24
 text = "MoYuStuido 摸鱼社 2023
-TinyLand 弹丸之地 A13 a2023030301"
+TinyLand 弹丸之地 A13 a2023031301"
 horizontal_alignment = 1
 script = SubResource("GDScript_reyjm")
 

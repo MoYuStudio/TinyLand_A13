@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d8v4pwu5y1jn"]
 
 [ext_resource type="PackedScene" uid="uid://fx1hxuoksmee" path="res://source/object/transition_1.tscn" id="1_r6qao"]
-[ext_resource type="FontFile" uid="uid://ckmyjvou4nb1f" path="res://resource/graphics/font/kenney_pixel.ttf" id="2_nwdgk"]
+[ext_resource type="FontFile" uid="uid://dwo3w3m0bti6d" path="res://resource/graphics/font/YouSheBiaoTiHei.ttf" id="2_cfvdo"]
 
 [sub_resource type="GDScript" id="GDScript_8khru"]
 script/source = "
@@ -53,11 +53,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="Setting" type="Label" parent="."]
 layout_mode = 0
-offset_left = 800.0
-offset_top = 96.0
-offset_right = 1103.0
-offset_bottom = 206.0
-theme_override_fonts/font = ExtResource("2_nwdgk")
+offset_left = 652.0
+offset_top = 108.0
+offset_right = 1154.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("2_cfvdo")
 theme_override_font_sizes/font_size = 128
 text = "Setting
 "
@@ -65,13 +65,13 @@ text = "Setting
 [node name="Info" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 520.0
-offset_top = 608.0
-offset_right = 1560.0
-offset_bottom = 707.0
+offset_left = 554.0
+offset_top = 679.0
+offset_right = 1625.0
+offset_bottom = 849.0
 rotation = -0.258309
-theme_override_fonts/font = ExtResource("2_nwdgk")
-theme_override_font_sizes/font_size = 128
+theme_override_fonts/font = ExtResource("2_cfvdo")
+theme_override_font_sizes/font_size = 64
 text = "Nothing at this moment !   ;D"
 
 [node name="Save" type="Button" parent="."]
@@ -80,8 +80,8 @@ offset_left = 1514.0
 offset_top = 814.0
 offset_right = 1714.0
 offset_bottom = 918.0
-theme_override_fonts/font = ExtResource("2_nwdgk")
-theme_override_font_sizes/font_size = 128
+theme_override_fonts/font = ExtResource("2_cfvdo")
+theme_override_font_sizes/font_size = 96
 text = "Save"
 flat = true
 script = SubResource("GDScript_g3mwf")

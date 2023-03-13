@@ -2,483 +2,383 @@
 {
 	"_comment_": " TileList 瓷砖列表 ",
 	"-1": {
-		"_comment_": " Name 名称 ",
 		"name":"air",
 		"name_en":"Air",
 		"name_zh":"空气方块",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[0,1,2,3],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"0": {
-		"_comment_": " Name 名称 ",
 		"name":"dirt",
 		"name_en":"Dirt",
 		"name_zh":"泥土方块",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[0],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"1": {
-		"_comment_": " Name 名称 ",
 		"name":"grass",
 		"name_en":"Grass",
 		"name_zh":"草地方块",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[0],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"2": {
-		"_comment_": " Name 名称 ",
 		"name":"sand",
 		"name_en":"Sand",
 		"name_zh":"沙地方块",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[0],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"3": {
-		"_comment_": " Name 名称 ",
 		"name":"stone",
 		"name_en":"Stone",
 		"name_zh":"岩石方块",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1,3],
 		"buildable_level":[0,1,2,3],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"4": {
-		"_comment_": " Name 名称 ",
 		"name":"tree",
 		"name_en":"Tree",
 		"name_zh":"树林",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"5": {
-		"_comment_": " Name 名称 ",
 		"name":"wood",
 		"name_en":"Wood",
 		"name_zh":"木头堆",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"6": {
-		"_comment_": " Name 名称 ",
 		"name":"rock",
 		"name_en":"Rock",
 		"name_zh":"石头堆",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"7": {
-		"_comment_": " Name 名称 ",
 		"name":"mine_channel",
 		"name_en":"Mine Channel",
 		"name_zh":"矿坑",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"8": {
-		"_comment_": " Name 名称 ",
 		"name":"road_1",
 		"name_en":"Road 1",
 		"name_zh":"道路 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":-1,
 		"upgrade_time":-1,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[-1],
 		"buildable_level":[0],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":0,
+		"manpower":0
 	},
 	
 	"9": {
-		"_comment_": " Name 名称 ",
 		"name":"farmland_1",
 		"name_en":"Farmland 1",
 		"name_zh":"农田 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":10,
 		"upgrade_time":100,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":1,
+		"manpower":1
 	},
 	
 	"10": {
-		"_comment_": " Name 名称 ",
 		"name":"house_1",
 		"name_en":"House 1",
 		"name_zh":"房屋 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":1000,
 		"upgrade_time":20000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":1,
+		"manpower":1
 	},
 	
 	"11": {
-		"_comment_": " Name 名称 ",
 		"name":"windmill_1",
 		"name_en":"Windmill 1",
 		"name_zh":"风车 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":100,
 		"upgrade_time":10000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":3,
+		"manpower":3
 	},
 	
 	"12": {
-		"_comment_": " Name 名称 ",
 		"name":"kitchen_1",
 		"name_en":"Kitchen 1",
 		"name_zh":"厨房 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":200,
 		"upgrade_time":20000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":3,
+		"manpower":3
 	},
 	
 	"13": {
-		"_comment_": " Name 名称 ",
 		"name":"logging_camp_1",
 		"name_en":"Logging Camp 1",
 		"name_zh":"伐木场 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":300,
 		"upgrade_time":30000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":6,
+		"manpower":6
 	},
 	
 	"14": {
-		"_comment_": " Name 名称 ",
 		"name":"quarry_1",
 		"name_en":"Quarry 1",
 		"name_zh":"采石场 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":300,
 		"upgrade_time":30000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":6,
+		"manpower":6
 	},
 	
 	"15": {
-		"_comment_": " Name 名称 ",
 		"name":"forge_1",
 		"name_en":"Forge 1",
 		"name_zh":"锻造厂 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":500,
 		"upgrade_time":50000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":9,
+		"manpower":9
 	},
 	
 	"16": {
-		"_comment_": " Name 名称 ",
 		"name":"factory_1",
 		"name_en":"Factory 1",
 		"name_zh":"加工厂 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":600,
 		"upgrade_time":50000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":9,
+		"manpower":9
 	},
 	
 	"17": {
-		"_comment_": " Name 名称 ",
 		"name":"market_1",
 		"name_en":"Market 1",
 		"name_zh":"市场 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":10000,
 		"upgrade_time":1000000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":12,
+		"manpower":12
 	},
 	
 	"18": {
-		"_comment_": " Name 名称 ",
 		"name":"wharf_1",
 		"name_en":"Wharf 1",
 		"name_zh":"码头 1",
 		
-		"_comment_": " Time 时间 ",
 		"pd_time":10000,
 		"upgrade_time":1000000,
 		
-		"_comment_": " Build 建造 ",
 		"buildable":[-1],
 		"buildable_on":[0,1,2,3],
 		"buildable_level":[1],
 		
-		"_comment_": " Price 价格 ",
 		"build_price":-1,
 		"upgrade_price":-1,
 		"pd_price":-1,
 		
-		"_comment_": " Manpower 人工 ",
-		"manpower":12,
+		"manpower":12
 	},
 	
 }
