@@ -146,7 +146,7 @@ scale = Vector2(6, 6)
 [node name="BlockboardButton" parent="GUI/Blockboard/HBoxContainer" instance=ExtResource("4_l5py6")]
 layout_mode = 2
 icon = ExtResource("4_e0c83")
-"本地被建造的方块" = 8
+"本地被建造的方块" = 19
 
 [node name="BlockboardButton2" parent="GUI/Blockboard/HBoxContainer" instance=ExtResource("4_l5py6")]
 layout_mode = 2
