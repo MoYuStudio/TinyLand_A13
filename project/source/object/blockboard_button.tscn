@@ -15,7 +15,7 @@ signal 被建造的方块
 
 var 动画倍率 = 4
 
-var 本地鼠标锁 = false
+var 本地鼠标锁 = true
 
 func _process(delta):
 
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		本地鼠标锁 = true
 	else:
 		position.y = 0
-		本地鼠标锁 = false
+		# 本地鼠标锁 = false
 	emit_signal('鼠标锁',本地鼠标锁)
 "
 
